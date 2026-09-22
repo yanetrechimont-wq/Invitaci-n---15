@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mis 15 ✨</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family: Georgia, "Times New Roman", serif;
+  background:#fffafa;
+  color:#6f4b5d;
+  overflow-x:hidden;
+}
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+:root{
+  --rosa:#e9b8cc;
+  --rosa-claro:#f9e8ef;
+  --rosa-muy-claro:#fff7fa;
+  --rosa-oscuro:#a96f89;
+  --blanco:#ffffff;
+  --dorado:#c7a46a;
+  --texto:#6f4b5d;
+}
+
+/* =========================
+   PANTALLA DE APERTURA
+========================= */
+
+#opening{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:
+    radial-gradient(circle at center,#fffafa 0%,#f8dce8 100%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  transition:1.2s ease;
+}
+
+.opening-card{
+  width:90%;
+  max-width:420px;
+  padding:45px 25px;
+  border:1px solid rgba(169,111,137,.35);
+  background:rgba(255,255,255,.75);
+  border-radius:25px;
+  box-shadow:0 15px 50px rgba(130,70,100,.15);
+}
+
+.flower{
+  font-size:65px;
+  margin-bottom:18px;
+  animation:floatFlower 3s ease-in-out infinite;
+}
+
+@keyframes floatFlower{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.opening-small{
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.opening-card h1{
+  font-size:48px;
+  font-weight:normal;
+  color:#9d627e;
+  margin-bottom:10px;
+}
+
+.opening-card p{
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.open-button{
+  border:1px solid #b77b96;
+  background:#e9b8cc;
+  color:white;
+  padding:15px 30px;
+  border-radius:40px;
+  font-family:inherit;
+  font-size:17px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.open-button:hover{
+  transform:scale(1.04);
+  background:#dca5bd;
+}
+
+#opening.opened{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  padding:30px 20px;
+
+  background:
+    radial-gradient(circle at center,#ffffff 0%,#fbeaf1 55%,#f3d1df 100%);
+}
+
+.hero:before,
+.hero:after{
+  content:"✦";
+  position:absolute;
+  color:#d7afbf;
+  font-size:28px;
+}
+
+.hero:before{
+  top:12%;
+  left:12%;
+}
+
+.hero:after{
+  bottom:15%;
+  right:12%;
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.hero-small{
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-size:15px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(70px,18vw,130px);
+  font-weight:normal;
+  color:#a96f89;
+  line-height:.8;
+}
+
+.hero h2{
+  font-size:clamp(30px,8vw,52px);
+  font-weight:normal;
+  margin-top:25px;
+  color:#7d5368;
+}
+
+.hero-line{
+  width:120px;
+  height:1px;
+  background:#c7a46a;
+  margin:25px auto;
+}
+
+.hero-date{
+  font-size:20px;
+  letter-spacing:2px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+  padding:75px 20px;
+  text-align:center;
+}
+
+.section-title{
+  font-size:38px;
+  font-weight:normal;
+  color:#8c5b72;
+}
+
+.ornament{
+  color:#c7a46a;
+  margin:17px 0 25px;
+  letter-spacing:8px;
+}
+
+.text{
+  max-width:650px;
+  margin:auto;
+  font-size:19px;
+  line-height:1.8;
+}
+
+/* =========================
+   PRESENTACIÓN
+========================= */
+
+.presentation{
+  background:#ffffff;
+}
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+.countdown-section{
+  background:#f9e8ef;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.count-box{
+  background:white;
+  width:78px;
+  padding:15px 5px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(120,60,90,.10);
+}
+
+.count-number{
+  font-size:28px;
+  color:#a96f89;
+  font-weight:bold;
+}
+
+.count-label{
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:5px;
+}
+
+/* =========================
+   FECHA Y RELOJ
+========================= */
+
+.details{
+  background:#fff;
+}
+
+.details-grid{
+  max-width:800px;
+  margin:35px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.detail-card{
+  background:#fff9fb;
+  border:1px solid #efd5df;
+  border-radius:25px;
+  padding:35px 20px;
+}
+
+.detail-icon{
+  font-size:42px;
+  color:#c7a46a;
+  margin-bottom:15px;
+}
+
+.detail-title{
+  font-size:14px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.detail-value{
+  font-size:21px;
+  color:#8c5b72;
+}
+
+/* =========================
+   CALENDARIO
+========================= */
+
+.calendar-section{
+  background:#f9e8ef;
+}
+
+.calendar{
+  max-width:390px;
+  margin:35px auto;
+  background:#fff;
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 12px 35px rgba(120,60,90,.12);
+}
+
+.calendar-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+
+.calendar-header button{
+  border:0;
+  background:none;
+  font-size:30px;
+  color:#a96f89;
+  cursor:pointer;
+}
+
+.calendar-month{
+  font-size:21px;
+  color:#8c5b72;
+}
+
+.weekdays,
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:5px;
+}
+
+.weekday{
+  font-size:11px;
+  font-weight:bold;
+  padding:7px 0;
+  color:#a96f89;
+}
+
+.day{
+  padding:9px 0;
+  font-size:14px;
+  border-radius:50%;
+}
+
+.event-day{
+  background:#e9b8cc;
+  color:#fff;
+  font-weight:bold;
+  box-shadow:0 3px 10px rgba(150,80,110,.25);
+}
+
+/* =========================
+   MAPA
+========================= */
+
+.location{
+  background:#fff;
+}
+
+.map-container{
+  max-width:850px;
+  margin:35px auto 0;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(100,50,80,.12);
+}
+
+.map-container iframe{
+  width:100%;
+  height:380px;
+  border:0;
+  display:block;
+}
+
+.address{
+  margin:25px 0;
+  font-size:20px;
+}
+
+.map-button{
+  display:inline-block;
+  text-decoration:none;
+  background:#e9b8cc;
+  color:white;
+  padding:15px 28px;
+  border-radius:30px;
+  transition:.3s;
+}
+
+.map-button:hover{
+  transform:translateY(-3px);
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music{
+  background:#f9e8ef;
+}
+
+.music-card{
+  max-width:650px;
+  margin:35px auto 0;
+  background:white;
+  border-radius:25px;
+  padding:35px 20px;
+  box-shadow:0 12px 35px rgba(100,50,80,.10);
+}
+
+.music-note{
+  font-size:50px;
+  margin-bottom:15px;
+}
+
+.music-card h3{
+  font-size:25px;
+  font-weight:normal;
+  color:#8c5b72;
+}
+
+.music-card p{
+  margin-top:10px;
+  font-size:18px;
+}
+
+/* =========================
+   SPOTIFY
+========================= */
+
+.spotify{
+  background:#fff;
+}
+
+.spotify-card{
+  max-width:650px;
+  margin:30px auto;
+  background:#fff9fb;
+  border:1px solid #efd5df;
+  border-radius:25px;
+  padding:35px 20px;
+}
+
+.spotify-button{
+  display:inline-block;
+  margin-top:20px;
+  padding:15px 27px;
+  border-radius:30px;
+  text-decoration:none;
+  background:#1DB954;
+  color:white;
+  font-size:17px;
+}
+
+/* =========================
+   CONFIRMACIÓN
+========================= */
+
+.confirmation{
+  background:#f9e8ef;
+}
+
+.confirmation-box{
+  max-width:600px;
+  margin:35px auto 0;
+  background:white;
+  padding:35px 20px;
+  border-radius:25px;
+  box-shadow:0 12px 35px rgba(100,50,80,.10);
+}
+
+.form-group{
+  text-align:left;
+  margin:20px auto;
+  max-width:480px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.form-group input{
+  width:100%;
+  padding:15px;
+  border:1px solid #e2c2d0;
+  border-radius:12px;
+  font-size:16px;
+  font-family:inherit;
+  outline:none;
+}
+
+.question{
+  font-size:20px;
+  margin:25px 0 15px;
+}
+
+.confirm-button,
+.no-button{
+  width:100%;
+  max-width:400px;
+  padding:15px;
+  border:0;
+  border-radius:30px;
+  font-family:inherit;
+  font-size:17px;
+  cursor:pointer;
+  margin:8px auto;
+  display:block;
+}
+
+.confirm-button{
+  background:#25D366;
+  color:white;
+}
+
+.no-button{
+  background:#f1e9ed;
+  color:#6f4b5d;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#fff;
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid #efd5df;
+}
+
+.footer-flower{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+  .details-grid{
+    grid-template-columns:1fr;
+  }
+
+  .map-container iframe{
+    height:330px;
+  }
+
+  section{
+    padding:60px 15px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     AUDIO
+
+     IMPORTANTE:
+     Subí un archivo llamado:
+
+     no-crezcas-mas.mp3
+
+     al mismo repositorio.
+
+     Al tocar "Abrir invitación", comenzará
+     la reproducción.
+========================================= -->
+
+<audio id="musica" loop>
+  <source src="no-crezcas-mas.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =========================================
+     APERTURA
+========================================= -->
+
+<div id="opening">
+
+  <div class="opening-card">
+
+    <div class="flower">
+      🌸
+    </div>
+
+    <div class="opening-small">
+      Una invitación especial
+    </div>
+
+    <h1>Mis 15</h1>
+
+    <p>
+      Abrí la invitación
+      <br>
+      y descubrí una noche mágica.
+    </p>
+
+    <button
+      class="open-button"
+      onclick="abrirInvitacion()"
+    >
+      ✨ Abrir invitación
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     PORTADA
+========================================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Mis quince años
+    </div>
+
+    <h1>15</h1>
+
+    <!-- CAMBIAR NOMBRE -->
+    <h2>Nombre de la quinceañera</h2>
+
+    <div class="hero-line"></div>
+
+    <!-- CAMBIAR FECHA -->
+    <div class="hero-date">
+      Sábado 15 de noviembre
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     PRESENTACIÓN
+========================================= -->
+
+<section class="presentation">
+
+  <h2 class="section-title">
+    Una noche para recordar
+  </h2>
+
+  <div class="ornament">
+    ✦ ♡ ✦
+  </div>
+
+  <p class="text">
+    Hay momentos que quedan para siempre
+    en el corazón.
+    <br><br>
+
+    Quiero compartir esta noche tan especial
+    con las personas que quiero.
+    <br><br>
+
+    ¡Te espero para celebrar mis 15 años!
+  </p>
+
+</section>
+
+
+<!-- =========================================
+     CUENTA REGRESIVA
+========================================= -->
+
+<section class="countdown-section">
+
+  <h2 class="section-title">
+    Falta poquito...
+  </h2>
+
+  <div class="ornament">
+    ✦ ✦ ✦
+  </div>
+
+  <div class="countdown">
+
+    <div class="count-box">
+      <div class="count-number" id="days">0</div>
+      <div class="count-label">DÍAS</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="hours">0</div>
+      <div class="count-label">HORAS</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="minutes">0</div>
+      <div class="count-label">MINUTOS</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="seconds">0</div>
+      <div class="count-label">SEGUNDOS</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     FECHA Y HORA
+========================================= -->
+
+<section class="details">
+
+  <h2 class="section-title">
+    La celebración
+  </h2>
+
+  <div class="ornament">
+    ✦ ✦ ✦
+  </div>
+
+  <div class="details-grid">
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        ♡
+      </div>
+
+      <div class="detail-title">
+        Fecha
+      </div>
+
+      <!-- CAMBIAR FECHA -->
+      <div class="detail-value">
+        Sábado 15 de noviembre
+      </div>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        🕰
+      </div>
+
+      <div class="detail-title">
+        Horario
+      </div>
+
+      <!-- CAMBIAR HORARIO -->
+      <div class="detail-value">
+        21:00 hs
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CALENDARIO
+========================================= -->
+
+<section class="calendar-section">
+
+  <h2 class="section-title">
+    Reservá la fecha
+  </h2>
+
+  <div class="ornament">
+    ♡
+  </div>
+
+  <p class="text">
+    El día de mis 15 quedará marcado
+    especialmente en nuestro calendario.
+  </p>
+
+
+  <div class="calendar">
+
+    <div class="calendar-header">
+
+      <button onclick="mesAnterior()">
+        ‹
+      </button>
+
+      <div
+        class="calendar-month"
+        id="calendarMonth">
+      </div>
+
+      <button onclick="mesSiguiente()">
+        ›
+      </button>
+
+    </div>
+
+
+    <div class="weekdays">
+
+      <div class="weekday">L</div>
+      <div class="weekday">M</div>
+      <div class="weekday">X</div>
+      <div class="weekday">J</div>
+      <div class="weekday">V</div>
+      <div class="weekday">S</div>
+      <div class="weekday">D</div>
+
+    </div>
+
+
+    <div
+      class="days"
+      id="calendarDays">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     UBICACIÓN
+========================================= -->
+
+<section class="location">
+
+  <h2 class="section-title">
+    ¿Dónde será?
+  </h2>
+
+  <div class="ornament">
+    ♡
+  </div>
+
+  <p class="address">
+    📍 General Pedernera 1530
+  </p>
+
+
+  <!-- MAPA EXACTO -->
+
+  <div class="map-container">
+
+    <iframe
+      src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+
+  <a
+    class="map-button"
+    href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
+    target="_blank"
+  >
+    📍 Abrir en Google Maps
+  </a>
+
+</section>
+
+
+<!-- =========================================
+     MÚSICA PRINCIPAL
+========================================= -->
+
+<section class="music">
+
+  <h2 class="section-title">
+    Una canción especial
+  </h2>
+
+  <div class="ornament">
+    ♪ ♫ ♪
+  </div>
+
+  <div class="music-card">
+
+    <div class="music-note">
+      ♫
+    </div>
+
+    <h3>
+      Tercer Cielo
+    </h3>
+
+    <p>
+      <em>No Crezcas Más</em>
+    </p>
+
+    <p>
+      Esta canción acompaña
+      este momento tan especial.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     SPOTIFY
+========================================= -->
+
+<section class="spotify">
+
+  <h2 class="section-title">
+    Elegí una canción 🎵
+  </h2>
+
+  <div class="ornament">
+    ♫
+  </div>
+
+  <div class="spotify-card">
+
+    <p class="text">
+      ¿Querés que pasemos una canción especial
+      durante la fiesta?
+      <br><br>
+
+      Entrá a Spotify, elegí tu canción
+      y luego escribí su nombre junto
+      con tu confirmación.
+    </p>
+
+
+    <a
+      class="spotify-button"
+      href="https://open.spotify.com/"
+      target="_blank"
+    >
+      🎵 Elegir canción en Spotify
+    </a>
+
+
+    <div class="form-group">
+
+      <label for="cancion">
+        Canción elegida
+      </label>
+
+      <input
+        type="text"
+        id="cancion"
+        placeholder="Nombre de la canción y artista"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CONFIRMACIÓN
+========================================= -->
+
+<section class="confirmation">
+
+  <h2 class="section-title">
+    Confirmá tu asistencia
+  </h2>
+
+  <div class="ornament">
+    💌
+  </div>
+
+  <div class="confirmation-box">
+
+    <p class="text">
+      Para mí sería muy especial
+      compartir esta noche con vos.
+    </p>
+
+
+    <div class="form-group">
+
+      <label for="nombreInvitado">
+        Nombre del invitado/a
+      </label>
+
+      <input
+        type="text"
+        id="nombreInvitado"
+        placeholder="Escribí tu nombre"
+      >
+
+    </div>
+
+
+    <p class="question">
+      ¿Vas a acompañarnos?
+    </p>
+
+
+    <button
+      class="confirm-button"
+      onclick="enviarRespuesta('Confirmo mi asistencia')"
+    >
+      ✅ Confirmar asistencia
+    </button>
+
+
+    <button
+      class="no-button"
+      onclick="enviarRespuesta('No asistiré')"
+    >
+      ❌ No asistiré
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CIERRE
+========================================= -->
+
+<footer>
+
+  <div class="footer-flower">
+    🌸
+  </div>
+
+  <p>
+    Gracias por ser parte
+    de esta noche tan especial.
+  </p>
+
+  <p>
+    Con cariño ♡
+  </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   DATOS DEL EVENTO
+
+   CAMBIAR SOLAMENTE ESTOS DATOS
+========================================= */
+
+
+const fechaEvento =
+  new Date("2026-11-15T21:00:00");
+
+
+/*
+   NÚMERO DE WHATSAPP
+
+   Formato:
+   549 + código de área + número
+
+   SIN +, espacios ni guiones.
+
+   Ejemplo:
+   5491123456789
+*/
+
+const miWhatsApp =
+  "549XXXXXXXXXX";
+
+
+/* =========================================
+   ABRIR INVITACIÓN + MÚSICA
+========================================= */
+
+function abrirInvitacion(){
+
+  const opening =
+    document.getElementById("opening");
+
+  const musica =
+    document.getElementById("musica");
+
+
+  opening.classList.add("opened");
+
+
+  /*
+    El audio comienza después del toque
+    del usuario, evitando el bloqueo
+    habitual de reproducción automática.
+  */
+
+  musica.volume = 0.55;
+
+  musica.play().catch(function(){
+
+    console.log(
+      "El navegador requiere iniciar el audio manualmente."
+    );
+
+  });
+
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
+
+function actualizarCuenta(){
+
+  const ahora =
+    new Date();
+
+  const diferencia =
+    fechaEvento - ahora;
+
+
+  if(diferencia <= 0){
+
+    document.getElementById("days").innerText="0";
+    document.getElementById("hours").innerText="0";
+    document.getElementById("minutes").innerText="0";
+    document.getElementById("seconds").innerText="0";
+
+    return;
+
+  }
+
+
+  const dias =
+    Math.floor(
+      diferencia /
+      (1000*60*60*24)
+    );
+
+
+  const horas =
+    Math.floor(
+      (diferencia /
+      (1000*60*60)) % 24
+    );
+
+
+  const minutos =
+    Math.floor(
+      (diferencia /
+      (1000*60)) % 60
+    );
+
+
+  const segundos =
+    Math.floor(
+      (diferencia /
+      1000) % 60
+    );
+
+
+  document.getElementById("days").innerText =
+    dias;
+
+  document.getElementById("hours").innerText =
+    horas;
+
+  document.getElementById("minutes").innerText =
+    minutos;
+
+  document.getElementById("seconds").innerText =
+    segundos;
+
+}
+
+
+setInterval(
+  actualizarCuenta,
+  1000
+);
+
+actualizarCuenta();
+
+
+/* =========================================
+   CALENDARIO
+========================================= */
+
+const nombresMeses = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre"
+];
+
+
+let calendarioFecha =
+  new Date(fechaEvento);
+
+
+function mostrarCalendario(){
+
+  const año =
+    calendarioFecha.getFullYear();
+
+  const mes =
+    calendarioFecha.getMonth();
+
+  const diaEvento =
+    fechaEvento.getDate();
+
+
+  document.getElementById(
+    "calendarMonth"
+  ).innerText =
+    nombresMeses[mes] +
+    " " +
+    año;
+
+
+  const contenedor =
+    document.getElementById(
+      "calendarDays"
+    );
+
+
+  contenedor.innerHTML="";
+
+
+  /*
+    JavaScript:
+    domingo = 0
+    lunes = 1
+
+    Nuestro calendario:
+    lunes = primera columna
+  */
+
+  let primerDia =
+    new Date(
+      año,
+      mes,
+      1
+    ).getDay();
+
+
+  let espacios =
+    primerDia - 1;
+
+
+  if(espacios < 0){
+    espacios = 6;
+  }
+
+
+  const cantidadDias =
+    new Date(
+      año,
+      mes + 1,
+      0
+    ).getDate();
+
+
+  for(
+    let i=0;
+    i<espacios;
+    i++
+  ){
+
+    const espacio =
+      document.createElement("div");
+
+    contenedor.appendChild(
+      espacio
+    );
+
+  }
+
+
+  for(
+    let dia=1;
+    dia<=cantidadDias;
+    dia++
+  ){
+
+    const elemento =
+      document.createElement("div");
+
+
+    elemento.classList.add(
+      "day"
+    );
+
+
+    elemento.innerText =
+      dia;
+
+
+    /*
+      Marca la fecha exacta
+      de los 15.
+    */
+
+    if(
+      dia === diaEvento &&
+      mes === fechaEvento.ge
