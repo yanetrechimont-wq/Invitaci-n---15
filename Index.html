@@ -1,1347 +1,1235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mis 15 ✨</title>
-
-<style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family: Georgia, "Times New Roman", serif;
-  background:#fffafa;
-  color:#6f4b5d;
-  overflow-x:hidden;
-}
-
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
-
-:root{
-  --rosa:#e9b8cc;
-  --rosa-claro:#f9e8ef;
-  --rosa-muy-claro:#fff7fa;
-  --rosa-oscuro:#a96f89;
-  --blanco:#ffffff;
-  --dorado:#c7a46a;
-  --texto:#6f4b5d;
-}
-
-/* =========================
-   PANTALLA DE APERTURA
-========================= */
-
-#opening{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:
-    radial-gradient(circle at center,#fffafa 0%,#f8dce8 100%);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  transition:1.2s ease;
-}
-
-.opening-card{
-  width:90%;
-  max-width:420px;
-  padding:45px 25px;
-  border:1px solid rgba(169,111,137,.35);
-  background:rgba(255,255,255,.75);
-  border-radius:25px;
-  box-shadow:0 15px 50px rgba(130,70,100,.15);
-}
-
-.flower{
-  font-size:65px;
-  margin-bottom:18px;
-  animation:floatFlower 3s ease-in-out infinite;
-}
-
-@keyframes floatFlower{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-}
-
-.opening-small{
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-size:13px;
-  margin-bottom:15px;
-}
-
-.opening-card h1{
-  font-size:48px;
-  font-weight:normal;
-  color:#9d627e;
-  margin-bottom:10px;
-}
-
-.opening-card p{
-  font-size:18px;
-  margin-bottom:30px;
-}
-
-.open-button{
-  border:1px solid #b77b96;
-  background:#e9b8cc;
-  color:white;
-  padding:15px 30px;
-  border-radius:40px;
-  font-family:inherit;
-  font-size:17px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.open-button:hover{
-  transform:scale(1.04);
-  background:#dca5bd;
-}
-
-#opening.opened{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  padding:30px 20px;
-
-  background:
-    radial-gradient(circle at center,#ffffff 0%,#fbeaf1 55%,#f3d1df 100%);
-}
-
-.hero:before,
-.hero:after{
-  content:"✦";
-  position:absolute;
-  color:#d7afbf;
-  font-size:28px;
-}
-
-.hero:before{
-  top:12%;
-  left:12%;
-}
-
-.hero:after{
-  bottom:15%;
-  right:12%;
-}
-
-.hero-content{
-  max-width:700px;
-}
-
-.hero-small{
-  letter-spacing:5px;
-  text-transform:uppercase;
-  font-size:15px;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  font-size:clamp(70px,18vw,130px);
-  font-weight:normal;
-  color:#a96f89;
-  line-height:.8;
-}
-
-.hero h2{
-  font-size:clamp(30px,8vw,52px);
-  font-weight:normal;
-  margin-top:25px;
-  color:#7d5368;
-}
-
-.hero-line{
-  width:120px;
-  height:1px;
-  background:#c7a46a;
-  margin:25px auto;
-}
-
-.hero-date{
-  font-size:20px;
-  letter-spacing:2px;
-}
-
-/* =========================
-   SECCIONES
-========================= */
-
-section{
-  padding:75px 20px;
-  text-align:center;
-}
-
-.section-title{
-  font-size:38px;
-  font-weight:normal;
-  color:#8c5b72;
-}
-
-.ornament{
-  color:#c7a46a;
-  margin:17px 0 25px;
-  letter-spacing:8px;
-}
-
-.text{
-  max-width:650px;
-  margin:auto;
-  font-size:19px;
-  line-height:1.8;
-}
-
-/* =========================
-   PRESENTACIÓN
-========================= */
-
-.presentation{
-  background:#ffffff;
-}
-
-/* =========================
-   CUENTA REGRESIVA
-========================= */
-
-.countdown-section{
-  background:#f9e8ef;
-}
-
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-
-.count-box{
-  background:white;
-  width:78px;
-  padding:15px 5px;
-  border-radius:18px;
-  box-shadow:0 8px 25px rgba(120,60,90,.10);
-}
-
-.count-number{
-  font-size:28px;
-  color:#a96f89;
-  font-weight:bold;
-}
-
-.count-label{
-  font-size:10px;
-  letter-spacing:1px;
-  margin-top:5px;
-}
-
-/* =========================
-   FECHA Y RELOJ
-========================= */
-
-.details{
-  background:#fff;
-}
-
-.details-grid{
-  max-width:800px;
-  margin:35px auto 0;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
-}
-
-.detail-card{
-  background:#fff9fb;
-  border:1px solid #efd5df;
-  border-radius:25px;
-  padding:35px 20px;
-}
-
-.detail-icon{
-  font-size:42px;
-  color:#c7a46a;
-  margin-bottom:15px;
-}
-
-.detail-title{
-  font-size:14px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:12px;
-}
-
-.detail-value{
-  font-size:21px;
-  color:#8c5b72;
-}
-
-/* =========================
-   CALENDARIO
-========================= */
-
-.calendar-section{
-  background:#f9e8ef;
-}
-
-.calendar{
-  max-width:390px;
-  margin:35px auto;
-  background:#fff;
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 12px 35px rgba(120,60,90,.12);
-}
-
-.calendar-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-
-.calendar-header button{
-  border:0;
-  background:none;
-  font-size:30px;
-  color:#a96f89;
-  cursor:pointer;
-}
-
-.calendar-month{
-  font-size:21px;
-  color:#8c5b72;
-}
-
-.weekdays,
-.days{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:5px;
-}
-
-.weekday{
-  font-size:11px;
-  font-weight:bold;
-  padding:7px 0;
-  color:#a96f89;
-}
-
-.day{
-  padding:9px 0;
-  font-size:14px;
-  border-radius:50%;
-}
-
-.event-day{
-  background:#e9b8cc;
-  color:#fff;
-  font-weight:bold;
-  box-shadow:0 3px 10px rgba(150,80,110,.25);
-}
-
-/* =========================
-   MAPA
-========================= */
-
-.location{
-  background:#fff;
-}
-
-.map-container{
-  max-width:850px;
-  margin:35px auto 0;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 12px 35px rgba(100,50,80,.12);
-}
-
-.map-container iframe{
-  width:100%;
-  height:380px;
-  border:0;
-  display:block;
-}
-
-.address{
-  margin:25px 0;
-  font-size:20px;
-}
-
-.map-button{
-  display:inline-block;
-  text-decoration:none;
-  background:#e9b8cc;
-  color:white;
-  padding:15px 28px;
-  border-radius:30px;
-  transition:.3s;
-}
-
-.map-button:hover{
-  transform:translateY(-3px);
-}
-
-/* =========================
-   MÚSICA
-========================= */
-
-.music{
-  background:#f9e8ef;
-}
-
-.music-card{
-  max-width:650px;
-  margin:35px auto 0;
-  background:white;
-  border-radius:25px;
-  padding:35px 20px;
-  box-shadow:0 12px 35px rgba(100,50,80,.10);
-}
-
-.music-note{
-  font-size:50px;
-  margin-bottom:15px;
-}
-
-.music-card h3{
-  font-size:25px;
-  font-weight:normal;
-  color:#8c5b72;
-}
-
-.music-card p{
-  margin-top:10px;
-  font-size:18px;
-}
-
-/* =========================
-   SPOTIFY
-========================= */
-
-.spotify{
-  background:#fff;
-}
-
-.spotify-card{
-  max-width:650px;
-  margin:30px auto;
-  background:#fff9fb;
-  border:1px solid #efd5df;
-  border-radius:25px;
-  padding:35px 20px;
-}
-
-.spotify-button{
-  display:inline-block;
-  margin-top:20px;
-  padding:15px 27px;
-  border-radius:30px;
-  text-decoration:none;
-  background:#1DB954;
-  color:white;
-  font-size:17px;
-}
-
-/* =========================
-   CONFIRMACIÓN
-========================= */
-
-.confirmation{
-  background:#f9e8ef;
-}
-
-.confirmation-box{
-  max-width:600px;
-  margin:35px auto 0;
-  background:white;
-  padding:35px 20px;
-  border-radius:25px;
-  box-shadow:0 12px 35px rgba(100,50,80,.10);
-}
-
-.form-group{
-  text-align:left;
-  margin:20px auto;
-  max-width:480px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:8px;
-  font-weight:bold;
-}
-
-.form-group input{
-  width:100%;
-  padding:15px;
-  border:1px solid #e2c2d0;
-  border-radius:12px;
-  font-size:16px;
-  font-family:inherit;
-  outline:none;
-}
-
-.question{
-  font-size:20px;
-  margin:25px 0 15px;
-}
-
-.confirm-button,
-.no-button{
-  width:100%;
-  max-width:400px;
-  padding:15px;
-  border:0;
-  border-radius:30px;
-  font-family:inherit;
-  font-size:17px;
-  cursor:pointer;
-  margin:8px auto;
-  display:block;
-}
-
-.confirm-button{
-  background:#25D366;
-  color:white;
-}
-
-.no-button{
-  background:#f1e9ed;
-  color:#6f4b5d;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  background:#fff;
-  text-align:center;
-  padding:45px 20px;
-  border-top:1px solid #efd5df;
-}
-
-.footer-flower{
-  font-size:35px;
-  margin-bottom:15px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:600px){
-
-  .details-grid{
-    grid-template-columns:1fr;
-  }
-
-  .map-container iframe{
-    height:330px;
-  }
-
-  section{
-    padding:60px 15px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mis 15 - Iara Morena Trejo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fff9fc;
+      color: #624858;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       PORTADA
+    ========================= */
+
+    #portada {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff 0, transparent 25%),
+        radial-gradient(circle at 80% 80%, #f8d6e4 0, transparent 30%),
+        linear-gradient(135deg, #f3bdd3, #fff8fc);
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #portada.cerrada {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .sobre {
+      position: relative;
+      width: min(390px, 100%);
+      padding: 48px 28px 42px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #e4a9c1;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(113, 62, 88, 0.22);
+    }
+
+    .sobre::before,
+    .sobre::after {
+      content: "✦";
+      position: absolute;
+      color: #c47b9a;
+      font-size: 25px;
+    }
+
+    .sobre::before {
+      top: 18px;
+      left: 22px;
+    }
+
+    .sobre::after {
+      right: 22px;
+      bottom: 18px;
+    }
+
+    .flor {
+      font-size: 65px;
+      margin-bottom: 10px;
+    }
+
+    .sobre .pequeno {
+      color: #967083;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .sobre h1 {
+      margin: 14px 0 8px;
+      color: #a8587b;
+      font-size: 40px;
+      font-weight: normal;
+    }
+
+    .sobre h2 {
+      color: #704d5e;
+      font-size: 22px;
+      font-weight: normal;
+      margin-bottom: 28px;
+    }
+
+    .boton-abrir {
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c87899, #a9587a);
+      color: white;
+      font-family: inherit;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(169, 88, 122, 0.25);
+    }
+
+    /* =========================
+       DECORACIÓN
+    ========================= */
+
+    .flotante {
+      position: fixed;
+      z-index: 1;
+      opacity: 0.45;
+      pointer-events: none;
+      animation: flotar 7s ease-in-out infinite;
+    }
+
+    .flor1 {
+      top: 12%;
+      left: 4%;
+      font-size: 25px;
+    }
+
+    .flor2 {
+      top: 45%;
+      right: 4%;
+      font-size: 22px;
+      animation-delay: 2s;
+    }
+
+    .flor3 {
+      bottom: 10%;
+      left: 7%;
+      font-size: 20px;
+      animation-delay: 4s;
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(8deg);
+      }
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: relative;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.9), transparent 25%),
+        radial-gradient(circle at 85% 75%, rgba(255,255,255,.8), transparent 28%),
+        linear-gradient(145deg, #f1b6cf, #fff8fc);
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "❀";
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      font-size: 55px;
+      color: rgba(169, 88, 122, .18);
+    }
+
+    header::after {
+      content: "✿";
+      position: absolute;
+      bottom: 50px;
+      right: 10%;
+      font-size: 60px;
+      color: rgba(169, 88, 122, .18);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-super {
+      font-size: 16px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #795568;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      color: #9e5275;
+      font-size: clamp(42px, 12vw, 76px);
+      font-weight: normal;
+      line-height: 1.05;
+    }
+
+    .hero h2 {
+      margin-top: 15px;
+      font-size: 28px;
+      font-weight: normal;
+      color: #68495a;
+    }
+
+    .hero-linea {
+      width: 90px;
+      height: 1px;
+      background: #b66c8b;
+      margin: 25px auto;
+    }
+
+    .hero-fecha {
+      font-size: 21px;
+      color: #734e61;
+    }
+
+    .hero-hora {
+      margin-top: 10px;
+      font-size: 27px;
+      color: #a8587b;
+    }
+
+    /* =========================
+       SECCIONES
+    ========================= */
+
+    section {
+      position: relative;
+      z-index: 2;
+      width: min(900px, 100%);
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .tarjeta {
+      background: rgba(255,255,255,.96);
+      border: 1px solid #edc6d6;
+      border-radius: 28px;
+      padding: 38px 25px;
+      box-shadow: 0 10px 35px rgba(117, 66, 91, .09);
+      text-align: center;
+    }
+
+    h3 {
+      color: #a8587b;
+      font-size: 29px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .texto {
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .ornamento {
+      color: #c17b98;
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       FECHA Y RELOJ
+    ========================= */
+
+    .fecha-grande {
+      font-size: 27px;
+      color: #a8587b;
+      margin: 12px 0;
+    }
+
+    .hora-grande {
+      font-size: 42px;
+      color: #704d60;
+      margin-top: 10px;
+    }
+
+    .reloj-box {
+      margin: 25px auto 0;
+      max-width: 430px;
+      padding: 20px;
+      border-radius: 20px;
+      background: #fff2f7;
+    }
+
+    .reloj {
+      font-size: 35px;
+      color: #a8587b;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .reloj-label {
+      margin-top: 5px;
+      color: #876879;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================= */
+
+    .cuenta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      margin: 30px auto 0;
+    }
+
+    .contador {
+      background: #fff1f7;
+      border: 1px solid #efccda;
+      border-radius: 18px;
+      padding: 18px 5px;
+    }
+
+    .contador strong {
+      display: block;
+      color: #a8587b;
+      font-size: 28px;
+    }
+
+    .contador span {
+      color: #866578;
+      font-size: 12px;
+    }
+
+    /* =========================
+       CALENDARIO
+    ========================= */
+
+    .calendario {
+      max-width: 450px;
+      margin: 20px auto 0;
+      padding: 20px;
+      border-radius: 22px;
+      background: #fffafd;
+      border: 1px solid #edc6d6;
+    }
+
+    .calendario-titulo {
+      color: #a8587b;
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .semana,
+    .dias {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .semana div {
+      color: #8b6678;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 2px;
+    }
+
+    .dia {
+      padding: 9px 2px;
+      min-height: 35px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .dia.evento {
+      background: #c47799;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 5px 14px rgba(164, 81, 116, .25);
+    }
+
+    /* =========================
+       UBICACIÓN
+    ========================= */
+
+    .direccion {
+      font-size: 22px;
+      color: #744f62;
+      margin-bottom: 18px;
+    }
+
+    .mapa {
+      width: 100%;
+      height: 340px;
+      border: 0;
+      border-radius: 22px;
+      margin-top: 15px;
+      box-shadow: 0 8px 25px rgba(88, 52, 70, .1);
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 24px;
+      border-radius: 40px;
+      background: #bd7091;
+      color: white;
+      text-decoration: none;
+      border: none;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .boton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(150, 76, 108, .2);
+    }
+
+    /* =========================
+       MÚSICA
+    ========================= */
+
+    .musica-seccion {
+      background: linear-gradient(180deg, #fff9fc, #fff0f6);
+    }
+
+    .musica-icono {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .cancion {
+      color: #a8587b;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .youtube {
+      background: #c65c6b;
+    }
+
+    .spotify {
+      background: #2f8f57;
+    }
+
+    .nota-musica {
+      margin-top: 18px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #876a78;
+    }
+
+    /* =========================
+       CONFIRMACIÓN
+    ========================= */
+
+    .formulario {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .formulario input {
+      width: 100%;
+      padding: 15px 17px;
+      border: 1px solid #dfb7c9;
+      border-radius: 16px;
+      outline: none;
+      font-family: inherit;
+      font-size: 16px;
+      color: #65495a;
+      margin-top: 12px;
+      background: #fff;
+    }
+
+    .formulario input:focus {
+      border-color: #bc7191;
+      box-shadow: 0 0 0 3px rgba(188,113,145,.1);
+    }
+
+    .botones-confirmacion {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .asistire {
+      background: #bd7091;
+    }
+
+    .no-asistire {
+      background: #927585;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 45px 20px;
+      background: #efb5cd;
+      color: #68495a;
+    }
+
+    footer .nombre {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    footer .corazon {
+      font-size: 25px;
+      margin-top: 15px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      header {
+        min-height: 590px;
+      }
+
+      .cuenta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reloj {
+        font-size: 28px;
+      }
+
+      .hora-grande {
+        font-size: 35px;
+      }
+
+      .mapa {
+        height: 290px;
+      }
+
+      .texto {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================================
-     AUDIO
-
-     IMPORTANTE:
-     Subí un archivo llamado:
-
-     no-crezcas-mas.mp3
-
-     al mismo repositorio.
-
-     Al tocar "Abrir invitación", comenzará
-     la reproducción.
-========================================= -->
-
-<audio id="musica" loop>
-  <source src="no-crezcas-mas.mp3" type="audio/mpeg">
-</audio>
+  <!-- DECORACIÓN -->
+  <div class="flotante flor1">✿</div>
+  <div class="flotante flor2">❀</div>
+  <div class="flotante flor3">✿</div>
 
 
-<!-- =========================================
-     APERTURA
-========================================= -->
+  <!-- =========================
+       PORTADA
+  ========================= -->
 
-<div id="opening">
+  <div id="portada">
 
-  <div class="opening-card">
+    <div class="sobre">
 
-    <div class="flower">
-      🌸
-    </div>
+      <div class="flor">🌸</div>
 
-    <div class="opening-small">
-      Una invitación especial
-    </div>
-
-    <h1>Mis 15</h1>
-
-    <p>
-      Abrí la invitación
-      <br>
-      y descubrí una noche mágica.
-    </p>
-
-    <button
-      class="open-button"
-      onclick="abrirInvitacion()"
-    >
-      ✨ Abrir invitación
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================
-     PORTADA
-========================================= -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="hero-small">
-      Mis quince años
-    </div>
-
-    <h1>15</h1>
-
-    <!-- CAMBIAR NOMBRE -->
-    <h2>Nombre de la quinceañera</h2>
-
-    <div class="hero-line"></div>
-
-    <!-- CAMBIAR FECHA -->
-    <div class="hero-date">
-      Sábado 15 de noviembre
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     PRESENTACIÓN
-========================================= -->
-
-<section class="presentation">
-
-  <h2 class="section-title">
-    Una noche para recordar
-  </h2>
-
-  <div class="ornament">
-    ✦ ♡ ✦
-  </div>
-
-  <p class="text">
-    Hay momentos que quedan para siempre
-    en el corazón.
-    <br><br>
-
-    Quiero compartir esta noche tan especial
-    con las personas que quiero.
-    <br><br>
-
-    ¡Te espero para celebrar mis 15 años!
-  </p>
-
-</section>
-
-
-<!-- =========================================
-     CUENTA REGRESIVA
-========================================= -->
-
-<section class="countdown-section">
-
-  <h2 class="section-title">
-    Falta poquito...
-  </h2>
-
-  <div class="ornament">
-    ✦ ✦ ✦
-  </div>
-
-  <div class="countdown">
-
-    <div class="count-box">
-      <div class="count-number" id="days">0</div>
-      <div class="count-label">DÍAS</div>
-    </div>
-
-    <div class="count-box">
-      <div class="count-number" id="hours">0</div>
-      <div class="count-label">HORAS</div>
-    </div>
-
-    <div class="count-box">
-      <div class="count-number" id="minutes">0</div>
-      <div class="count-label">MINUTOS</div>
-    </div>
-
-    <div class="count-box">
-      <div class="count-number" id="seconds">0</div>
-      <div class="count-label">SEGUNDOS</div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     FECHA Y HORA
-========================================= -->
-
-<section class="details">
-
-  <h2 class="section-title">
-    La celebración
-  </h2>
-
-  <div class="ornament">
-    ✦ ✦ ✦
-  </div>
-
-  <div class="details-grid">
-
-    <div class="detail-card">
-
-      <div class="detail-icon">
-        ♡
+      <div class="pequeno">
+        Una invitación especial
       </div>
 
-      <div class="detail-title">
-        Fecha
-      </div>
+      <h1>Mis 15</h1>
 
-      <!-- CAMBIAR FECHA -->
-      <div class="detail-value">
-        Sábado 15 de noviembre
-      </div>
+      <h2>Iara Morena Trejo</h2>
 
-    </div>
-
-
-    <div class="detail-card">
-
-      <div class="detail-icon">
-        🕰
-      </div>
-
-      <div class="detail-title">
-        Horario
-      </div>
-
-      <!-- CAMBIAR HORARIO -->
-      <div class="detail-value">
-        21:00 hs
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     CALENDARIO
-========================================= -->
-
-<section class="calendar-section">
-
-  <h2 class="section-title">
-    Reservá la fecha
-  </h2>
-
-  <div class="ornament">
-    ♡
-  </div>
-
-  <p class="text">
-    El día de mis 15 quedará marcado
-    especialmente en nuestro calendario.
-  </p>
-
-
-  <div class="calendar">
-
-    <div class="calendar-header">
-
-      <button onclick="mesAnterior()">
-        ‹
+      <button
+        class="boton-abrir"
+        onclick="abrirInvitacion()">
+        Abrir invitación 💗
       </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header>
+
+    <div class="hero">
+
+      <div class="hero-super">
+        Una noche para recordar
+      </div>
+
+      <h1>Iara Morena Trejo</h1>
+
+      <h2>Mis 15 años</h2>
+
+      <div class="hero-linea"></div>
+
+      <div class="hero-fecha">
+        30 de octubre de 2026
+      </div>
+
+      <div class="hero-hora">
+        22:00 hs
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       PRESENTACIÓN
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">✦ ✿ ✦</div>
+
+      <h3>Te invito a celebrar conmigo</h3>
+
+      <p class="texto">
+        Hay momentos que quedan para siempre en el corazón.
+        Quiero compartir una noche muy especial con las personas
+        que quiero y celebrar juntos mis 15 años.
+      </p>
+
+      <br>
+
+      <p class="texto">
+        ¡Te espero para vivir una noche inolvidable! 💗
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FECHA Y HORA
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">❀</div>
+
+      <h3>La fecha</h3>
+
+      <div class="fecha-grande">
+        Viernes 30 de octubre de 2026
+      </div>
+
+      <div class="hora-grande">
+        22:00 hs
+      </div>
+
+      <div class="reloj-box">
+
+        <div class="reloj" id="horaActual">
+          00:00:00
+        </div>
+
+        <div class="reloj-label">
+          Hora actual
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CUENTA REGRESIVA
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">✦</div>
+
+      <h3>Falta poquito...</h3>
+
+      <p class="texto">
+        Cada vez falta menos para compartir esta noche especial.
+      </p>
+
+      <div class="cuenta">
+
+        <div class="contador">
+          <strong id="dias">0</strong>
+          <span>DÍAS</span>
+        </div>
+
+        <div class="contador">
+          <strong id="horas">0</strong>
+          <span>HORAS</span>
+        </div>
+
+        <div class="contador">
+          <strong id="minutos">0</strong>
+          <span>MINUTOS</span>
+        </div>
+
+        <div class="contador">
+          <strong id="segundos">0</strong>
+          <span>SEGUNDOS</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CALENDARIO
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">❀</div>
+
+      <h3>Agendá la fecha</h3>
+
+      <div class="calendario">
+
+        <div class="calendario-titulo">
+          Octubre 2026
+        </div>
+
+        <div class="semana">
+          <div>L</div>
+          <div>M</div>
+          <div>M</div>
+          <div>J</div>
+          <div>V</div>
+          <div>S</div>
+          <div>D</div>
+        </div>
+
+        <div class="dias">
+
+          <div class="dia"></div>
+          <div class="dia"></div>
+          <div class="dia"></div>
+
+          <div class="dia">1</div>
+          <div class="dia">2</div>
+          <div class="dia">3</div>
+          <div class="dia">4</div>
+
+          <div class="dia">5</div>
+          <div class="dia">6</div>
+          <div class="dia">7</div>
+          <div class="dia">8</div>
+          <div class="dia">9</div>
+          <div class="dia">10</div>
+          <div class="dia">11</div>
+
+          <div class="dia">12</div>
+          <div class="dia">13</div>
+          <div class="dia">14</div>
+          <div class="dia">15</div>
+          <div class="dia">16</div>
+          <div class="dia">17</div>
+          <div class="dia">18</div>
+
+          <div class="dia">19</div>
+          <div class="dia">20</div>
+          <div class="dia">21</div>
+          <div class="dia">22</div>
+          <div class="dia">23</div>
+          <div class="dia">24</div>
+          <div class="dia">25</div>
+
+          <div class="dia">26</div>
+          <div class="dia">27</div>
+          <div class="dia">28</div>
+          <div class="dia">29</div>
+
+          <div class="dia evento">30</div>
+
+          <div class="dia">31</div>
+          <div class="dia"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       UBICACIÓN
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">📍</div>
+
+      <h3>El lugar</h3>
+
+      <p class="direccion">
+        General Pedernera 1530
+      </p>
+
+      <p class="texto">
+        Acá nos encontramos para celebrar juntos.
+      </p>
+
+      <iframe
+        class="mapa"
+        src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+      <a
+        class="boton"
+        href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
+        target="_blank">
+        📍 Abrir Google Maps
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MÚSICA
+  ========================= -->
+
+  <section class="musica-seccion">
+
+    <div class="tarjeta">
+
+      <div class="musica-icono">
+        🎵
+      </div>
+
+      <h3>Una canción especial</h3>
+
+      <div class="cancion">
+        Tercer Cielo — No Crezcas Más
+      </div>
+
+      <p class="texto">
+        Esta canción acompaña un momento muy especial de esta noche.
+      </p>
+
+      <!-- VIDEO DE YOUTUBE -->
 
       <div
-        class="calendar-month"
-        id="calendarMonth">
+        id="youtube-container"
+        style="
+          position:relative;
+          width:100%;
+          max-width:700px;
+          margin:25px auto 0;
+          aspect-ratio:16/9;
+          border-radius:20px;
+          overflow:hidden;
+          background:#f5d8e4;
+        ">
+
+        <iframe
+          id="youtubePlayer"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/BDwEyfgClF4?enablejsapi=1&playsinline=1&rel=0"
+          title="Tercer Cielo - No Crezcas Más"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
       </div>
 
-      <button onclick="mesSiguiente()">
-        ›
-      </button>
+      <a
+        class="boton youtube"
+        href="https://youtu.be/BDwEyfgClF4"
+        target="_blank">
+        ▶ Escuchar en YouTube
+      </a>
+
+      <br>
+
+      <a
+        class="boton spotify"
+        href="https://open.spotify.com/"
+        target="_blank">
+        🎵 Entrar a Spotify
+      </a>
+
+      <p class="nota-musica">
+        Podés entrar a Spotify y elegir la canción que quieras escuchar.
+      </p>
 
     </div>
 
+  </section>
 
-    <div class="weekdays">
 
-      <div class="weekday">L</div>
-      <div class="weekday">M</div>
-      <div class="weekday">X</div>
-      <div class="weekday">J</div>
-      <div class="weekday">V</div>
-      <div class="weekday">S</div>
-      <div class="weekday">D</div>
+  <!-- =========================
+       CONFIRMACIÓN
+  ========================= -->
+
+  <section>
+
+    <div class="tarjeta">
+
+      <div class="ornamento">💗</div>
+
+      <h3>¿Vas a acompañarme?</h3>
+
+      <p class="texto">
+        Confirmá tu asistencia para poder esperarte en esta noche tan especial.
+      </p>
+
+      <div class="formulario">
+
+        <input
+          type="text"
+          id="nombreInvitado"
+          placeholder="Nombre y apellido">
+
+        <div class="botones-confirmacion">
+
+          <button
+            class="boton asistire"
+            onclick="confirmarAsistencia()">
+            💗 Confirmar asistencia
+          </button>
+
+          <button
+            class="boton no-asistire"
+            onclick="noAsistire()">
+            No asistiré
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
 
+  </section>
 
-    <div
-      class="days"
-      id="calendarDays">
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="nombre">
+      Iara Morena Trejo
     </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     UBICACIÓN
-========================================= -->
-
-<section class="location">
-
-  <h2 class="section-title">
-    ¿Dónde será?
-  </h2>
-
-  <div class="ornament">
-    ♡
-  </div>
-
-  <p class="address">
-    📍 General Pedernera 1530
-  </p>
-
-
-  <!-- MAPA EXACTO -->
-
-  <div class="map-container">
-
-    <iframe
-      src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
-
-  </div>
-
-
-  <a
-    class="map-button"
-    href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
-    target="_blank"
-  >
-    📍 Abrir en Google Maps
-  </a>
-
-</section>
-
-
-<!-- =========================================
-     MÚSICA PRINCIPAL
-========================================= -->
-
-<section class="music">
-
-  <h2 class="section-title">
-    Una canción especial
-  </h2>
-
-  <div class="ornament">
-    ♪ ♫ ♪
-  </div>
-
-  <div class="music-card">
-
-    <div class="music-note">
-      ♫
-    </div>
-
-    <h3>
-      Tercer Cielo
-    </h3>
 
     <p>
-      <em>No Crezcas Más</em>
+      Mis 15 años · 30 de octubre de 2026
     </p>
 
-    <p>
-      Esta canción acompaña
-      este momento tan especial.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     SPOTIFY
-========================================= -->
-
-<section class="spotify">
-
-  <h2 class="section-title">
-    Elegí una canción 🎵
-  </h2>
-
-  <div class="ornament">
-    ♫
-  </div>
-
-  <div class="spotify-card">
-
-    <p class="text">
-      ¿Querés que pasemos una canción especial
-      durante la fiesta?
-      <br><br>
-
-      Entrá a Spotify, elegí tu canción
-      y luego escribí su nombre junto
-      con tu confirmación.
-    </p>
-
-
-    <a
-      class="spotify-button"
-      href="https://open.spotify.com/"
-      target="_blank"
-    >
-      🎵 Elegir canción en Spotify
-    </a>
-
-
-    <div class="form-group">
-
-      <label for="cancion">
-        Canción elegida
-      </label>
-
-      <input
-        type="text"
-        id="cancion"
-        placeholder="Nombre de la canción y artista"
-      >
-
+    <div class="corazon">
+      ♡ Gracias por ser parte de este momento ♡
     </div>
 
-  </div>
+  </footer>
 
-</section>
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-<!-- =========================================
-     CONFIRMACIÓN
-========================================= -->
+  <script>
 
-<section class="confirmation">
+    /* =========================
+       ABRIR INVITACIÓN
+    ========================= */
 
-  <h2 class="section-title">
-    Confirmá tu asistencia
-  </h2>
+    function abrirInvitacion() {
 
-  <div class="ornament">
-    💌
-  </div>
+      const portada = document.getElementById("portada");
 
-  <div class="confirmation-box">
+      portada.classList.add("cerrada");
 
-    <p class="text">
-      Para mí sería muy especial
-      compartir esta noche con vos.
-    </p>
+      /*
+        Intentamos iniciar el reproductor de YouTube
+        después del toque del usuario.
+      */
 
+      const iframe = document.getElementById("youtubePlayer");
 
-    <div class="form-group">
+      if (iframe) {
 
-      <label for="nombreInvitado">
-        Nombre del invitado/a
-      </label>
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "playVideo",
+            args: []
+          }),
+          "*"
+        );
 
-      <input
-        type="text"
-        id="nombreInvitado"
-        placeholder="Escribí tu nombre"
-      >
+      }
 
-    </div>
+    }
 
 
-    <p class="question">
-      ¿Vas a acompañarnos?
-    </p>
+    /* =========================
+       CUENTA REGRESIVA
+    ========================= */
 
+    const fechaEvento =
+      new Date("2026-10-30T22:00:00-03:00").getTime();
 
-    <button
-      class="confirm-button"
-      onclick="enviarRespuesta('Confirmo mi asistencia')"
-    >
-      ✅ Confirmar asistencia
-    </button>
 
+    function actualizarCuenta() {
 
-    <button
-      class="no-button"
-      onclick="enviarRespuesta('No asistiré')"
-    >
-      ❌ No asistiré
-    </button>
+      const ahora = new Date().getTime();
 
-  </div>
+      const diferencia =
+        fechaEvento - ahora;
 
-</section>
 
+      if (diferencia <= 0) {
 
-<!-- =========================================
-     CIERRE
-========================================= -->
+        document.getElementById("dias").textContent = "0";
+        document.getElementById("horas").textContent = "0";
+        document.getElementById("minutos").textContent = "0";
+        document.getElementById("segundos").textContent = "0";
 
-<footer>
+        return;
+      }
 
-  <div class="footer-flower">
-    🌸
-  </div>
 
-  <p>
-    Gracias por ser parte
-    de esta noche tan especial.
-  </p>
+      const dias =
+        Math.floor(
+          diferencia / (1000 * 60 * 60 * 24)
+        );
 
-  <p>
-    Con cariño ♡
-  </p>
 
-</footer>
+      const horas =
+        Math.floor(
+          (diferencia / (1000 * 60 * 60)) % 24
+        );
 
 
-<script>
+      const minutos =
+        Math.floor(
+          (diferencia / (1000 * 60)) % 60
+        );
 
-/* =========================================
-   DATOS DEL EVENTO
 
-   CAMBIAR SOLAMENTE ESTOS DATOS
-========================================= */
+      const segundos =
+        Math.floor(
+          (diferencia / 1000) % 60
+        );
 
 
-const fechaEvento =
-  new Date("2026-11-15T21:00:00");
+      document.getElementById("dias").textContent =
+        dias;
 
+      document.getElementById("horas").textContent =
+        horas;
 
-/*
-   NÚMERO DE WHATSAPP
+      document.getElementById("minutos").textContent =
+        minutos;
 
-   Formato:
-   549 + código de área + número
+      document.getElementById("segundos").textContent =
+        segundos;
 
-   SIN +, espacios ni guiones.
+    }
 
-   Ejemplo:
-   5491123456789
-*/
 
-const miWhatsApp =
-  "549XXXXXXXXXX";
+    actualizarCuenta();
 
+    setInterval(actualizarCuenta, 1000);
 
-/* =========================================
-   ABRIR INVITACIÓN + MÚSICA
-========================================= */
 
-function abrirInvitacion(){
+    /* =========================
+       RELOJ ACTUAL
+    ========================= */
 
-  const opening =
-    document.getElementById("opening");
+    function actualizarReloj() {
 
-  const musica =
-    document.getElementById("musica");
+      const ahora = new Date();
 
+      const horas =
+        String(ahora.getHours()).padStart(2, "0");
 
-  opening.classList.add("opened");
+      const minutos =
+        String(ahora.getMinutes()).padStart(2, "0");
 
+      const segundos =
+        String(ahora.getSeconds()).padStart(2, "0");
 
-  /*
-    El audio comienza después del toque
-    del usuario, evitando el bloqueo
-    habitual de reproducción automática.
-  */
+      document.getElementById("horaActual").textContent =
+        horas + ":" + minutos + ":" + segundos;
 
-  musica.volume = 0.55;
+    }
 
-  musica.play().catch(function(){
 
-    console.log(
-      "El navegador requiere iniciar el audio manualmente."
-    );
+    actualizarReloj();
 
-  });
+    setInterval(actualizarReloj, 1000);
 
-}
 
+    /* =========================
+       WHATSAPP
+    ========================= */
 
-/* =========================================
-   CUENTA REGRESIVA
-========================================= */
+    const numeroWhatsApp =
+      "5491136088939";
 
-function actualizarCuenta(){
 
-  const ahora =
-    new Date();
+    function obtenerNombre() {
 
-  const diferencia =
-    fechaEvento - ahora;
+      return document
+        .getElementById("nombreInvitado")
+        .value
+        .trim();
 
+    }
 
-  if(diferencia <= 0){
 
-    document.getElementById("days").innerText="0";
-    document.getElementById("hours").innerText="0";
-    document.getElementById("minutes").innerText="0";
-    document.getElementById("seconds").innerText="0";
+    function confirmarAsistencia() {
 
-    return;
+      const nombre = obtenerNombre();
 
-  }
 
+      if (!nombre) {
 
-  const dias =
-    Math.floor(
-      diferencia /
-      (1000*60*60*24)
-    );
+        alert(
+          "Por favor, escribí tu nombre y apellido."
+        );
 
+        return;
 
-  const horas =
-    Math.floor(
-      (diferencia /
-      (1000*60*60)) % 24
-    );
+      }
 
 
-  const minutos =
-    Math.floor(
-      (diferencia /
-      (1000*60)) % 60
-    );
+      const mensaje =
+        "Hola 💗 Soy " +
+        nombre +
+        ". Confirmo mi asistencia a los 15 años de Iara Morena Trejo, el 30 de octubre de 2026 a las 22:00 hs.";
 
 
-  const segundos =
-    Math.floor(
-      (diferencia /
-      1000) % 60
-    );
+      const url =
+        "https://wa.me/" +
+        numeroWhatsApp +
+        "?text=" +
+        encodeURIComponent(mensaje);
 
 
-  document.getElementById("days").innerText =
-    dias;
+      window.open(url, "_blank");
 
-  document.getElementById("hours").innerText =
-    horas;
+    }
 
-  document.getElementById("minutes").innerText =
-    minutos;
 
-  document.getElementById("seconds").innerText =
-    segundos;
+    function noAsistire() {
 
-}
+      const nombre = obtenerNombre();
 
 
-setInterval(
-  actualizarCuenta,
-  1000
-);
+      if (!nombre) {
 
-actualizarCuenta();
+        alert(
+          "Por favor, escribí tu nombre y apellido."
+        );
 
+        return;
 
-/* =========================================
-   CALENDARIO
-========================================= */
+      }
 
-const nombresMeses = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre"
-];
 
+      const mensaje =
+        "Hola. Soy " +
+        nombre +
+        ". Lamentablemente no podré asistir a los 15 años de Iara Morena Trejo.";
 
-let calendarioFecha =
-  new Date(fechaEvento);
 
+      const url =
+        "https://wa.me/" +
+        numeroWhatsApp +
+        "?text=" +
+        encodeURIComponent(mensaje);
 
-function mostrarCalendario(){
 
-  const año =
-    calendarioFecha.getFullYear();
+      window.open(url, "_blank");
 
-  const mes =
-    calendarioFecha.getMonth();
+    }
 
-  const diaEvento =
-    fechaEvento.getDate();
+  </script>
 
-
-  document.getElementById(
-    "calendarMonth"
-  ).innerText =
-    nombresMeses[mes] +
-    " " +
-    año;
-
-
-  const contenedor =
-    document.getElementById(
-      "calendarDays"
-    );
-
-
-  contenedor.innerHTML="";
-
-
-  /*
-    JavaScript:
-    domingo = 0
-    lunes = 1
-
-    Nuestro calendario:
-    lunes = primera columna
-  */
-
-  let primerDia =
-    new Date(
-      año,
-      mes,
-      1
-    ).getDay();
-
-
-  let espacios =
-    primerDia - 1;
-
-
-  if(espacios < 0){
-    espacios = 6;
-  }
-
-
-  const cantidadDias =
-    new Date(
-      año,
-      mes + 1,
-      0
-    ).getDate();
-
-
-  for(
-    let i=0;
-    i<espacios;
-    i++
-  ){
-
-    const espacio =
-      document.createElement("div");
-
-    contenedor.appendChild(
-      espacio
-    );
-
-  }
-
-
-  for(
-    let dia=1;
-    dia<=cantidadDias;
-    dia++
-  ){
-
-    const elemento =
-      document.createElement("div");
-
-
-    elemento.classList.add(
-      "day"
-    );
-
-
-    elemento.innerText =
-      dia;
-
-
-    /*
-      Marca la fecha exacta
-      de los 15.
-    */
-
-    if(
-      dia === diaEvento &&
-      mes === fechaEvento.ge
+</body>
+</html>
