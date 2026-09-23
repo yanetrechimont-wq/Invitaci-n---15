@@ -1,1317 +1,1122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mis 15 años — Iara Morena Trejo</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#faf7f0;
-    color:#29251f;
-    font-family:'Cormorant Garamond',serif;
-    overflow-x:hidden;
-}
-
-:root{
-    --oro:#b68a3a;
-    --oro-claro:#dfc27c;
-    --oro-suave:#ead9ac;
-    --crema:#faf7f0;
-    --blanco:#fffefa;
-    --arena:#f1e8d7;
-    --texto:#29251f;
-}
-
-/* =========================
-   APERTURA
-========================= */
-
-#entrada{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    background:
-        radial-gradient(circle at 50% 45%,
-        #fffefa 0%,
-        #f7efdf 55%,
-        #e4cea0 100%);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:1s ease;
-}
-
-#entrada.oculta{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.entrada-marco{
-    position:absolute;
-    inset:18px;
-    border:1px solid rgba(182,138,58,.45);
-    pointer-events:none;
-}
-
-.entrada-marco::before,
-.entrada-marco::after{
-    content:"✦";
-    position:absolute;
-    color:var(--oro);
-    font-size:18px;
-}
-
-.entrada-marco::before{
-    top:12px;
-    left:15px;
-}
-
-.entrada-marco::after{
-    bottom:12px;
-    right:15px;
-}
-
-.entrada-contenido{
-    width:min(90%,420px);
-    text-align:center;
-}
-
-.pequeno{
-    font-family:'Montserrat',sans-serif;
-    font-size:9px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:#84662e;
-    margin-bottom:16px;
-}
-
-.entrada-nombre{
-    font-family:'Great Vibes',cursive;
-    color:var(--oro);
-    font-size:68px;
-    font-weight:400;
-    line-height:.9;
-    margin-bottom:10px;
-}
-
-.entrada-subtitulo{
-    font-size:25px;
-    letter-spacing:2px;
-    margin-bottom:35px;
-}
-
-.sobre{
-    width:100%;
-    height:235px;
-    position:relative;
-    margin:auto;
-    cursor:pointer;
-    perspective:1000px;
-}
-
-.sobre-base{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(145deg,#fffefa,#eee0c1);
-    border:1px solid var(--oro);
-    box-shadow:0 25px 55px rgba(78,54,20,.18);
-}
-
-.sobre-base::before{
-    content:"";
-    position:absolute;
-    inset:13px;
-    border:1px solid rgba(182,138,58,.4);
-}
-
-.solapa{
-    position:absolute;
-    z-index:4;
-    top:0;
-    left:0;
-    width:100%;
-    height:120px;
-    background:linear-gradient(145deg,#fffefa,#ead7ae);
-    clip-path:polygon(0 0,100% 0,50% 100%);
-    transform-origin:top center;
-    transition:1s cubic-bezier(.4,0,.2,1);
-}
-
-.sobre.abierto .solapa{
-    transform:rotateX(180deg);
-}
-
-.sello{
-    position:absolute;
-    z-index:5;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    background:#fffefa;
-    border:1px solid var(--oro);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--oro);
-    font-family:'Great Vibes',cursive;
-    font-size:39px;
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-}
-
-.instruccion{
-    margin-top:23px;
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#806329;
-}
-
-/* =========================
-   BOTÓN
-========================= */
-
-.btn-oro{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border:none;
-    background:linear-gradient(120deg,#9f7024,#d8b76a,#a87829);
-    color:white;
-    padding:15px 27px;
-    border-radius:40px;
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;
-    font-weight:600;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    text-decoration:none;
-    cursor:pointer;
-    box-shadow:0 12px 25px rgba(120,80,20,.18);
-    transition:.3s;
-}
-
-.btn-oro:hover{
-    transform:translateY(-2px);
-}
-
-/* =========================
-   PRIMERA FOTO
-========================= */
-
-.hero{
-    min-height:100svh;
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    overflow:hidden;
-    background:#211d18;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            to top,
-            rgba(20,17,12,.82) 0%,
-            rgba(20,17,12,.15) 55%,
-            rgba(20,17,12,.02) 100%
-        ),
-        url('IMG-20260922-WA0080.jpg') center/cover no-repeat;
-    animation:zoomHero 12s ease-out forwards;
-}
-
-@keyframes zoomHero{
-    from{transform:scale(1.05);}
-    to{transform:scale(1);}
-}
-
-.hero-marco{
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(255,255,255,.45);
-    z-index:2;
-    pointer-events:none;
-}
-
-.hero-contenido{
-    position:relative;
-    z-index:3;
-    width:100%;
-    text-align:center;
-    color:white;
-    padding:0 25px 60px;
-}
-
-.hero-titulo{
-    font-family:'Great Vibes',cursive;
-    font-size:86px;
-    line-height:.9;
-    color:#f1d58e;
-    font-weight:400;
-    text-shadow:0 4px 25px rgba(0,0,0,.45);
-}
-
-/* =========================
-   SECCIONES
-========================= */
-
-.seccion{
-    padding:90px 22px;
-    position:relative;
-}
-
-.interior{
-    width:min(100%,760px);
-    margin:auto;
-    text-align:center;
-}
-
-.mini-titulo{
-    font-family:'Montserrat',sans-serif;
-    color:#927034;
-    font-size:9px;
-    font-weight:600;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:15px;
-}
-
-.titulo{
-    font-family:'Great Vibes',cursive;
-    color:var(--oro);
-    font-weight:400;
-    font-size:65px;
-    line-height:1;
-}
-
-.sublinea{
-    width:55px;
-    height:1px;
-    background:var(--oro);
-    margin:22px auto;
-}
-
-/* =========================
-   MENSAJE
-========================= */
-
-.mensaje{
-    background:var(--crema);
-    padding-top:105px;
-    padding-bottom:105px;
-}
-
-.mensaje-card{
-    position:relative;
-    max-width:650px;
-    margin:auto;
-    padding:55px 30px;
-    border:1px solid rgba(182,138,58,.35);
-    background:#fffefa;
-    box-shadow:0 25px 60px rgba(70,50,20,.08);
-}
-
-.mensaje-card::before{
-    content:"“";
-    position:absolute;
-    top:4px;
-    left:20px;
-    font-family:'Great Vibes',cursive;
-    font-size:100px;
-    color:var(--oro-suave);
-}
-
-.mensaje-card p{
-    position:relative;
-    font-size:34px;
-    line-height:1.25;
-}
-
-.mensaje-card strong{
-    color:var(--oro);
-}
-
-/* =========================
-   CALENDARIO
-========================= */
-
-.calendario{
-    background:var(--arena);
-}
-
-.calendario-wrap{
-    max-width:460px;
-    margin:35px auto 0;
-    background:#fffefa;
-    padding:30px 22px 32px;
-    box-shadow:0 25px 60px rgba(70,50,20,.1);
-    border:1px solid rgba(182,138,58,.3);
-}
-
-.calendario-mes{
-    font-family:'Cormorant Garamond',serif;
-    font-size:29px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:#6d542b;
-    margin-bottom:24px;
-}
-
-.dias{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:5px;
-    font-family:'Montserrat',sans-serif;
-    font-size:11px;
-}
-
-.dias div{
-    min-height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.dia-nombre{
-    color:var(--oro);
-    font-weight:700;
-    font-size:9px;
-    letter-spacing:1px;
-}
-
-/* SOLO EL 30 */
-.dia-especial{
-    width:34px;
-    height:34px;
-    margin:auto;
-    border-radius:50%;
-    background:linear-gradient(135deg,#a97929,#d8b76a);
-    color:white;
-    box-shadow:0 6px 18px rgba(182,138,58,.35);
-    font-weight:600;
-}
-
-/* =========================
-   HORARIO
-========================= */
-
-.horario{
-    background:#fffefa;
-}
-
-.hora-grande{
-    font-family:'Cormorant Garamond',serif;
-    font-size:72px;
-    font-weight:600;
-    color:var(--oro);
-    letter-spacing:2px;
-    margin:15px 0 5px;
-}
-
-.fecha-hora{
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#77603a;
-}
-
-.contador{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-    max-width:520px;
-    margin:35px auto 0;
-}
-
-.contador-item{
-    background:#faf7f0;
-    border:1px solid rgba(182,138,58,.25);
-    padding:15px 5px;
-}
-
-.contador-item span{
-    display:block;
-    color:var(--oro);
-    font-size:28px;
-    font-weight:600;
-}
-
-.contador-item small{
-    font-family:'Montserrat',sans-serif;
-    font-size:7px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#7d6948;
-}
-
-/* =========================
-   UBICACIÓN
-========================= */
-
-.ubicacion{
-    background:var(--crema);
-}
-
-.direccion{
-    font-size:29px;
-    margin:20px 0;
-}
-
-.mapa{
-    width:100%;
-    height:330px;
-    border:none;
-    display:block;
-    margin:25px auto;
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-}
-
-/* =========================
-   COLABORACIÓN
-========================= */
-
-.regalo{
-    background:var(--arena);
-}
-
-.regalo-card{
-    max-width:650px;
-    margin:30px auto 0;
-    background:#fffefa;
-    padding:45px 25px;
-    border:1px solid rgba(182,138,58,.35);
-}
-
-.regalo-card p{
-    font-size:25px;
-    line-height:1.4;
-}
-
-.alias{
-    margin:28px auto 0;
-    max-width:370px;
-    padding:22px;
-    border:1px solid var(--oro);
-    background:#faf7f0;
-}
-
-.alias-label{
-    display:block;
-    font-family:'Montserrat',sans-serif;
-    font-size:8px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#806329;
-}
-
-.alias-nombre{
-    display:block;
-    margin-top:8px;
-    font-family:'Montserrat',sans-serif;
-    font-size:24px;
-    font-weight:600;
-    color:var(--oro);
-}
-
-/* =========================
-   FOTO DE IARA
-========================= */
-
-.princesa{
-    background:#fffefa;
-    padding:65px 20px 0;
-}
-
-.foto-princesa{
-    width:min(100%,680px);
-    margin:auto;
-    position:relative;
-}
-
-.foto-princesa img{
-    width:100%;
-    display:block;
-    max-height:800px;
-    object-fit:cover;
-    box-shadow:0 25px 65px rgba(50,35,15,.16);
-}
-
-.foto-princesa::after{
-    content:"";
-    position:absolute;
-    inset:14px;
-    border:1px solid rgba(255,255,255,.75);
-    pointer-events:none;
-}
-
-/* =========================
-   VESTIMENTA
-========================= */
-
-.vestimenta{
-    background:#fffefa;
-    padding-top:30px;
-    padding-bottom:95px;
-}
-
-.vestimenta-box{
-    width:min(100%,680px);
-    margin:auto;
-    border:1px solid rgba(182,138,58,.3);
-    padding:38px 20px;
-    background:#faf7f0;
-}
-
-.vestimenta .titulo{
-    font-size:55px;
-}
-
-.elegante{
-    margin-top:12px;
-    font-family:'Montserrat',sans-serif;
-    color:var(--oro);
-    font-weight:700;
-    font-size:19px;
-    letter-spacing:6px;
-}
-
-.reservado{
-    margin:17px auto 0;
-    max-width:500px;
-    font-size:22px;
-    font-style:italic;
-    line-height:1.35;
-}
-
-/* =========================
-   MÚSICA
-========================= */
-
-.musica{
-    background:var(--arena);
-}
-
-.musica p{
-    max-width:600px;
-    margin:15px auto 25px;
-    font-size:25px;
-    line-height:1.35;
-}
-
-.spotify-btn{
-    margin-bottom:18px;
-}
-
-.cancion-form{
-    max-width:500px;
-    margin:10px auto 0;
-}
-
-.cancion-form input{
-    width:100%;
-    border:1px solid rgba(182,138,58,.35);
-    background:#fffefa;
-    padding:16px;
-    margin-bottom:12px;
-    font-size:18px;
-    outline:none;
-}
-
-.cancion-form input:focus{
-    border-color:var(--oro);
-}
-
-/* =========================
-   CONFIRMACIÓN
-========================= */
-
-.confirmacion{
-    background:#fffefa;
-}
-
-.formulario{
-    max-width:520px;
-    margin:30px auto 0;
-}
-
-.formulario input,
-.formulario textarea{
-    width:100%;
-    padding:16px;
-    margin-bottom:12px;
-    background:#faf7f0;
-    border:1px solid rgba(182,138,58,.35);
-    outline:none;
-    font-size:18px;
-}
-
-.formulario textarea{
-    min-height:90px;
-    resize:none;
-}
-
-.label{
-    display:block;
-    text-align:left;
-    font-family:'Montserrat',sans-serif;
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#806329;
-    margin:9px 0;
-}
-
-.asistencia{
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    margin:17px 0 22px;
-}
-
-.asistencia label{
-    font-size:19px;
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.asistencia input{
-    width:auto;
-    margin:0;
-}
-
-/* =========================
-   ÚLTIMA FOTO — AL FINAL
-========================= */
-
-.final-foto{
-    min-height:90svh;
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    background:
-        linear-gradient(
-            to top,
-            rgba(25,20,14,.78),
-            rgba(25,20,14,.05) 65%
-        ),
-        url('motion_photo_17651064731209062.jpg') center/cover no-repeat;
-}
-
-.final-marco{
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(255,255,255,.5);
-}
-
-.final-contenido{
-    width:100%;
-    text-align:center;
-    position:relative;
-    z-index:2;
-    padding:55px 20px;
-    color:white;
-}
-
-.final-contenido h2{
-    font-family:'Great Vibes',cursive;
-    font-size:78px;
-    color:#f0d18b;
-    font-weight:400;
-    text-shadow:0 4px 25px rgba(0,0,0,.45);
-}
-
-/* =========================
-   BRILLOS
-========================= */
-
-.brillo{
-    position:fixed;
-    width:4px;
-    height:4px;
-    background:#dfc27c;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:100;
-    animation:caer 4s linear forwards;
-}
-
-@keyframes caer{
-    0%{
-        transform:translateY(-20px);
-        opacity:0;
-    }
-    20%{
-        opacity:.9;
-    }
-    100%{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-}
-
-/* =========================
-   MÓVIL
-========================= */
-
-@media(max-width:600px){
-
-    .entrada-nombre{
-        font-size:61px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mis 15 - Iara Morena Trejo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero-titulo{
-        font-size:73px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .titulo{
-        font-size:58px;
+    body {
+      background: #f8f4eb;
+      color: #6f5a32;
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
     }
 
-    .mensaje-card p{
-        font-size:29px;
+    img {
+      width: 100%;
+      display: block;
     }
 
-    .hora-grande{
-        font-size:61px;
+    button,
+    input,
+    select {
+      font-family: inherit;
     }
 
-    .contador-item span{
-        font-size:24px;
+    /* =========================
+       CARTA DE INICIO
+    ========================= */
+
+    .cover {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at center, #fffdf8 0%, #f5ead3 65%, #ead5a5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
     }
 
-    .final-contenido h2{
-        font-size:67px;
+    .sparkle {
+      position: absolute;
+      color: #c8a75c;
+      font-size: 22px;
+      animation: sparkle 3s infinite ease-in-out;
     }
 
-}
+    .sparkle:nth-child(1) {
+      top: 15%;
+      left: 15%;
+    }
 
-</style>
+    .sparkle:nth-child(2) {
+      top: 25%;
+      right: 15%;
+      animation-delay: 1s;
+    }
+
+    .sparkle:nth-child(3) {
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 1.5s;
+    }
+
+    .sparkle:nth-child(4) {
+      bottom: 15%;
+      right: 20%;
+      animation-delay: .5s;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: .25;
+        transform: scale(.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .envelope {
+      width: min(390px, 92vw);
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+
+    .envelope-card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid #c8a75c;
+      padding: 45px 25px;
+      box-shadow:
+        0 20px 60px rgba(126, 98, 42, .18),
+        inset 0 0 0 7px rgba(200,167,92,.08);
+      transition: .4s ease;
+    }
+
+    .envelope-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .small-gold {
+      color: #b99545;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    .envelope-card h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(58px, 16vw, 90px);
+      font-weight: 400;
+      color: #a78336;
+      line-height: 1;
+    }
+
+    .envelope-card h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 22px;
+      margin-top: 12px;
+    }
+
+    .touch {
+      margin-top: 28px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9d8249;
+    }
+
+    /* =========================
+       CONTENIDO
+    ========================= */
+
+    #contenido {
+      display: none;
+      background: #f8f4eb;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 75px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-number {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #b28b3e;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(35px, 8vw, 54px);
+      font-weight: 500;
+      color: #866a31;
+      margin-bottom: 18px;
+    }
+
+    .section p {
+      max-width: 620px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 14px;
+      color: #7c7059;
+    }
+
+    /* =========================
+       PRIMERA FOTO
+    ========================= */
+
+    .hero-photo {
+      position: relative;
+      width: 100%;
+      height: min(90vh, 780px);
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(0,0,0,.4)
+      );
+    }
+
+    .hero-title {
+      position: absolute;
+      bottom: 55px;
+      left: 20px;
+      right: 20px;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(55px, 15vw, 100px);
+      font-weight: 400;
+      text-shadow: 0 3px 15px rgba(0,0,0,.35);
+    }
+
+    /* =========================
+       FRASE
+    ========================= */
+
+    .quote-section {
+      padding-top: 95px;
+      padding-bottom: 95px;
+      background: #fffdf8;
+    }
+
+    .quote {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(28px, 7vw, 46px);
+      line-height: 1.25;
+      color: #80662f;
+      max-width: 700px;
+      margin: auto;
+      font-weight: 500;
+    }
+
+    /* =========================
+       CALENDARIO
+    ========================= */
+
+    .calendar-card {
+      max-width: 430px;
+      margin: 35px auto 0;
+      background: #fffdf9;
+      border: 1px solid #d0b56e;
+      padding: 25px 18px;
+      box-shadow: 0 15px 45px rgba(111,90,50,.10);
+    }
+
+    .calendar-month {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      color: #8b6c2f;
+      margin-bottom: 18px;
+    }
+
+    .calendar-week {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 10px;
+      color: #a0844d;
+      letter-spacing: 1px;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 7px;
+    }
+
+    .day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 12px;
+      color: #756648;
+    }
+
+    .day.highlight {
+      background: #c8a75c;
+      color: white;
+      box-shadow: 0 4px 15px rgba(177,137,50,.35);
+      font-weight: 600;
+    }
+
+    /* =========================
+       HORARIO / CUENTA
+    ========================= */
+
+    .time-section {
+      background: linear-gradient(135deg, #eee0bb, #fffaf0);
+    }
+
+    .time {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(70px, 17vw, 120px);
+      line-height: 1;
+      color: #9c7830;
+      margin: 15px 0;
+    }
+
+    .countdown {
+      max-width: 650px;
+      margin: 35px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .count-box {
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(180,145,75,.4);
+      padding: 15px 5px;
+    }
+
+    .count-box strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      color: #8c6a2e;
+    }
+
+    .count-box span {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      color: #9a8761;
+    }
+
+    /* =========================
+       MAPA
+    ========================= */
+
+    .map-container {
+      max-width: 850px;
+      margin: 30px auto 25px;
+      border: 1px solid #c8a75c;
+      padding: 6px;
+      background: #fff;
+      box-shadow: 0 15px 40px rgba(111,90,50,.12);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      display: block;
+    }
+
+    .map-button,
+    .spotify-button {
+      display: inline-block;
+      text-decoration: none;
+      background: #b18a3c;
+      color: white;
+      padding: 14px 24px;
+      letter-spacing: 1px;
+      font-size: 11px;
+      text-transform: uppercase;
+      transition: .3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .map-button:hover,
+    .spotify-button:hover {
+      background: #8d6c2e;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       COLABORACIÓN
+    ========================= */
+
+    .collaboration {
+      background: #fffdf8;
+    }
+
+    .alias-box {
+      max-width: 360px;
+      margin: 30px auto 0;
+      padding: 25px;
+      border: 1px solid #c8a75c;
+      background: #faf3df;
+    }
+
+    .alias-box span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #9a7b3c;
+    }
+
+    .alias-box strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      color: #84662d;
+    }
+
+    /* =========================
+       FOTO IARA
+    ========================= */
+
+    .princess-photo {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .princess-photo img {
+      width: 100%;
+      max-height: 850px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* =========================
+       VESTIMENTA
+    ========================= */
+
+    .dress-code {
+      text-align: center;
+      padding: 55px 20px 65px;
+      background: #fffdf8;
+    }
+
+    .dress-card {
+      max-width: 480px;
+      margin: 25px auto 0;
+      border-top: 1px solid #c8a75c;
+      border-bottom: 1px solid #c8a75c;
+      padding: 28px 20px;
+    }
+
+    .dress-card span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 38px;
+      letter-spacing: 5px;
+      color: #a17d35;
+    }
+
+    .dress-card p {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #776a51;
+    }
+
+    /* =========================
+       MÚSICA
+    ========================= */
+
+    .music-section {
+      background: linear-gradient(
+        to bottom,
+        #f8f4eb,
+        #fffdf8
+      );
+    }
+
+    .song-form,
+    .confirmation-form {
+      max-width: 480px;
+      margin: 30px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .song-form input,
+    .confirmation-form input,
+    .confirmation-form select {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #d2bf91;
+      background: #fff;
+      outline: none;
+      color: #67583e;
+      font-size: 13px;
+    }
+
+    .song-form input:focus,
+    .confirmation-form input:focus,
+    .confirmation-form select:focus {
+      border-color: #ad873c;
+    }
+
+    .song-form button,
+    .confirmation-form button {
+      padding: 15px;
+      border: none;
+      background: #b18a3c;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-size: 11px;
+      transition: .3s ease;
+    }
+
+    .song-form button:hover,
+    .confirmation-form button:hover {
+      background: #8d6c2e;
+    }
+
+    /* =========================
+       CONFIRMACIÓN
+    ========================= */
+
+    .confirmation {
+      background: #f0e4c5;
+    }
+
+    /* =========================
+       FOTO FINAL
+    ========================= */
+
+    .final-photo {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .final-photo img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .final-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.18);
+    }
+
+    .final-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .final-overlay h2 {
+      color: white;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(65px, 17vw, 125px);
+      font-weight: 400;
+      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .section {
+        padding: 65px 20px;
+      }
+
+      .hero-photo {
+        height: 78vh;
+      }
+
+      .map-container iframe {
+        height: 300px;
+      }
+
+      .countdown {
+        gap: 5px;
+      }
+
+      .count-box {
+        padding: 12px 3px;
+      }
+
+      .count-box strong {
+        font-size: 25px;
+      }
+
+      .count-box span {
+        font-size: 7px;
+        letter-spacing: 1px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     1. CARTA DE APERTURA
-===================================================== -->
+  <!-- =========================
+       CARTA DE INICIO
+  ========================= -->
 
-<div id="entrada">
+  <section class="cover" id="cover">
 
-    <div class="entrada-marco"></div>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
 
-    <div class="entrada-contenido">
+    <div class="envelope" onclick="abrirInvitacion()">
 
-        <div class="pequeno">
-            Una noche para recordar
+      <div class="envelope-card">
+
+        <div class="small-gold">
+          Una noche especial
         </div>
 
-        <div class="entrada-nombre">
-            Iara Morena
+        <h1>Iara</h1>
+
+        <h2>Mis 15 años</h2>
+
+        <div class="touch">
+          Tocar para abrir
         </div>
 
-        <div class="entrada-subtitulo">
-            Mis 15 años
-        </div>
-
-        <div
-            class="sobre"
-            id="sobre"
-            onclick="abrirInvitacion()">
-
-            <div class="sobre-base"></div>
-
-            <div class="solapa"></div>
-
-            <div class="sello">
-                I
-            </div>
-
-        </div>
-
-        <div class="instruccion">
-            Tocá el sobre para abrir la invitación
-        </div>
+      </div>
 
     </div>
 
-</div>
+  </section>
 
+  <!-- =========================
+       CONTENIDO
+  ========================= -->
 
-<!-- MÚSICA -->
+  <main id="contenido">
 
-<iframe
-    id="musicaVideo"
-    width="1"
-    height="1"
-    style="position:fixed;left:-10px;top:-10px;opacity:0;pointer-events:none;"
-    allow="autoplay; encrypted-media"
-    frameborder="0">
-</iframe>
+    <!-- PRIMERA FOTO -->
 
+    <section class="hero-photo">
 
-<!-- =====================================================
-     2. PRIMERA FOTO
-===================================================== -->
+      <img
+        src="IMG-20260922-WA0080.jpg"
+        alt="Iara Morena Trejo"
+      >
 
-<section class="hero">
+      <div class="hero-title">
+        Mis 15 años
+      </div>
 
-    <div class="hero-marco"></div>
+    </section>
 
-    <div class="hero-contenido">
+    <!-- FRASE -->
 
-        <div class="hero-titulo">
-            Mis 15 años
+    <section class="section quote-section">
+
+      <p class="quote">
+        Quiero compartir este día tan especial con vos.
+      </p>
+
+    </section>
+
+    <!-- CALENDARIO -->
+
+    <section class="section">
+
+      <span class="section-number">01</span>
+
+      <h2>Guardá la fecha</h2>
+
+      <div class="calendar-card">
+
+        <div class="calendar-month">
+          Octubre 2026
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     3. MENSAJE
-===================================================== -->
-
-<section class="seccion mensaje">
-
-    <div class="interior">
-
-        <div class="mensaje-card">
-
-            <div class="mini-titulo">
-                Con mucho amor
-            </div>
-
-            <div class="sublinea"></div>
-
-            <p>
-                Quiero compartir este día tan especial
-                <strong>con vos.</strong>
-            </p>
-
+        <div class="calendar-week">
+          <span>DOM</span>
+          <span>LUN</span>
+          <span>MAR</span>
+          <span>MIÉ</span>
+          <span>JUE</span>
+          <span>VIE</span>
+          <span>SÁB</span>
         </div>
 
-    </div>
+        <div class="calendar-days">
 
-</section>
+          <span class="day"></span>
+          <span class="day"></span>
+          <span class="day"></span>
+          <span class="day"></span>
 
+          <span class="day">1</span>
+          <span class="day">2</span>
+          <span class="day">3</span>
 
-<!-- =====================================================
-     4. CALENDARIO
-===================================================== -->
+          <span class="day">4</span>
+          <span class="day">5</span>
+          <span class="day">6</span>
+          <span class="day">7</span>
+          <span class="day">8</span>
+          <span class="day">9</span>
+          <span class="day">10</span>
 
-<section class="seccion calendario">
+          <span class="day">11</span>
+          <span class="day">12</span>
+          <span class="day">13</span>
+          <span class="day">14</span>
+          <span class="day">15</span>
+          <span class="day">16</span>
+          <span class="day">17</span>
 
-    <div class="interior">
+          <span class="day">18</span>
+          <span class="day">19</span>
+          <span class="day">20</span>
+          <span class="day">21</span>
+          <span class="day">22</span>
+          <span class="day">23</span>
+          <span class="day">24</span>
 
-        <div class="mini-titulo">
-            Reservá la fecha
-        </div>
+          <span class="day">25</span>
+          <span class="day">26</span>
+          <span class="day">27</span>
+          <span class="day">28</span>
+          <span class="day">29</span>
 
-        <h2 class="titulo">
-            Octubre
-        </h2>
+          <span class="day highlight">30</span>
 
-        <div class="calendario-wrap">
-
-            <div class="calendario-mes">
-                2026
-            </div>
-
-            <div class="dias">
-
-                <div class="dia-nombre">L</div>
-                <div class="dia-nombre">M</div>
-                <div class="dia-nombre">M</div>
-                <div class="dia-nombre">J</div>
-                <div class="dia-nombre">V</div>
-                <div class="dia-nombre">S</div>
-                <div class="dia-nombre">D</div>
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-
-                <div>19</div>
-                <div>20</div>
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-
-                <!-- ÚNICO DÍA RESALTADO -->
-                <div class="dia-especial">
-                    30
-                </div>
-
-                <div>31</div>
-                <div></div>
-
-            </div>
+          <span class="day">31</span>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
+    <!-- HORARIO -->
 
-<!-- =====================================================
-     5. HORARIO + CUENTA REGRESIVA
-===================================================== -->
+    <section class="section time-section">
 
-<section class="seccion horario">
+      <span class="section-number">02</span>
 
-    <div class="interior">
+      <h2>Te espero a las</h2>
 
-        <div class="mini-titulo">
-            Te espero
+      <div class="time">
+        22:00
+      </div>
+
+      <p>
+        Viernes 30 de octubre de 2026
+      </p>
+
+      <div class="countdown">
+
+        <div class="count-box">
+          <strong id="days">00</strong>
+          <span>Días</span>
         </div>
 
-        <h2 class="titulo">
-            Una noche inolvidable
-        </h2>
-
-        <div class="sublinea"></div>
-
-        <div class="hora-grande">
-            22:00 hs
+        <div class="count-box">
+          <strong id="hours">00</strong>
+          <span>Horas</span>
         </div>
 
-        <div class="fecha-hora">
-            Viernes 30 de octubre de 2026
+        <div class="count-box">
+          <strong id="minutes">00</strong>
+          <span>Minutos</span>
         </div>
 
-        <div class="contador">
-
-            <div class="contador-item">
-                <span id="dias">00</span>
-                <small>Días</small>
-            </div>
-
-            <div class="contador-item">
-                <span id="horas">00</span>
-                <small>Horas</small>
-            </div>
-
-            <div class="contador-item">
-                <span id="minutos">00</span>
-                <small>Minutos</small>
-            </div>
-
-            <div class="contador-item">
-                <span id="segundos">00</span>
-                <small>Segundos</small>
-            </div>
-
+        <div class="count-box">
+          <strong id="seconds">00</strong>
+          <span>Segundos</span>
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
+    <!-- UBICACIÓN -->
 
-<!-- =====================================================
-     6. UBICACIÓN
-===================================================== -->
+    <section class="section">
 
-<section class="seccion ubicacion">
+      <span class="section-number">03</span>
 
-    <div class="interior">
+      <h2>¿Dónde nos encontramos?</h2>
 
-        <div class="mini-titulo">
-            El lugar
-        </div>
+      <p>
+        General Pedernera 1530
+      </p>
 
-        <h2 class="titulo">
-            ¿Dónde?
-        </h2>
-
-        <div class="sublinea"></div>
-
-        <div class="direccion">
-            General Pedernera 1530
-        </div>
+      <div class="map-container">
 
         <iframe
-            class="mapa"
-            src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
-            loading="lazy">
-                </div>
+          src="https://www.google.com/maps?q=General+Pedernera+1530&output=embed"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
-          target="_blank"
-          class="map-button"
-        >
-          📍 Abrir ubicación en Google Maps
-        </a>
-      </section>
+      </div>
 
-      <!-- COLABORACIÓN -->
-      <section class="section collaboration">
-        <span class="section-number">06</span>
-        <h2>Un pequeño detalle</h2>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
+        target="_blank"
+        class="map-button"
+      >
+        📍 Abrir ubicación en Google Maps
+      </a>
+
+    </section>
+
+    <!-- COLABORACIÓN -->
+
+    <section class="section collaboration">
+
+      <span class="section-number">04</span>
+
+      <h2>Un pequeño detalle</h2>
+
+      <p>
+        Si querés colaborar con un regalito para este día tan especial,
+        podés hacerlo mediante:
+      </p>
+
+      <div class="alias-box">
+
+        <span>Alias</span>
+
+        <strong>Mar.rechi</strong>
+
+      </div>
+
+    </section>
+
+    <!-- FOTO DE IARA -->
+
+    <section class="princess-photo">
+
+      <img
+        src="faf82ddab5beebd8dd72347b650b2968.jpg"
+        alt="Iara Morena Trejo"
+      >
+
+    </section>
+
+    <!-- VESTIMENTA -->
+
+    <section class="dress-code">
+
+      <span class="section-number">05</span>
+
+      <h2>Código de vestimenta</h2>
+
+      <div class="dress-card">
+
+        <span>ELEGANTE</span>
+
         <p>
-          Si querés colaborar con un regalito para este día tan especial,
-          podés hacerlo mediante:
+          Color verde agua reservado para la quinceañera.
         </p>
 
-        <div class="alias-box">
-          <span>Alias</span>
-          <strong>Mar.rechi</strong>
-        </div>
-      </section>
+      </div>
 
-      <!-- FOTO DE IARA -->
-      <section class="princess-photo">
-        <img
-          src="faf82ddab5beebd8dd72347b650b2968.jpg"
-          alt="Iara Morena Trejo"
-        />
-      </section>
+    </section>
 
-      <!-- VESTIMENTA -->
-      <section class="dress-code">
-        <span class="section-number">07</span>
-        <h2>Código de vestimenta</h2>
-        <div class="dress-card">
-          <span>ELEGANTE</span>
-          <p>Color verde agua reservado para la quinceañera.</p>
-        </div>
-      </section>
+    <!-- MÚSICA -->
 
-      <!-- MÚSICA -->
-      <section class="section music-section">
-        <span class="section-number">08</span>
-        <h2>Elegí una canción</h2>
-        <p>
-          ¿Qué canción te gustaría escuchar durante esta noche?
-        </p>
+    <section class="section music-section">
 
-        <a
-          href="https://open.spotify.com/"
-          target="_blank"
-          class="spotify-button"
+      <span class="section-number">06</span>
+
+      <h2>Elegí una canción</h2>
+
+      <p>
+        ¿Qué canción te gustaría escuchar durante esta noche?
+      </p>
+
+      <br>
+
+      <a
+        href="https://open.spotify.com/"
+        target="_blank"
+        class="spotify-button"
+      >
+        🎵 Buscar en Spotify
+      </a>
+
+      <form
+        class="song-form"
+        onsubmit="enviarCancion(event)"
+      >
+
+        <input
+          type="text"
+          id="cancion"
+          placeholder="Nombre de la canción"
+          required
         >
-          🎵 Buscar en Spotify
-        </a>
 
-        <form
-          class="song-form"
-          onsubmit="enviarCancion(event)"
+        <input
+          type="text"
+          id="artista"
+          placeholder="Artista"
+          required
         >
-          <input
-            type="text"
-            id="cancion"
-            placeholder="Nombre de la canción"
-            required
-          />
 
-          <input
-            type="text"
-            id="artista"
-            placeholder="Artista"
-            required
-          />
+        <button type="submit">
+          Enviar canción
+        </button>
 
-          <button type="submit">
-            Enviar canción
-          </button>
-        </form>
-      </section>
+      </form>
 
-      <!-- CONFIRMACIÓN -->
-      <section class="section confirmation">
-        <span class="section-number">09</span>
-        <h2>¿Nos acompañás?</h2>
-        <p>
-          Confirmá tu asistencia para compartir juntos esta noche tan especial.
-        </p>
+    </section>
 
-        <form
-          class="confirmation-form"
-          onsubmit="enviarConfirmacion(event)"
+    <!-- CONFIRMACIÓN -->
+
+    <section class="section confirmation">
+
+      <span class="section-number">07</span>
+
+      <h2>¿Nos acompañás?</h2>
+
+      <p>
+        Confirmá tu asistencia para compartir juntos esta noche tan especial.
+      </p>
+
+      <form
+        class="confirmation-form"
+        onsubmit="enviarConfirmacion(event)"
+      >
+
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Nombre"
+          required
         >
-          <input
-            type="text"
-            id="nombre"
-            placeholder="Nombre"
-            required
-          />
 
-          <input
-            type="text"
-            id="apellido"
-            placeholder="Apellido"
-            required
-          />
+        <input
+          type="text"
+          id="apellido"
+          placeholder="Apellido"
+          required
+        >
 
-          <select id="asistencia" required>
-            <option value="">¿Vas a asistir?</option>
-            <option value="Sí, voy a asistir">
-              Sí, voy a asistir
-            </option>
-            <option value="No voy a poder asistir">
-              No voy a poder asistir
-            </option>
-          </select>
+        <select id="asistencia" required>
 
-          <input
-            type="text"
-            id="alergia"
-            placeholder="¿Tenés alguna alergia alimentaria?"
-          />
+          <option value="">
+            ¿Vas a asistir?
+          </option>
 
-          <button type="submit">
-            Confirmar por WhatsApp
-          </button>
-        </form>
-      </section>
+          <option value="Sí, voy a asistir">
+            Sí, voy a asistir
+          </option>
 
-      <!-- ÚLTIMA FOTO -->
-      <section class="final-photo">
-        <img
-          src="motion_photo_17651064731209062.jpg"
-          alt="Iara Morena Trejo - Mis 15"
-        />
+          <option value="No voy a poder asistir">
+            No voy a poder asistir
+          </option>
 
-        <div class="final-overlay">
-          <h2>¡Te esperamos!</h2>
-        </div>
-      </section>
+        </select>
 
-    </main>
+        <input
+          type="text"
+          id="alergia"
+          placeholder="¿Tenés alguna alergia alimentaria?"
+        >
 
-    <script>
-      function enviarCancion(event) {
-        event.preventDefault();
+        <button type="submit">
+          Confirmar por WhatsApp
+        </button>
 
-        const cancion = document.getElementById("cancion").value;
-        const artista = document.getElementById("artista").value;
+      </form>
 
-        const mensaje =
-          `Hola, quiero sugerir una canción para los 15 de Iara Morena Trejo.%0A%0A` +
-          `🎵 Canción: ${encodeURIComponent(cancion)}%0A` +
-          `🎤 Artista: ${encodeURIComponent(artista)}`;
+    </section>
 
-        window.open(
-          `https://wa.me/5491136088939?text=${mensaje}`,
-          "_blank"
-        );
-      }
+    <!-- ÚLTIMA FOTO: SIEMPRE AL FINAL -->
 
-      function enviarConfirmacion(event) {
-        event.preventDefault();
+    <section class="final-photo">
 
-        const nombre =
-          document.getElementById("nombre").value;
+      <img
+        src="motion_photo_17651064731209062.jpg"
+        alt="Iara Morena Trejo - Mis 15"
+      >
 
-        const apellido =
-          document.getElementById("apellido").value;
+      <div class="final-overlay">
 
-        const asistencia =
-          document.getElementById("asistencia").value;
+        <h2>
+          ¡Te esperamos!
+        </h2>
 
-        const alergia =
-          document.getElementById("alergia").value || "Ninguna";
+      </div>
 
-        const mensaje =
-          `Hola, quiero confirmar mi asistencia a los 15 de Iara Morena Trejo.%0A%0A` +
-          `👤 Nombre: ${encodeURIComponent(nombre)}%0A` +
-          `👤 Apellido: ${encodeURIComponent(apellido)}%0A` +
-          `🎉 Asistencia: ${encodeURIComponent(asistencia)}%0A` +
-          `🍽️ Alergias: ${encodeURIComponent(alergia)}`;
+    </section>
 
-        window.open(
-          `https://wa.me/5491136088939?text=${mensaje}`,
-          "_blank"
-        );
-      }
+  </main>
 
-      // CUENTA REGRESIVA
-      const fechaEvento =
-        new Date("October 30, 2026 22:00:00").getTime();
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-      const countdown = setInterval(() => {
-        const ahora = new Date().getTime();
-        const diferencia = fechaEvento - ahora;
+  <script>
+
+    function abrirInvitacion() {
+
+      document.getElementById("cover").style.display = "none";
+
+      document.getElementById("contenido").style.display = "block";
+
+      window.scrollTo(0, 0);
+
+      reproducirMusica();
+    }
+
+    function reproducirMusica() {
+
+      const musica = document.createElement("iframe");
+
+      musica.style.position = "fixed";
+      musica.style.width = "1px";
+      musica.style.height = "1px";
+      musica.style.opacity = "0";
+      musica.style.pointerEvents = "none";
+
+      musica.src =
+        "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+
+      musica.allow =
+        "autoplay; encrypted-media";
+
+      document.body.appendChild(musica);
+
+    }
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================= */
+
+    const fechaEvento =
+      new Date("October 30, 2026 22:00:00").getTime();
+
+    const countdown =
+      setInterval(function() {
+
+        const ahora =
+          new Date().getTime();
+
+        const diferencia =
+          fechaEvento - ahora;
 
         if (diferencia <= 0) {
+
           document.getElementById("days").innerText = "00";
           document.getElementById("hours").innerText = "00";
           document.getElementById("minutes").innerText = "00";
           document.getElementById("seconds").innerText = "00";
+
           clearInterval(countdown);
+
           return;
         }
 
-        const dias = Math.floor(
-          diferencia / (1000 * 60 * 60 * 24)
-        );
+        const dias =
+          Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+          );
 
-        const horas = Math.floor(
-          (diferencia / (1000 * 60 * 60)) % 24
-        );
+        const horas =
+          Math.floor(
+            (diferencia /
+            (1000 * 60 * 60)) % 24
+          );
 
-        const minutos = Math.floor(
-          (diferencia / (1000 * 60)) % 60
-        );
+        const minutos =
+          Math.floor(
+            (diferencia /
+            (1000 * 60)) % 60
+          );
 
-        const segundos = Math.floor(
-          (diferencia / 1000) % 60
-        );
+        const segundos =
+          Math.floor(
+            (diferencia / 1000) % 60
+          );
 
         document.getElementById("days").innerText =
           String(dias).padStart(2, "0");
@@ -1324,9 +1129,71 @@ body{
 
         document.getElementById("seconds").innerText =
           String(segundos).padStart(2, "0");
-      }, 1000);
-    </script>
 
-  </body>
+      }, 1000);
+
+    /* =========================
+       CANCIÓN POR WHATSAPP
+    ========================= */
+
+    function enviarCancion(event) {
+
+      event.preventDefault();
+
+      const cancion =
+        document.getElementById("cancion").value;
+
+      const artista =
+        document.getElementById("artista").value;
+
+      const mensaje =
+        `Hola, quiero sugerir una canción para los 15 de Iara Morena Trejo.%0A%0A` +
+        `🎵 Canción: ${encodeURIComponent(cancion)}%0A` +
+        `🎤 Artista: ${encodeURIComponent(artista)}`;
+
+      window.open(
+        `https://wa.me/5491136088939?text=${mensaje}`,
+        "_blank"
+      );
+
+    }
+
+    /* =========================
+       CONFIRMACIÓN POR WHATSAPP
+    ========================= */
+
+    function enviarConfirmacion(event) {
+
+      event.preventDefault();
+
+      const nombre =
+        document.getElementById("nombre").value;
+
+      const apellido =
+        document.getElementById("apellido").value;
+
+      const asistencia =
+        document.getElementById("asistencia").value;
+
+      const alergia =
+        document.getElementById("alergia").value ||
+        "Ninguna";
+
+      const mensaje =
+        `Hola, quiero confirmar mi asistencia a los 15 de Iara Morena Trejo.%0A%0A` +
+        `👤 Nombre: ${encodeURIComponent(nombre)}%0A` +
+        `👤 Apellido: ${encodeURIComponent(apellido)}%0A` +
+        `🎉 Asistencia: ${encodeURIComponent(asistencia)}%0A` +
+        `🍽️ Alergias: ${encodeURIComponent(alergia)}`;
+
+      window.open(
+        `https://wa.me/5491136088939?text=${mensaje}`,
+        "_blank"
+      );
+
+    }
+
+  </script>
+
+</body>
 </html>
-          
