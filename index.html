@@ -9,10 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -26,604 +23,575 @@
     }
 
     body {
-      background: #f8f4eb;
-      color: #6f5a32;
+      background: #fffaf4;
+      color: #5b493d;
       font-family: "Montserrat", sans-serif;
       overflow-x: hidden;
     }
 
-    img {
-      width: 100%;
-      display: block;
-    }
-
     button,
-    input,
-    select {
+    input {
       font-family: inherit;
     }
 
     /* =========================
-       CARTA DE INICIO
-    ========================= */
+       PORTADA
+    ========================== */
 
-    .cover {
+    #cover {
       min-height: 100vh;
-      background:
-        radial-gradient(circle at center, #fffdf8 0%, #f5ead3 65%, #ead5a5 100%);
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       padding: 20px;
+      background:
+        radial-gradient(circle at top, #fffdf9 0%, #f8eee3 55%, #efe0d0 100%);
+      position: relative;
       overflow: hidden;
     }
 
     .sparkle {
       position: absolute;
-      color: #c8a75c;
+      color: #c9a24d;
       font-size: 22px;
-      animation: sparkle 3s infinite ease-in-out;
+      animation: sparkle 2.5s infinite ease-in-out;
+      opacity: .7;
     }
 
-    .sparkle:nth-child(1) {
-      top: 15%;
-      left: 15%;
-    }
-
-    .sparkle:nth-child(2) {
-      top: 25%;
-      right: 15%;
-      animation-delay: 1s;
-    }
-
-    .sparkle:nth-child(3) {
-      bottom: 20%;
-      left: 20%;
-      animation-delay: 1.5s;
-    }
-
-    .sparkle:nth-child(4) {
-      bottom: 15%;
-      right: 20%;
-      animation-delay: .5s;
-    }
+    .s1 { top: 12%; left: 15%; }
+    .s2 { top: 22%; right: 14%; animation-delay: .6s; }
+    .s3 { bottom: 18%; left: 12%; animation-delay: 1s; }
+    .s4 { bottom: 12%; right: 17%; animation-delay: 1.5s; }
 
     @keyframes sparkle {
-      0%, 100% {
-        opacity: .25;
-        transform: scale(.8);
+      0%,100% {
+        transform: scale(.7);
+        opacity: .3;
       }
-
       50% {
-        opacity: 1;
         transform: scale(1.2);
+        opacity: 1;
       }
     }
 
     .envelope {
-      width: min(390px, 92vw);
+      width: min(420px, 100%);
       text-align: center;
-      cursor: pointer;
       position: relative;
       z-index: 2;
     }
 
     .envelope-card {
-      background: rgba(255,255,255,.78);
-      border: 1px solid #c8a75c;
-      padding: 45px 25px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(190,145,65,.45);
+      border-radius: 28px;
+      padding: 42px 25px;
       box-shadow:
-        0 20px 60px rgba(126, 98, 42, .18),
-        inset 0 0 0 7px rgba(200,167,92,.08);
-      transition: .4s ease;
+        0 20px 60px rgba(118, 83, 44, .15),
+        inset 0 0 30px rgba(205,166,88,.06);
     }
 
-    .envelope-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .small-gold {
-      color: #b99545;
+    .small-title {
+      font-size: 12px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      font-size: 11px;
+      color: #a27b31;
       margin-bottom: 18px;
     }
 
-    .envelope-card h1 {
+    .cover-title {
       font-family: "Great Vibes", cursive;
-      font-size: clamp(58px, 16vw, 90px);
-      font-weight: 400;
-      color: #a78336;
+      color: #b48a36;
+      font-size: clamp(48px, 14vw, 76px);
       line-height: 1;
+      margin-bottom: 14px;
     }
 
-    .envelope-card h2 {
+    .cover-name {
       font-family: "Cormorant Garamond", serif;
-      font-weight: 500;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 22px;
-      margin-top: 12px;
+      font-size: 25px;
+      letter-spacing: 2px;
+      color: #6a5445;
+      margin-bottom: 30px;
     }
 
-    .touch {
-      margin-top: 28px;
-      font-size: 11px;
-      letter-spacing: 3px;
+    .open-button {
+      border: 1px solid #c6a45d;
+      background: linear-gradient(135deg, #d7bb78, #b58a37);
+      color: white;
+      padding: 15px 32px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #9d8249;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(164,122,43,.25);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .open-button:active {
+      transform: scale(.96);
+    }
+
+    .open-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(164,122,43,.32);
     }
 
     /* =========================
        CONTENIDO
-    ========================= */
+    ========================== */
 
     #contenido {
       display: none;
-      background: #f8f4eb;
+      background: #fffaf4;
     }
 
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 75px 20px;
+    section {
+      padding: 65px 20px;
       text-align: center;
       position: relative;
     }
 
-    .section-number {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: #b28b3e;
-      margin-bottom: 14px;
-    }
-
-    .section h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(35px, 8vw, 54px);
-      font-weight: 500;
-      color: #866a31;
-      margin-bottom: 18px;
-    }
-
-    .section p {
-      max-width: 620px;
+    .section-inner {
+      max-width: 650px;
       margin: auto;
-      line-height: 1.8;
-      font-size: 14px;
-      color: #7c7059;
+    }
+
+    .gold-line {
+      width: 75px;
+      height: 1px;
+      background: #c8a258;
+      margin: 18px auto 25px;
+    }
+
+    .section-title {
+      font-family: "Great Vibes", cursive;
+      font-size: 48px;
+      color: #b38a3b;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      color: #705949;
+      margin-top: 10px;
     }
 
     /* =========================
        PRIMERA FOTO
-    ========================= */
+    ========================== */
 
     .hero-photo {
+      padding: 0;
+    }
+
+    .photo-container {
       position: relative;
       width: 100%;
-      height: min(90vh, 780px);
       overflow: hidden;
     }
 
     .hero-photo img {
       width: 100%;
-      height: 100%;
+      height: min(720px, 90vh);
       object-fit: cover;
-      object-position: center;
+      display: block;
     }
 
-    .hero-photo::after {
-      content: "";
+    .photo-overlay {
       position: absolute;
       inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 45px 20px;
       background: linear-gradient(
-        to bottom,
-        transparent 55%,
-        rgba(0,0,0,.4)
+        to top,
+        rgba(40,25,15,.42),
+        transparent 45%
       );
     }
 
-    .hero-title {
-      position: absolute;
-      bottom: 55px;
-      left: 20px;
-      right: 20px;
-      z-index: 2;
-      text-align: center;
+    .photo-title {
       color: white;
       font-family: "Great Vibes", cursive;
-      font-size: clamp(55px, 15vw, 100px);
-      font-weight: 400;
+      font-size: clamp(55px, 15vw, 90px);
       text-shadow: 0 3px 15px rgba(0,0,0,.35);
     }
 
     /* =========================
        FRASE
-    ========================= */
+    ========================== */
 
-    .quote-section {
-      padding-top: 95px;
-      padding-bottom: 95px;
-      background: #fffdf8;
+    .phrase {
+      background: #fffaf4;
+      padding: 60px 25px;
     }
 
-    .quote {
+    .phrase-text {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(28px, 7vw, 46px);
-      line-height: 1.25;
-      color: #80662f;
-      max-width: 700px;
-      margin: auto;
+      font-size: clamp(27px, 6vw, 38px);
       font-weight: 500;
+      line-height: 1.35;
+      color: #705748;
     }
 
     /* =========================
        CALENDARIO
-    ========================= */
+    ========================== */
 
-    .calendar-card {
-      max-width: 430px;
-      margin: 35px auto 0;
-      background: #fffdf9;
-      border: 1px solid #d0b56e;
-      padding: 25px 18px;
-      box-shadow: 0 15px 45px rgba(111,90,50,.10);
+    .calendar-section {
+      background: #f9f0e6;
     }
 
-    .calendar-month {
+    .calendar {
+      max-width: 420px;
+      margin: 30px auto 0;
+      background: rgba(255,255,255,.8);
+      border-radius: 25px;
+      padding: 22px;
+      box-shadow: 0 12px 35px rgba(99,72,42,.10);
+      border: 1px solid rgba(193,151,76,.25);
+    }
+
+    .month {
       font-family: "Cormorant Garamond", serif;
       font-size: 32px;
-      color: #8b6c2f;
-      margin-bottom: 18px;
+      color: #9e7735;
+      margin-bottom: 20px;
     }
 
-    .calendar-week {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-      margin-bottom: 8px;
-      font-size: 10px;
-      color: #a0844d;
-      letter-spacing: 1px;
-    }
-
-    .calendar-days {
+    .weekdays,
+    .days {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 7px;
     }
 
-    .day {
-      aspect-ratio: 1;
+    .weekdays div {
+      font-size: 10px;
+      font-weight: 700;
+      color: #a68759;
+      padding-bottom: 8px;
+    }
+
+    .days div {
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 12px;
-      color: #756648;
+      font-size: 13px;
+      color: #6c594d;
     }
 
-    .day.highlight {
-      background: #c8a75c;
+    /* SOLO EL 30 */
+
+    .days .special-day {
+      background: linear-gradient(135deg, #d5b66f, #b58b3d);
       color: white;
-      box-shadow: 0 4px 15px rgba(177,137,50,.35);
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(172,132,52,.3);
     }
 
     /* =========================
-       HORARIO / CUENTA
-    ========================= */
+       HORA / CUENTA REGRESIVA
+    ========================== */
 
     .time-section {
-      background: linear-gradient(135deg, #eee0bb, #fffaf0);
+      background: #fffaf4;
     }
 
     .time {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(70px, 17vw, 120px);
-      line-height: 1;
-      color: #9c7830;
-      margin: 15px 0;
+      font-size: 65px;
+      color: #b38a3b;
+      margin-top: 10px;
     }
 
     .countdown {
-      max-width: 650px;
-      margin: 35px auto 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      justify-content: center;
       gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px;
     }
 
     .count-box {
-      background: rgba(255,255,255,.7);
-      border: 1px solid rgba(180,145,75,.4);
-      padding: 15px 5px;
+      min-width: 70px;
+      padding: 14px 8px;
+      background: #f8eee3;
+      border: 1px solid rgba(190,145,65,.25);
+      border-radius: 15px;
     }
 
-    .count-box strong {
+    .count-number {
       display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 31px;
-      color: #8c6a2e;
+      font-size: 23px;
+      font-weight: 700;
+      color: #a67d35;
     }
 
-    .count-box span {
-      display: block;
-      font-size: 8px;
-      letter-spacing: 2px;
+    .count-label {
+      font-size: 9px;
       text-transform: uppercase;
-      margin-top: 4px;
-      color: #9a8761;
+      letter-spacing: 1px;
+      color: #806d5e;
     }
 
     /* =========================
-       MAPA
-    ========================= */
+       UBICACIÓN
+    ========================== */
 
-    .map-container {
-      max-width: 850px;
-      margin: 30px auto 25px;
-      border: 1px solid #c8a75c;
-      padding: 6px;
-      background: #fff;
-      box-shadow: 0 15px 40px rgba(111,90,50,.12);
+    .location-section {
+      background: #f8eee3;
     }
 
-    .map-container iframe {
+    .address {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      color: #6b5547;
+      margin: 20px 0;
+    }
+
+    .map {
       width: 100%;
-      height: 350px;
+      height: 300px;
       border: 0;
-      display: block;
+      border-radius: 22px;
+      margin-top: 20px;
+      box-shadow: 0 12px 35px rgba(70,50,30,.12);
     }
 
     .map-button,
-    .spotify-button {
+    .gold-button {
       display: inline-block;
+      margin-top: 20px;
+      padding: 14px 25px;
+      border-radius: 30px;
       text-decoration: none;
-      background: #b18a3c;
+      background: #b38a3b;
       color: white;
-      padding: 14px 24px;
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 1px;
-      font-size: 11px;
-      text-transform: uppercase;
-      transition: .3s ease;
-      border: none;
-      cursor: pointer;
+      transition: transform .2s ease;
     }
 
-    .map-button:hover,
-    .spotify-button:hover {
-      background: #8d6c2e;
-      transform: translateY(-2px);
+    .map-button:active,
+    .gold-button:active {
+      transform: scale(.97);
     }
 
     /* =========================
        COLABORACIÓN
-    ========================= */
+    ========================== */
 
-    .collaboration {
-      background: #fffdf8;
+    .gift-section {
+      background: #fffaf4;
     }
 
-    .alias-box {
-      max-width: 360px;
-      margin: 30px auto 0;
-      padding: 25px;
-      border: 1px solid #c8a75c;
-      background: #faf3df;
+    .gift-card {
+      margin-top: 25px;
+      padding: 30px 22px;
+      background: #fff;
+      border: 1px solid rgba(190,145,65,.3);
+      border-radius: 25px;
+      box-shadow: 0 12px 35px rgba(90,60,30,.08);
     }
 
-    .alias-box span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      color: #9a7b3c;
+    .gift-icon {
+      font-size: 38px;
+      margin-bottom: 12px;
     }
 
-    .alias-box strong {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 32px;
-      color: #84662d;
+    .alias {
+      font-size: 25px;
+      font-weight: 700;
+      color: #b18a40;
+      margin-top: 12px;
+      letter-spacing: 1px;
     }
 
     /* =========================
        FOTO IARA
-    ========================= */
+    ========================== */
 
-    .princess-photo {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
+    .iara-photo {
+      padding: 0;
+      background: #fff;
     }
 
-    .princess-photo img {
+    .iara-photo img {
       width: 100%;
-      max-height: 850px;
+      max-height: 800px;
       object-fit: cover;
-      object-position: center;
+      display: block;
     }
 
     /* =========================
-       VESTIMENTA
-    ========================= */
+       DRESS CODE
+    ========================== */
 
-    .dress-code {
-      text-align: center;
-      padding: 55px 20px 65px;
-      background: #fffdf8;
+    .dress-section {
+      background: #f9f0e6;
     }
 
-    .dress-card {
-      max-width: 480px;
-      margin: 25px auto 0;
-      border-top: 1px solid #c8a75c;
-      border-bottom: 1px solid #c8a75c;
-      padding: 28px 20px;
-    }
-
-    .dress-card span {
+    .dress-main {
       font-family: "Cormorant Garamond", serif;
-      font-size: 38px;
-      letter-spacing: 5px;
-      color: #a17d35;
+      font-size: 45px;
+      font-weight: 700;
+      color: #b38a3b;
+      margin: 15px 0;
+      letter-spacing: 3px;
     }
 
-    .dress-card p {
-      margin-top: 12px;
-      font-size: 12px;
+    .dress-note {
+      font-size: 14px;
       line-height: 1.7;
-      color: #776a51;
+      color: #725e51;
+      max-width: 480px;
+      margin: auto;
     }
 
     /* =========================
        MÚSICA
-    ========================= */
+    ========================== */
 
     .music-section {
-      background: linear-gradient(
-        to bottom,
-        #f8f4eb,
-        #fffdf8
-      );
+      background: #fffaf4;
     }
 
-    .song-form,
-    .confirmation-form {
-      max-width: 480px;
-      margin: 30px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .song-form input,
-    .confirmation-form input,
-    .confirmation-form select {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #d2bf91;
-      background: #fff;
-      outline: none;
-      color: #67583e;
-      font-size: 13px;
-    }
-
-    .song-form input:focus,
-    .confirmation-form input:focus,
-    .confirmation-form select:focus {
-      border-color: #ad873c;
-    }
-
-    .song-form button,
-    .confirmation-form button {
-      padding: 15px;
-      border: none;
-      background: #b18a3c;
+    .spotify-button {
+      display: inline-block;
+      text-decoration: none;
+      background: #b38a3b;
       color: white;
-      text-transform: uppercase;
+      padding: 14px 27px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 1px;
-      cursor: pointer;
-      font-size: 11px;
-      transition: .3s ease;
+      margin: 20px 0 25px;
     }
 
-    .song-form button:hover,
-    .confirmation-form button:hover {
-      background: #8d6c2e;
+    .form {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .input {
+      width: 100%;
+      padding: 15px 17px;
+      margin-bottom: 12px;
+      border: 1px solid #d9c6aa;
+      border-radius: 14px;
+      outline: none;
+      background: #fff;
+      color: #59483d;
+      font-size: 14px;
+    }
+
+    .input:focus {
+      border-color: #b38a3b;
     }
 
     /* =========================
        CONFIRMACIÓN
-    ========================= */
+    ========================== */
 
-    .confirmation {
-      background: #f0e4c5;
+    .confirmation-section {
+      background: #f8eee3;
+    }
+
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 8px 0 18px;
+      font-size: 14px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .confirmation-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      color: #725b4c;
+      margin-bottom: 20px;
     }
 
     /* =========================
        FOTO FINAL
-    ========================= */
+    ========================== */
 
     .final-photo {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      overflow: hidden;
+      padding: 0;
     }
 
     .final-photo img {
       width: 100%;
-      height: 100vh;
+      height: min(750px, 90vh);
       object-fit: cover;
-      object-position: center;
-    }
-
-    .final-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.18);
+      display: block;
     }
 
     .final-overlay {
       position: absolute;
       inset: 0;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       padding: 20px;
+      background: rgba(45,30,20,.18);
     }
 
-    .final-overlay h2 {
+    .final-title {
       color: white;
       font-family: "Great Vibes", cursive;
-      font-size: clamp(65px, 17vw, 125px);
-      font-weight: 400;
-      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+      font-size: clamp(60px, 16vw, 100px);
+      text-shadow: 0 4px 20px rgba(0,0,0,.45);
     }
 
     /* =========================
-       RESPONSIVE
-    ========================= */
+       ANIMACIÓN
+    ========================== */
 
-    @media (max-width: 600px) {
+    .fade-in {
+      animation: fadeIn 1.2s ease both;
+    }
 
-      .section {
-        padding: 65px 20px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 55px 18px;
       }
 
-      .hero-photo {
+      .section-title {
+        font-size: 43px;
+      }
+
+      .hero-photo img,
+      .final-photo img {
         height: 78vh;
-      }
-
-      .map-container iframe {
-        height: 300px;
-      }
-
-      .countdown {
-        gap: 5px;
-      }
-
-      .count-box {
-        padding: 12px 3px;
-      }
-
-      .count-box strong {
-        font-size: 25px;
-      }
-
-      .count-box span {
-        font-size: 7px;
-        letter-spacing: 1px;
       }
     }
   </style>
@@ -632,137 +600,67 @@
 <body>
 
   <!-- =========================
-       CARTA DE INICIO
-  ========================= -->
+       PORTADA
+  ========================== -->
 
-  <section class="cover" id="cover">
+  <div id="cover">
 
-    <span class="sparkle">✦</span>
-    <span class="sparkle">✧</span>
-    <span class="sparkle">✦</span>
-    <span class="sparkle">✧</span>
+    <span class="sparkle s1">✦</span>
+    <span class="sparkle s2">✧</span>
+    <span class="sparkle s3">✦</span>
+    <span class="sparkle s4">✧</span>
 
-    <div class="envelope" onclick="abrirInvitacion()">
-
+    <div class="envelope">
       <div class="envelope-card">
 
-        <div class="small-gold">
-          Una noche especial
+        <div class="small-title">
+          Una invitación especial
         </div>
 
-        <h1>Iara</h1>
-
-        <h2>Mis 15 años</h2>
-
-        <div class="touch">
-          Tocar para abrir
+        <div class="cover-title">
+          Mis 15
         </div>
+
+        <div class="cover-name">
+          Iara Morena Trejo
+        </div>
+
+        <button
+          type="button"
+          class="open-button"
+          id="openInvitation"
+        >
+          Abrir invitación
+        </button>
 
       </div>
-
     </div>
 
-  </section>
+  </div>
+
 
   <!-- =========================
        CONTENIDO
-  ========================= -->
+  ========================== -->
 
   <main id="contenido">
 
-    <!-- PRIMERA FOTO -->
+    <!-- 1. PRIMERA FOTO -->
 
     <section class="hero-photo">
 
-      <img
-        src="IMG-20260922-WA0080.jpg"
-        alt="Iara Morena Trejo"
-      >
+      <div class="photo-container">
 
-      <div class="hero-title">
-        Mis 15 años
-      </div>
+        <img
+          src="IMG-20260922-WA0080.jpg"
+          alt="Iara Morena Trejo"
+        >
 
-    </section>
+        <div class="photo-overlay">
 
-    <!-- FRASE -->
-
-    <section class="section quote-section">
-
-      <p class="quote">
-        Quiero compartir este día tan especial con vos.
-      </p>
-
-    </section>
-
-    <!-- CALENDARIO -->
-
-    <section class="section">
-
-      <span class="section-number">01</span>
-
-      <h2>Guardá la fecha</h2>
-
-      <div class="calendar-card">
-
-        <div class="calendar-month">
-          Octubre 2026
-        </div>
-
-        <div class="calendar-week">
-          <span>DOM</span>
-          <span>LUN</span>
-          <span>MAR</span>
-          <span>MIÉ</span>
-          <span>JUE</span>
-          <span>VIE</span>
-          <span>SÁB</span>
-        </div>
-
-        <div class="calendar-days">
-
-          <span class="day"></span>
-          <span class="day"></span>
-          <span class="day"></span>
-          <span class="day"></span>
-
-          <span class="day">1</span>
-          <span class="day">2</span>
-          <span class="day">3</span>
-
-          <span class="day">4</span>
-          <span class="day">5</span>
-          <span class="day">6</span>
-          <span class="day">7</span>
-          <span class="day">8</span>
-          <span class="day">9</span>
-          <span class="day">10</span>
-
-          <span class="day">11</span>
-          <span class="day">12</span>
-          <span class="day">13</span>
-          <span class="day">14</span>
-          <span class="day">15</span>
-          <span class="day">16</span>
-          <span class="day">17</span>
-
-          <span class="day">18</span>
-          <span class="day">19</span>
-          <span class="day">20</span>
-          <span class="day">21</span>
-          <span class="day">22</span>
-          <span class="day">23</span>
-          <span class="day">24</span>
-
-          <span class="day">25</span>
-          <span class="day">26</span>
-          <span class="day">27</span>
-          <span class="day">28</span>
-          <span class="day">29</span>
-
-          <span class="day highlight">30</span>
-
-          <span class="day">31</span>
+          <div class="photo-title">
+            Mis 15 años
+          </div>
 
         </div>
 
@@ -770,107 +668,228 @@
 
     </section>
 
-    <!-- HORARIO -->
 
-    <section class="section time-section">
+    <!-- 2. FRASE -->
 
-      <span class="section-number">02</span>
+    <section class="phrase">
 
-      <h2>Te espero a las</h2>
+      <div class="section-inner">
 
-      <div class="time">
-        22:00
+        <div class="gold-line"></div>
+
+        <p class="phrase-text">
+          Quiero compartir este día tan especial con vos.
+        </p>
+
+        <div class="gold-line"></div>
+
       </div>
 
-      <p>
-        Viernes 30 de octubre de 2026
-      </p>
+    </section>
 
-      <div class="countdown">
 
-        <div class="count-box">
-          <strong id="days">00</strong>
-          <span>Días</span>
-        </div>
+    <!-- 3. CALENDARIO -->
 
-        <div class="count-box">
-          <strong id="hours">00</strong>
-          <span>Horas</span>
-        </div>
+    <section class="calendar-section">
 
-        <div class="count-box">
-          <strong id="minutes">00</strong>
-          <span>Minutos</span>
-        </div>
+      <div class="section-inner">
 
-        <div class="count-box">
-          <strong id="seconds">00</strong>
-          <span>Segundos</span>
+        <h2 class="section-title">
+          La fecha
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <div class="calendar">
+
+          <div class="month">
+            Octubre 2026
+          </div>
+
+          <div class="weekdays">
+            <div>LUN</div>
+            <div>MAR</div>
+            <div>MIÉ</div>
+            <div>JUE</div>
+            <div>VIE</div>
+            <div>SÁB</div>
+            <div>DOM</div>
+          </div>
+
+          <div class="days">
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+
+            <!-- ÚNICO DÍA DESTACADO -->
+            <div class="special-day">30</div>
+
+            <div>31</div>
+
+          </div>
+
         </div>
 
       </div>
 
     </section>
 
-    <!-- UBICACIÓN -->
 
-    <section class="section">
+    <!-- 4. HORA -->
 
-      <span class="section-number">03</span>
+    <section class="time-section">
 
-      <h2>¿Dónde nos encontramos?</h2>
+      <div class="section-inner">
 
-      <p>
-        General Pedernera 1530
-      </p>
+        <h2 class="section-title">
+          Te espero
+        </h2>
 
-      <div class="map-container">
+        <div class="gold-line"></div>
+
+        <div class="time">
+          22:00 hs
+        </div>
+
+        <div class="countdown">
+
+          <div class="count-box">
+            <span class="count-number" id="days">00</span>
+            <span class="count-label">Días</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="hours">00</span>
+            <span class="count-label">Horas</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="minutes">00</span>
+            <span class="count-label">Minutos</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="seconds">00</span>
+            <span class="count-label">Segundos</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 5. UBICACIÓN -->
+
+    <section class="location-section">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          ¿Dónde?
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <div class="address">
+          General Pedernera 1530
+        </div>
 
         <iframe
-          src="https://www.google.com/maps?q=General+Pedernera+1530&output=embed"
+          class="map"
+          src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
           loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
 
-      </div>
-
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
-        target="_blank"
-        class="map-button"
-      >
-        📍 Abrir ubicación en Google Maps
-      </a>
-
-    </section>
-
-    <!-- COLABORACIÓN -->
-
-    <section class="section collaboration">
-
-      <span class="section-number">04</span>
-
-      <h2>Un pequeño detalle</h2>
-
-      <p>
-        Si querés colaborar con un regalito para este día tan especial,
-        podés hacerlo mediante:
-      </p>
-
-      <div class="alias-box">
-
-        <span>Alias</span>
-
-        <strong>Mar.rechi</strong>
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/search/?api=1&query=General%20Pedernera%201530"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abrir en Google Maps
+        </a>
 
       </div>
 
     </section>
 
-    <!-- FOTO DE IARA -->
 
-    <section class="princess-photo">
+    <!-- 6. COLABORACIÓN -->
+
+    <section class="gift-section">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Un detalle especial
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <div class="gift-card">
+
+          <div class="gift-icon">
+            ♡
+          </div>
+
+          <p>
+            Si querés hacerme un regalo,
+            podés colaborar a través de:
+          </p>
+
+          <div class="alias">
+            Mar.rechi
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 7. FOTO DE IARA -->
+
+    <section class="iara-photo">
 
       <img
         src="faf82ddab5beebd8dd72347b650b2968.jpg"
@@ -879,19 +898,24 @@
 
     </section>
 
-    <!-- VESTIMENTA -->
 
-    <section class="dress-code">
+    <!-- 8. DRESS CODE -->
 
-      <span class="section-number">05</span>
+    <section class="dress-section">
 
-      <h2>Código de vestimenta</h2>
+      <div class="section-inner">
 
-      <div class="dress-card">
+        <h2 class="section-title">
+          Código de vestimenta
+        </h2>
 
-        <span>ELEGANTE</span>
+        <div class="gold-line"></div>
 
-        <p>
+        <div class="dress-main">
+          ELEGANTE
+        </div>
+
+        <p class="dress-note">
           Color verde agua reservado para la quinceañera.
         </p>
 
@@ -899,130 +923,160 @@
 
     </section>
 
-    <!-- MÚSICA -->
 
-    <section class="section music-section">
+    <!-- 9. MÚSICA / SPOTIFY -->
 
-      <span class="section-number">06</span>
+    <section class="music-section">
 
-      <h2>Elegí una canción</h2>
+      <div class="section-inner">
 
-      <p>
-        ¿Qué canción te gustaría escuchar durante esta noche?
-      </p>
+        <h2 class="section-title">
+          Música
+        </h2>
 
-      <br>
+        <div class="gold-line"></div>
 
-      <a
-        href="https://open.spotify.com/"
-        target="_blank"
-        class="spotify-button"
-      >
-        🎵 Buscar en Spotify
-      </a>
+        <p>
+          Elegí una canción para acompañar esta noche.
+        </p>
 
-      <form
-        class="song-form"
-        onsubmit="enviarCancion(event)"
-      >
-
-        <input
-          type="text"
-          id="cancion"
-          placeholder="Nombre de la canción"
-          required
+        <a
+          class="spotify-button"
+          href="https://open.spotify.com/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
+          Abrir Spotify
+        </a>
 
-        <input
-          type="text"
-          id="artista"
-          placeholder="Artista"
-          required
-        >
+        <form class="form" id="songForm">
 
-        <button type="submit">
-          Enviar canción
-        </button>
+          <input
+            class="input"
+            type="text"
+            id="song"
+            placeholder="Nombre de la canción"
+            required
+          >
 
-      </form>
+          <input
+            class="input"
+            type="text"
+            id="artist"
+            placeholder="Artista"
+            required
+          >
+
+          <button
+            class="gold-button"
+            type="submit"
+          >
+            Enviar canción
+          </button>
+
+        </form>
+
+      </div>
 
     </section>
 
-    <!-- CONFIRMACIÓN -->
 
-    <section class="section confirmation">
+    <!-- 10. CONFIRMACIÓN -->
 
-      <span class="section-number">07</span>
+    <section class="confirmation-section">
 
-      <h2>¿Nos acompañás?</h2>
+      <div class="section-inner">
 
-      <p>
-        Confirmá tu asistencia para compartir juntos esta noche tan especial.
-      </p>
+        <h2 class="section-title">
+          Confirmación
+        </h2>
 
-      <form
-        class="confirmation-form"
-        onsubmit="enviarConfirmacion(event)"
-      >
+        <div class="gold-line"></div>
 
-        <input
-          type="text"
-          id="nombre"
-          placeholder="Nombre"
-          required
-        >
+        <div class="confirmation-title">
+          ¿Vas a acompañarme?
+        </div>
 
-        <input
-          type="text"
-          id="apellido"
-          placeholder="Apellido"
-          required
-        >
+        <form class="form" id="confirmationForm">
 
-        <select id="asistencia" required>
+          <input
+            class="input"
+            type="text"
+            id="guestName"
+            placeholder="Nombre"
+            required
+          >
 
-          <option value="">
-            ¿Vas a asistir?
-          </option>
+          <input
+            class="input"
+            type="text"
+            id="guestSurname"
+            placeholder="Apellido"
+            required
+          >
 
-          <option value="Sí, voy a asistir">
-            Sí, voy a asistir
-          </option>
+          <div class="radio-group">
 
-          <option value="No voy a poder asistir">
-            No voy a poder asistir
-          </option>
+            <label>
+              <input
+                type="radio"
+                name="attendance"
+                value="Sí, voy"
+                required
+              >
+              Sí, voy
+            </label>
 
-        </select>
+            <label>
+              <input
+                type="radio"
+                name="attendance"
+                value="No puedo asistir"
+              >
+              No puedo asistir
+            </label>
 
-        <input
-          type="text"
-          id="alergia"
-          placeholder="¿Tenés alguna alergia alimentaria?"
-        >
+          </div>
 
-        <button type="submit">
-          Confirmar por WhatsApp
-        </button>
+          <input
+            class="input"
+            type="text"
+            id="allergy"
+            placeholder="¿Tenés alguna alergia o restricción alimentaria?"
+          >
 
-      </form>
+          <button
+            class="gold-button"
+            type="submit"
+          >
+            Confirmar por WhatsApp
+          </button>
+
+        </form>
+
+      </div>
 
     </section>
 
-    <!-- ÚLTIMA FOTO: SIEMPRE AL FINAL -->
+
+    <!-- 11. ÚLTIMA FOTO: NO HAY NADA DESPUÉS -->
 
     <section class="final-photo">
 
-      <img
-        src="motion_photo_17651064731209062.jpg"
-        alt="Iara Morena Trejo - Mis 15"
-      >
+      <div class="photo-container">
 
-      <div class="final-overlay">
+        <img
+          src="motion_photo_17651064731209062.jpg"
+          alt="Iara Morena Trejo"
+        >
 
-        <h2>
-          ¡Te esperamos!
-        </h2>
+        <div class="final-overlay">
+
+          <div class="final-title">
+            ¡Te esperamos!
+          </div>
+
+        </div>
 
       </div>
 
@@ -1030,70 +1084,98 @@
 
   </main>
 
+
   <!-- =========================
        JAVASCRIPT
-  ========================= -->
+  ========================== -->
 
   <script>
 
-    function abrirInvitacion() {
+    document.addEventListener("DOMContentLoaded", function () {
 
-      document.getElementById("cover").style.display = "none";
+      const openButton = document.getElementById("openInvitation");
+      const cover = document.getElementById("cover");
+      const contenido = document.getElementById("contenido");
 
-      document.getElementById("contenido").style.display = "block";
+      /*
+       * APERTURA DE LA INVITACIÓN
+       */
 
-      window.scrollTo(0, 0);
+      openButton.addEventListener("click", function () {
 
-      reproducirMusica();
-    }
+        cover.style.display = "none";
+        contenido.style.display = "block";
 
-    function reproducirMusica() {
+        window.scrollTo({
+          top: 0,
+          behavior: "instant"
+        });
 
-      const musica = document.createElement("iframe");
+        reproducirMusica();
 
-      musica.style.position = "fixed";
-      musica.style.width = "1px";
-      musica.style.height = "1px";
-      musica.style.opacity = "0";
-      musica.style.pointerEvents = "none";
+      });
 
-      musica.src =
-        "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
-      musica.allow =
-        "autoplay; encrypted-media";
+      /*
+       * MÚSICA
+       */
 
-      document.body.appendChild(musica);
+      function reproducirMusica() {
 
-    }
+        const musicaExistente =
+          document.getElementById("musicaInvitacion");
 
-    /* =========================
-       CUENTA REGRESIVA
-    ========================= */
+        if (musicaExistente) {
+          return;
+        }
 
-    const fechaEvento =
-      new Date("October 30, 2026 22:00:00").getTime();
+        const musica = document.createElement("iframe");
 
-    const countdown =
-      setInterval(function() {
+        musica.id = "musicaInvitacion";
 
-        const ahora =
-          new Date().getTime();
+        musica.src =
+          "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+
+        musica.allow =
+          "autoplay; encrypted-media";
+
+        musica.style.position = "fixed";
+        musica.style.width = "1px";
+        musica.style.height = "1px";
+        musica.style.opacity = "0";
+        musica.style.pointerEvents = "none";
+        musica.style.border = "0";
+
+        document.body.appendChild(musica);
+      }
+
+
+      /*
+       * CUENTA REGRESIVA
+       */
+
+      const fechaEvento =
+        new Date("2026-10-30T22:00:00-03:00").getTime();
+
+
+      function actualizarCuentaRegresiva() {
+
+        const ahora = new Date().getTime();
 
         const diferencia =
           fechaEvento - ahora;
 
+
         if (diferencia <= 0) {
 
-          document.getElementById("days").innerText = "00";
-          document.getElementById("hours").innerText = "00";
-          document.getElementById("minutes").innerText = "00";
-          document.getElementById("seconds").innerText = "00";
-
-          clearInterval(countdown);
+          document.getElementById("days").textContent = "00";
+          document.getElementById("hours").textContent = "00";
+          document.getElementById("minutes").textContent = "00";
+          document.getElementById("seconds").textContent = "00";
 
           return;
         }
+
 
         const dias =
           Math.floor(
@@ -1101,97 +1183,138 @@
             (1000 * 60 * 60 * 24)
           );
 
+
         const horas =
           Math.floor(
-            (diferencia /
-            (1000 * 60 * 60)) % 24
+            (diferencia %
+              (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
           );
+
 
         const minutos =
           Math.floor(
-            (diferencia /
-            (1000 * 60)) % 60
+            (diferencia %
+              (1000 * 60 * 60)) /
+            (1000 * 60)
           );
+
 
         const segundos =
           Math.floor(
-            (diferencia / 1000) % 60
+            (diferencia %
+              (1000 * 60)) /
+            1000
           );
 
-        document.getElementById("days").innerText =
+
+        document.getElementById("days").textContent =
           String(dias).padStart(2, "0");
 
-        document.getElementById("hours").innerText =
+        document.getElementById("hours").textContent =
           String(horas).padStart(2, "0");
 
-        document.getElementById("minutes").innerText =
+        document.getElementById("minutes").textContent =
           String(minutos).padStart(2, "0");
 
-        document.getElementById("seconds").innerText =
+        document.getElementById("seconds").textContent =
           String(segundos).padStart(2, "0");
 
-      }, 1000);
+      }
 
-    /* =========================
-       CANCIÓN POR WHATSAPP
-    ========================= */
 
-    function enviarCancion(event) {
+      actualizarCuentaRegresiva();
 
-      event.preventDefault();
-
-      const cancion =
-        document.getElementById("cancion").value;
-
-      const artista =
-        document.getElementById("artista").value;
-
-      const mensaje =
-        `Hola, quiero sugerir una canción para los 15 de Iara Morena Trejo.%0A%0A` +
-        `🎵 Canción: ${encodeURIComponent(cancion)}%0A` +
-        `🎤 Artista: ${encodeURIComponent(artista)}`;
-
-      window.open(
-        `https://wa.me/5491136088939?text=${mensaje}`,
-        "_blank"
+      setInterval(
+        actualizarCuentaRegresiva,
+        1000
       );
 
-    }
 
-    /* =========================
-       CONFIRMACIÓN POR WHATSAPP
-    ========================= */
+      /*
+       * SUGERENCIA DE CANCIÓN
+       */
 
-    function enviarConfirmacion(event) {
+      document
+        .getElementById("songForm")
+        .addEventListener("submit", function (event) {
 
-      event.preventDefault();
+          event.preventDefault();
 
-      const nombre =
-        document.getElementById("nombre").value;
+          const song =
+            document.getElementById("song").value.trim();
 
-      const apellido =
-        document.getElementById("apellido").value;
+          const artist =
+            document.getElementById("artist").value.trim();
 
-      const asistencia =
-        document.getElementById("asistencia").value;
 
-      const alergia =
-        document.getElementById("alergia").value ||
-        "Ninguna";
+          if (!song || !artist) {
+            return;
+          }
 
-      const mensaje =
-        `Hola, quiero confirmar mi asistencia a los 15 de Iara Morena Trejo.%0A%0A` +
-        `👤 Nombre: ${encodeURIComponent(nombre)}%0A` +
-        `👤 Apellido: ${encodeURIComponent(apellido)}%0A` +
-        `🎉 Asistencia: ${encodeURIComponent(asistencia)}%0A` +
-        `🍽️ Alergias: ${encodeURIComponent(alergia)}`;
 
-      window.open(
-        `https://wa.me/5491136088939?text=${mensaje}`,
-        "_blank"
-      );
+          const mensaje =
+            "Hola Iara 💕 Quiero sugerir una canción para tus 15.%0A%0A" +
+            "🎵 Canción: " + encodeURIComponent(song) +
+            "%0A" +
+            "🎤 Artista: " + encodeURIComponent(artist);
 
-    }
+
+          window.open(
+            "https://wa.me/5491136088939?text=" + mensaje,
+            "_blank"
+          );
+
+        });
+
+
+      /*
+       * CONFIRMACIÓN
+       */
+
+      document
+        .getElementById("confirmationForm")
+        .addEventListener("submit", function (event) {
+
+          event.preventDefault();
+
+
+          const nombre =
+            document.getElementById("guestName").value.trim();
+
+          const apellido =
+            document.getElementById("guestSurname").value.trim();
+
+          const asistencia =
+            document.querySelector(
+              'input[name="attendance"]:checked'
+            ).value;
+
+          const alergia =
+            document.getElementById("allergy").value.trim() ||
+            "No informa";
+
+
+          const mensaje =
+            "Hola Iara 💕 Quiero confirmar mi asistencia a tus 15.%0A%0A" +
+            "👤 Nombre: " + encodeURIComponent(nombre) +
+            "%0A" +
+            "👤 Apellido: " + encodeURIComponent(apellido) +
+            "%0A" +
+            "🎉 Asistencia: " + encodeURIComponent(asistencia) +
+            "%0A" +
+            "🍽️ Alergias/restricciones: " +
+            encodeURIComponent(alergia);
+
+
+          window.open(
+            "https://wa.me/5491136088939?text=" + mensaje,
+            "_blank"
+          );
+
+        });
+
+    });
 
   </script>
 
