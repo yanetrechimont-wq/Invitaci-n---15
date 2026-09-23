@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mis 15 — Iara Morena Trejo</title>
+<title>Mis 15 años — Iara Morena Trejo</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,17 +25,18 @@ html{
 
 body{
     background:#fffdf9;
-    color:#1b1712;
+    color:#211d18;
     font-family:'Cormorant Garamond',serif;
     overflow-x:hidden;
 }
 
 :root{
-    --dorado:#b68a3a;
-    --dorado-claro:#d7b66a;
-    --dorado-brillo:#efd99b;
-    --crema:#fffdf8;
-    --negro:#17130f;
+    --gold:#b68a3a;
+    --gold-light:#d8b86a;
+    --gold-soft:#ead7a7;
+    --cream:#fffdf8;
+    --beige:#f7f0e3;
+    --dark:#211d18;
 }
 
 /* =========================
@@ -47,11 +48,11 @@ body{
     inset:0;
     z-index:9999;
     background:
-        radial-gradient(circle at center,#fffdf7 0%,#f7f0e2 55%,#ead8b5 100%);
+        radial-gradient(circle at center,#fffefa 0%,#f8f0df 60%,#ead7ad 100%);
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:opacity 1s ease, visibility 1s ease;
+    transition:opacity 1s ease,visibility 1s ease;
 }
 
 #entrada.ocultar{
@@ -62,60 +63,59 @@ body{
 
 .decoracion{
     position:absolute;
-    width:100%;
-    height:100%;
-    pointer-events:none;
+    inset:0;
     overflow:hidden;
+    pointer-events:none;
 }
 
 .decoracion span{
     position:absolute;
-    width:5px;
-    height:5px;
-    background:var(--dorado);
+    width:4px;
+    height:4px;
+    background:var(--gold);
     border-radius:50%;
-    opacity:.45;
+    opacity:.5;
     animation:brillar 3s infinite ease-in-out;
 }
 
 .decoracion span:nth-child(1){left:12%;top:18%;}
-.decoracion span:nth-child(2){left:82%;top:23%;animation-delay:.7s;}
-.decoracion span:nth-child(3){left:20%;top:76%;animation-delay:1.2s;}
-.decoracion span:nth-child(4){left:76%;top:79%;animation-delay:1.8s;}
-.decoracion span:nth-child(5){left:50%;top:10%;animation-delay:2s;}
-.decoracion span:nth-child(6){left:91%;top:52%;animation-delay:2.4s;}
+.decoracion span:nth-child(2){left:84%;top:24%;animation-delay:.5s;}
+.decoracion span:nth-child(3){left:20%;top:78%;animation-delay:1s;}
+.decoracion span:nth-child(4){left:77%;top:80%;animation-delay:1.6s;}
+.decoracion span:nth-child(5){left:50%;top:11%;animation-delay:2s;}
+.decoracion span:nth-child(6){left:91%;top:52%;animation-delay:2.5s;}
 
 @keyframes brillar{
     0%,100%{
         transform:scale(.6);
-        opacity:.25;
+        opacity:.2;
     }
     50%{
-        transform:scale(1.5);
-        opacity:.9;
+        transform:scale(1.6);
+        opacity:1;
     }
 }
 
 .carta{
     width:min(88%,390px);
     text-align:center;
-    position:relative;
 }
 
 .sobre{
     position:relative;
     width:100%;
     height:245px;
-    background:linear-gradient(145deg,#fffdf9,#f3e4c3);
-    border:1px solid var(--dorado);
+    background:linear-gradient(145deg,#fffefa,#f1dfb9);
+    border:1px solid var(--gold);
+    border-radius:5px;
     box-shadow:
-        0 25px 60px rgba(92,65,24,.18),
-        0 0 0 8px rgba(182,138,58,.06);
-    border-radius:4px;
+        0 25px 60px rgba(86,59,19,.18),
+        0 0 0 8px rgba(182,138,58,.05);
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
+    perspective:800px;
 }
 
 .sobre::before{
@@ -132,11 +132,12 @@ body{
     bottom:0;
     width:100%;
     height:70%;
-    background:linear-gradient(135deg,
+    background:
+        linear-gradient(135deg,
         transparent 49%,
         rgba(182,138,58,.35) 50%,
         transparent 51%);
-    opacity:.35;
+    opacity:.4;
 }
 
 .solapa{
@@ -145,7 +146,7 @@ body{
     left:0;
     width:100%;
     height:125px;
-    background:linear-gradient(135deg,#f8edda,#fffdf8);
+    background:linear-gradient(135deg,#fffefa,#f2e3c5);
     clip-path:polygon(0 0,100% 0,50% 100%);
     border-bottom:1px solid rgba(182,138,58,.5);
     z-index:3;
@@ -160,60 +161,63 @@ body{
 .sello{
     position:relative;
     z-index:5;
-    width:72px;
-    height:72px;
-    border:1px solid var(--dorado);
+    width:74px;
+    height:74px;
+    border:1px solid var(--gold);
     border-radius:50%;
-    background:#fffdf8;
+    background:#fffefa;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:var(--dorado);
+    color:var(--gold);
     font-family:'Great Vibes',cursive;
-    font-size:38px;
+    font-size:40px;
     box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 .texto-entrada{
-    margin-top:30px;
+    margin-top:28px;
 }
 
 .texto-entrada .mini{
     font-family:'Montserrat',sans-serif;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:4px;
-    color:#806329;
+    color:#7f622e;
     text-transform:uppercase;
 }
 
 .texto-entrada h1{
     font-family:'Great Vibes',cursive;
-    font-size:54px;
+    font-size:57px;
+    color:var(--gold);
     font-weight:400;
-    color:var(--dorado);
-    margin:5px 0 15px;
+    margin:4px 0 15px;
 }
 
-.btn-abrir{
-    border:1px solid var(--dorado);
-    background:linear-gradient(135deg,#b68a3a,#d7b66a,#a87a2c);
+.btn-abrir,
+.btn{
+    border:1px solid var(--gold);
+    background:linear-gradient(135deg,#ad7d2d,#d7b66a,#a97627);
     color:white;
-    padding:14px 28px;
+    padding:14px 29px;
     border-radius:40px;
     font-family:'Montserrat',sans-serif;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
     text-transform:uppercase;
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(120,80,20,.2);
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 10px 25px rgba(120,80,20,.18);
 }
 
 /* =========================
-   GENERAL
+   SECCIONES
 ========================= */
 
 section{
-    padding:75px 20px;
+    padding:72px 20px;
     position:relative;
 }
 
@@ -225,8 +229,8 @@ section{
 
 .etiqueta{
     font-family:'Montserrat',sans-serif;
-    color:var(--dorado);
-    font-size:11px;
+    color:var(--gold);
+    font-size:10px;
     letter-spacing:4px;
     text-transform:uppercase;
     margin-bottom:12px;
@@ -236,42 +240,49 @@ section{
     font-family:'Great Vibes',cursive;
     font-weight:400;
     font-size:58px;
-    line-height:1;
-    color:var(--dorado);
-}
-
-.subtitulo{
-    font-size:27px;
-    line-height:1.25;
+    line-height:1.05;
+    color:var(--gold);
 }
 
 .linea{
-    width:70px;
+    width:65px;
     height:1px;
-    background:var(--dorado);
-    margin:25px auto;
+    background:var(--gold);
+    margin:22px auto;
+}
+
+.adorno{
+    color:var(--gold);
+    font-size:22px;
+    letter-spacing:8px;
+    margin:18px 0;
 }
 
 /* =========================
-   HERO
+   PRIMERA FOTO
 ========================= */
 
 .hero{
     min-height:92vh;
     padding:0;
-    position:relative;
     display:flex;
     align-items:flex-end;
     justify-content:center;
     overflow:hidden;
+    position:relative;
 }
 
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
+
     background:
-        linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.05) 65%),
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.70),
+            rgba(0,0,0,.04) 65%
+        ),
         url('IMG-20260922-WA0080.jpg') center/cover no-repeat;
 }
 
@@ -280,31 +291,17 @@ section{
     z-index:2;
     width:100%;
     text-align:center;
-    padding:0 20px 55px;
     color:white;
-}
-
-.hero .pequeno{
-    font-family:'Montserrat',sans-serif;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
+    padding:0 20px 55px;
 }
 
 .hero h1{
     font-family:'Great Vibes',cursive;
     font-size:82px;
     font-weight:400;
-    color:#f2d38b;
-    text-shadow:0 3px 18px rgba(0,0,0,.4);
+    color:#f0d18b;
     line-height:1;
-    margin:10px 0;
-}
-
-.hero h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:31px;
-    font-weight:500;
+    text-shadow:0 3px 18px rgba(0,0,0,.45);
 }
 
 /* =========================
@@ -313,19 +310,17 @@ section{
 
 .mensaje{
     background:#fffdf9;
-    padding-top:82px;
-    padding-bottom:78px;
 }
 
 .mensaje p{
-    font-size:30px;
-    line-height:1.3;
-    max-width:580px;
+    max-width:570px;
     margin:auto;
+    font-size:31px;
+    line-height:1.3;
 }
 
 .mensaje strong{
-    color:var(--dorado);
+    color:var(--gold);
     font-weight:600;
 }
 
@@ -334,21 +329,21 @@ section{
 ========================= */
 
 .calendario{
-    background:#f8f1e4;
+    background:var(--beige);
 }
 
 .calendario-box{
     max-width:420px;
     margin:30px auto 0;
     background:white;
-    padding:28px 20px;
+    padding:27px 20px;
     border:1px solid rgba(182,138,58,.35);
     box-shadow:0 15px 35px rgba(90,60,20,.08);
 }
 
 .mes{
     font-family:'Great Vibes',cursive;
-    color:var(--dorado);
+    color:var(--gold);
     font-size:42px;
     margin-bottom:15px;
 }
@@ -366,16 +361,16 @@ section{
 }
 
 .encabezado{
-    color:var(--dorado);
+    color:var(--gold);
     font-weight:700;
 }
 
 .fecha-especial{
-    background:var(--dorado);
+    background:var(--gold);
     color:white;
     border-radius:50%;
-    width:35px;
-    height:35px;
+    width:36px;
+    height:36px;
     margin:auto;
     display:flex;
     align-items:center;
@@ -384,7 +379,7 @@ section{
 }
 
 /* =========================
-   FECHA Y HORA
+   RELOJ
 ========================= */
 
 .horario{
@@ -392,45 +387,43 @@ section{
 }
 
 .reloj{
-    font-size:58px;
-    color:var(--dorado);
+    color:var(--gold);
+    font-size:64px;
+    line-height:1;
     margin-bottom:10px;
 }
 
 .hora{
-    font-family:'Cormorant Garamond',serif;
-    font-size:50px;
+    font-size:51px;
+    color:var(--gold);
     font-weight:600;
-    color:var(--dorado);
 }
 
 .fecha{
     font-family:'Montserrat',sans-serif;
-    font-size:12px;
+    font-size:11px;
     letter-spacing:3px;
     margin-top:8px;
     text-transform:uppercase;
 }
 
 #contador{
-    margin-top:30px;
+    margin:30px auto 0;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:8px;
     max-width:480px;
-    margin-left:auto;
-    margin-right:auto;
 }
 
 .contador-item{
     border:1px solid rgba(182,138,58,.35);
-    padding:14px 5px;
+    padding:13px 5px;
 }
 
 .contador-item span{
     display:block;
-    font-size:26px;
-    color:var(--dorado);
+    font-size:25px;
+    color:var(--gold);
     font-weight:600;
 }
 
@@ -446,132 +439,110 @@ section{
 ========================= */
 
 .ubicacion{
-    background:#f8f1e4;
+    background:var(--beige);
 }
 
 .direccion{
     font-size:29px;
-    margin:20px 0 25px;
+    margin:18px 0 23px;
 }
 
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    background:var(--dorado);
-    color:white;
-    padding:14px 28px;
-    border-radius:40px;
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    box-shadow:0 8px 20px rgba(120,80,20,.18);
-}
-
-/* =========================
-   FOTO VESTIDO
-========================= */
-
-.foto-vestido{
-    padding:40px 20px 25px;
-    background:white;
-}
-
-.foto-vestido img{
-    width:min(100%,600px);
-    display:block;
-    margin:auto;
-    max-height:720px;
-    object-fit:cover;
-    border:5px solid white;
-    outline:1px solid rgba(182,138,58,.45);
-    box-shadow:0 18px 45px rgba(0,0,0,.12);
-}
-
-.vestimenta{
-    background:white;
-    padding-top:25px;
-    padding-bottom:75px;
-}
-
-.vestimenta .titulo{
-    font-size:50px;
-}
-
-.elegante{
-    font-family:'Montserrat',sans-serif;
-    letter-spacing:5px;
-    font-size:17px;
-    color:var(--dorado);
-    font-weight:600;
-    margin-top:10px;
-}
-
-.reservado{
-    font-size:23px;
-    margin-top:20px;
-    font-style:italic;
-}
-
-/* =========================
-   FOTO FINAL
-========================= */
-
-.foto-final{
-    padding:0;
-    min-height:88vh;
-    display:flex;
-    align-items:flex-end;
-    background:
-        linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,0)),
-        url('motion_photo_17651064731209062.jpg') center/cover no-repeat;
-}
-
-.foto-final-contenido{
+.mapa{
     width:100%;
-    text-align:center;
-    color:white;
-    padding:50px 20px;
-}
-
-.foto-final h2{
-    font-family:'Great Vibes',cursive;
-    font-size:70px;
-    color:#f0d18b;
-    font-weight:400;
+    height:300px;
+    border:0;
+    margin:25px 0 24px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
 }
 
 /* =========================
-   REGALO
+   ALIAS / COLABORACIÓN
 ========================= */
 
 .regalo{
-    background:#fffdf9;
+    background:white;
+}
+
+.regalo-texto{
+    max-width:570px;
+    margin:0 auto;
+    font-size:25px;
+    line-height:1.35;
 }
 
 .alias{
-    margin:25px auto;
     max-width:400px;
-    padding:25px;
+    margin:27px auto 0;
+    padding:24px;
     border:1px solid rgba(182,138,58,.45);
-    background:#fff;
-    box-shadow:0 12px 30px rgba(0,0,0,.07);
+    background:#fffdf8;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
 }
 
 .alias span{
     display:block;
     font-family:'Montserrat',sans-serif;
-    font-size:10px;
+    font-size:9px;
     letter-spacing:3px;
+    color:#806329;
     text-transform:uppercase;
-    color:#8a6a32;
 }
 
 .alias strong{
     display:block;
     font-size:32px;
-    color:var(--dorado);
+    color:var(--gold);
     margin-top:8px;
+}
+
+/* =========================
+   FOTO PRINCESA
+========================= */
+
+.foto-princesa{
+    background:white;
+    padding:30px 20px 25px;
+}
+
+.foto-princesa img{
+    width:min(100%,600px);
+    max-height:720px;
+    object-fit:cover;
+    display:block;
+    margin:auto;
+    border:5px solid white;
+    outline:1px solid rgba(182,138,58,.45);
+    box-shadow:0 18px 45px rgba(0,0,0,.13);
+}
+
+/* =========================
+   VESTIMENTA PEGADA A FOTO
+========================= */
+
+.vestimenta{
+    background:white;
+    padding-top:22px;
+    padding-bottom:75px;
+}
+
+.vestimenta .titulo{
+    font-size:53px;
+}
+
+.elegante{
+    font-family:'Montserrat',sans-serif;
+    letter-spacing:5px;
+    font-size:18px;
+    color:var(--gold);
+    font-weight:600;
+    margin-top:10px;
+}
+
+.reservado{
+    max-width:520px;
+    margin:18px auto 0;
+    font-size:23px;
+    font-style:italic;
 }
 
 /* =========================
@@ -579,12 +550,14 @@ section{
 ========================= */
 
 .spotify{
-    background:#f8f1e4;
+    background:var(--beige);
 }
 
 .spotify p{
-    font-size:23px;
+    max-width:560px;
     margin:15px auto 25px;
+    font-size:24px;
+    line-height:1.3;
 }
 
 .spotify input{
@@ -596,11 +569,7 @@ section{
     font-family:'Cormorant Garamond',serif;
     font-size:18px;
     outline:none;
-    margin-bottom:12px;
-}
-
-.spotify input:focus{
-    border-color:var(--dorado);
+    margin:20px 0 12px;
 }
 
 /* =========================
@@ -613,7 +582,7 @@ section{
 
 .formulario{
     max-width:500px;
-    margin:25px auto 0;
+    margin:27px auto 0;
 }
 
 .formulario input,
@@ -633,24 +602,29 @@ section{
     resize:none;
 }
 
-.formulario label{
+.formulario > label{
     display:block;
     text-align:left;
     font-family:'Montserrat',sans-serif;
     font-size:10px;
     letter-spacing:2px;
     color:#806329;
-    margin:8px 0;
+    margin:9px 0;
     text-transform:uppercase;
 }
 
 .radio{
     display:flex;
-    gap:10px;
-    align-items:center;
     justify-content:center;
-    margin:15px 0 20px;
+    gap:25px;
+    margin:14px 0 20px;
     font-size:18px;
+}
+
+.radio label{
+    display:flex;
+    align-items:center;
+    gap:7px;
 }
 
 .radio input{
@@ -658,39 +632,64 @@ section{
     margin:0;
 }
 
-.boton-whatsapp{
-    border:none;
-    cursor:pointer;
+/* =========================
+   ÚLTIMA FOTO
+========================= */
+
+.foto-final{
+    min-height:88vh;
+    padding:0;
+    display:flex;
+    align-items:flex-end;
+    position:relative;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.72),
+            rgba(0,0,0,0)
+        ),
+        url('motion_photo_17651064731209062.jpg') center/cover no-repeat;
+}
+
+.foto-final-contenido{
+    width:100%;
+    text-align:center;
+    color:white;
+    padding:55px 20px;
+}
+
+.foto-final h2{
+    font-family:'Great Vibes',cursive;
+    font-size:76px;
+    color:#f0d18b;
+    font-weight:400;
+    text-shadow:0 3px 18px rgba(0,0,0,.4);
 }
 
 /* =========================
-   MÚSICA
+   FINAL
 ========================= */
 
-#musicaVideo{
-    position:absolute;
-    width:1px;
-    height:1px;
-    opacity:0;
-    pointer-events:none;
+.final{
+    background:var(--beige);
+    padding:78px 20px;
 }
 
-/* =========================
-   DETALLES
-========================= */
-
-.adorno{
-    color:var(--dorado);
+.final p{
+    max-width:550px;
+    margin:15px auto 0;
     font-size:25px;
-    letter-spacing:10px;
-    margin:20px 0;
 }
+
+/* =========================
+   BRILLOS
+========================= */
 
 brillo{
     position:fixed;
     width:4px;
     height:4px;
-    background:var(--dorado);
+    background:var(--gold-light);
     border-radius:50%;
     pointer-events:none;
     animation:caer 4s linear forwards;
@@ -702,7 +701,9 @@ brillo{
         transform:translateY(-20px);
         opacity:0;
     }
-    15%{opacity:.8;}
+    15%{
+        opacity:.9;
+    }
     to{
         transform:translateY(100vh);
         opacity:0;
@@ -710,7 +711,7 @@ brillo{
 }
 
 /* =========================
-   RESPONSIVE
+   MÓVIL
 ========================= */
 
 @media(max-width:480px){
@@ -719,24 +720,20 @@ brillo{
         font-size:72px;
     }
 
-    .hero h2{
-        font-size:27px;
-    }
-
     .titulo{
-        font-size:52px;
+        font-size:53px;
     }
 
     .mensaje p{
-        font-size:27px;
-    }
-
-    .subtitulo{
-        font-size:24px;
+        font-size:28px;
     }
 
     .foto-final h2{
-        font-size:62px;
+        font-size:65px;
+    }
+
+    .vestimenta .titulo{
+        font-size:48px;
     }
 
 }
@@ -746,9 +743,10 @@ brillo{
 
 <body>
 
-<!-- =========================
+
+<!-- ==================================================
      CARTA DE APERTURA
-========================= -->
+================================================== -->
 
 <div id="entrada">
 
@@ -781,7 +779,9 @@ brillo{
 
             <h1>Mis 15</h1>
 
-            <button class="btn-abrir" onclick="abrirInvitacion()">
+            <button
+                class="btn-abrir"
+                onclick="abrirInvitacion()">
                 Abrir invitación
             </button>
 
@@ -792,9 +792,7 @@ brillo{
 </div>
 
 
-<!-- =========================
-     MÚSICA
-========================= -->
+<!-- MÚSICA -->
 
 <iframe
     id="musicaVideo"
@@ -803,32 +801,26 @@ brillo{
 </iframe>
 
 
-<!-- =========================
+<!-- ==================================================
      PRIMERA FOTO
-========================= -->
+================================================== -->
 
 <section class="hero">
 
     <div class="hero-contenido">
 
-        <div class="pequeno">
-            Una noche para recordar
-        </div>
-
-        <h1>Mis 15</h1>
-
-        <h2>Iara Morena Trejo</h2>
-
-        <div class="adorno">✦ · ✦</div>
+        <h1>
+            Mis 15 años
+        </h1>
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      MENSAJE
-========================= -->
+================================================== -->
 
 <section class="mensaje">
 
@@ -845,20 +837,18 @@ brillo{
             <strong>con vos.</strong>
         </p>
 
-        <div class="linea"></div>
-
-        <p class="subtitulo">
-            Tu presencia hará que esta noche sea aún más inolvidable.
-        </p>
+        <div class="adorno">
+            ✦ · ✦
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      CALENDARIO
-========================= -->
+================================================== -->
 
 <section class="calendario">
 
@@ -868,7 +858,9 @@ brillo{
             Reservá la fecha
         </div>
 
-        <h2 class="titulo">Octubre</h2>
+        <h2 class="titulo">
+            Octubre
+        </h2>
 
         <div class="calendario-box">
 
@@ -911,11 +903,7 @@ brillo{
                 <div>18</div>
 
                 <div>19</div>
-
-                <div>
-                    <div class="fecha-especial">20</div>
-                </div>
-
+                <div class="fecha-especial">20</div>
                 <div>21</div>
                 <div>22</div>
                 <div>23</div>
@@ -926,9 +914,7 @@ brillo{
                 <div>27</div>
                 <div>28</div>
                 <div>29</div>
-                <div>
-                    <div class="fecha-especial">30</div>
-                </div>
+                <div class="fecha-especial">30</div>
                 <div>31</div>
                 <div></div>
 
@@ -941,9 +927,9 @@ brillo{
 </section>
 
 
-<!-- =========================
-     HORARIO
-========================= -->
+<!-- ==================================================
+     RELOJ
+================================================== -->
 
 <section class="horario">
 
@@ -994,9 +980,9 @@ brillo{
 </section>
 
 
-<!-- =========================
-     UBICACIÓN
-========================= -->
+<!-- ==================================================
+     UBICACIÓN + GOOGLE MAPS
+================================================== -->
 
 <section class="ubicacion">
 
@@ -1016,11 +1002,17 @@ brillo{
             General Pedernera 1530
         </p>
 
+        <iframe
+            class="mapa"
+            src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
+            loading="lazy">
+        </iframe>
+
         <a
             class="btn"
             href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
             target="_blank">
-            Ver ubicación
+            Abrir Google Maps
         </a>
 
     </div>
@@ -1028,95 +1020,28 @@ brillo{
 </section>
 
 
-<!-- =========================
-     FOTO DEL VESTIDO
-========================= -->
-
-<section class="foto-vestido">
-
-    <img
-        src="faf82ddab5beebd8dd72347b650b2968.jpg"
-        alt="Vestido">
-
-</section>
-
-
-<!-- =========================
-     CÓDIGO DE VESTIMENTA
-========================= -->
-
-<section class="vestimenta">
-
-    <div class="contenedor">
-
-        <div class="etiqueta">
-            Dress code
-        </div>
-
-        <h2 class="titulo">
-            Código de vestimenta
-        </h2>
-
-        <div class="linea"></div>
-
-        <div class="elegante">
-            ELEGANTE
-        </div>
-
-        <p class="reservado">
-            Color verde agua reservado para la quinceañera.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ÚLTIMA FOTO
-========================= -->
-
-<section class="foto-final">
-
-    <div class="foto-final-contenido">
-
-        <div class="adorno">
-            ✦ · ✦
-        </div>
-
-        <h2>
-            Una noche inolvidable
-        </h2>
-
-        <div class="adorno">
-            ✦ · ✦
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     REGALO
-========================= -->
+<!-- ==================================================
+     ALIAS / COLABORACIÓN
+================================================== -->
 
 <section class="regalo">
 
     <div class="contenedor">
 
         <div class="etiqueta">
-            Si querés hacerme un regalo
+            Un pequeño detalle
         </div>
 
         <h2 class="titulo">
-            Un detalle
+            Si querés colaborar
         </h2>
 
         <div class="linea"></div>
 
-        <p class="subtitulo">
-            Tu presencia es mi mejor regalo.
+        <p class="regalo-texto">
+            Si deseás hacerme un regalo, podés colaborar
+            con lo que esté a tu alcance. Lo voy a recibir
+            con muchísimo cariño.
         </p>
 
         <div class="alias">
@@ -1136,368 +1061,29 @@ brillo{
 </section>
 
 
-<!-- =========================
-     SPOTIFY
-========================= -->
+<!-- ==================================================
+     FOTO DE LA PRINCESA
+================================================== -->
 
-<section class="spotify">
+<section class="foto-princesa">
+
+    <img
+        src="faf82ddab5beebd8dd72347b650b2968.jpg"
+        alt="Iara Morena Trejo">
+
+</section>
+
+
+<!-- ==================================================
+     CÓDIGO DE VESTIMENTA
+================================================== -->
+
+<section class="vestimenta">
 
     <div class="contenedor">
 
         <div class="etiqueta">
-            Elegí una canción
+            Dress code
         </div>
 
-        <h2 class="titulo">
-            Música
-        </h2>
-
-        <div class="linea"></div>
-
-        <p>
-            ¿Qué canción te gustaría escuchar durante la fiesta?
-        </p>
-
-        <a
-            class="btn"
-            href="https://open.spotify.com/"
-            target="_blank">
-            Abrir Spotify
-        </a>
-
-        <div style="height:22px;"></div>
-
-        <input
-            id="cancion"
-            type="text"
-            placeholder="Nombre de la canción y artista">
-
-        <br>
-
-        <button
-            class="btn boton-whatsapp"
-            onclick="enviarCancion()">
-            Enviar canción
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONFIRMACIÓN
-========================= -->
-
-<section class="confirmacion">
-
-    <div class="contenedor">
-
-        <div class="etiqueta">
-            Importante
-        </div>
-
-        <h2 class="titulo">
-            Reservá tu invitación
-        </h2>
-
-        <div class="linea"></div>
-
-        <p class="subtitulo">
-            Confirmá tu asistencia completando tus datos.
-        </p>
-
-        <div class="formulario">
-
-            <input
-                id="nombre"
-                type="text"
-                placeholder="Nombre">
-
-            <input
-                id="apellido"
-                type="text"
-                placeholder="Apellido">
-
-            <label>
-                ¿Vas a asistir?
-            </label>
-
-            <div class="radio">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="asistencia"
-                        value="Sí">
-                    Sí
-                </label>
-
-                <label>
-                    <input
-                        type="radio"
-                        name="asistencia"
-                        value="No">
-                    No
-                </label>
-
-            </div>
-
-            <label>
-                ¿Tenés alguna alergia alimentaria?
-            </label>
-
-            <textarea
-                id="alergia"
-                placeholder="Indicá si tenés alguna alergia o escribí 'Ninguna'"></textarea>
-
-            <button
-                class="btn boton-whatsapp"
-                onclick="confirmarAsistencia()">
-                Reservar invitación
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FINAL
-========================= -->
-
-<section style="background:#f8f1e4;padding:80px 20px;">
-
-    <div class="contenedor">
-
-        <div class="adorno">
-            ✦ · ✦
-        </div>
-
-        <h2 class="titulo">
-            Te espero
-        </h2>
-
-        <p style="font-size:25px;margin-top:15px;">
-            Gracias por ser parte de este momento tan especial.
-        </p>
-
-        <div class="adorno">
-            ✦ · ✦
-        </div>
-
-    </div>
-
-</section>
-
-
-<script>
-
-/* =========================
-   ABRIR INVITACIÓN + MÚSICA
-========================= */
-
-function abrirInvitacion(){
-
-    const sobre = document.getElementById("sobre");
-
-    sobre.classList.add("abierto");
-
-    const musica = document.getElementById("musicaVideo");
-
-    musica.src =
-        "https://www.youtube.com/embed/BDwEyfgClF4?autoplay=1&playsinline=1&rel=0";
-
-    crearBrillos();
-
-    setTimeout(function(){
-
-        document.getElementById("entrada").classList.add("ocultar");
-
-    },1200);
-
-}
-
-
-/* =========================
-   CONTADOR
-========================= */
-
-const fechaEvento =
-    new Date("2026-10-30T22:00:00-03:00").getTime();
-
-function actualizarContador(){
-
-    const ahora = new Date().getTime();
-
-    const diferencia = fechaEvento - ahora;
-
-    if(diferencia <= 0){
-
-        document.getElementById("dias").innerText = "00";
-        document.getElementById("horas").innerText = "00";
-        document.getElementById("minutos").innerText = "00";
-        document.getElementById("segundos").innerText = "00";
-
-        return;
-    }
-
-    const dias =
-        Math.floor(diferencia / (1000*60*60*24));
-
-    const horas =
-        Math.floor(
-            (diferencia % (1000*60*60*24))
-            /(1000*60*60)
-        );
-
-    const minutos =
-        Math.floor(
-            (diferencia % (1000*60*60))
-            /(1000*60)
-        );
-
-    const segundos =
-        Math.floor(
-            (diferencia % (1000*60))
-            /1000
-        );
-
-    document.getElementById("dias").innerText =
-        String(dias).padStart(2,"0");
-
-    document.getElementById("horas").innerText =
-        String(horas).padStart(2,"0");
-
-    document.getElementById("minutos").innerText =
-        String(minutos).padStart(2,"0");
-
-    document.getElementById("segundos").innerText =
-        String(segundos).padStart(2,"0");
-
-}
-
-setInterval(actualizarContador,1000);
-
-actualizarContador();
-
-
-/* =========================
-   SPOTIFY → WHATSAPP
-========================= */
-
-function enviarCancion(){
-
-    const cancion =
-        document.getElementById("cancion").value.trim();
-
-    if(!cancion){
-
-        alert("Escribí el nombre de la canción y artista.");
-
-        return;
-    }
-
-    const mensaje =
-        "Hola Iara 💛 Quiero sugerir esta canción para tus 15: " +
-        cancion;
-
-    const url =
-        "https://wa.me/5491136088939?text=" +
-        encodeURIComponent(mensaje);
-
-    window.open(url,"_blank");
-
-}
-
-
-/* =========================
-   CONFIRMACIÓN → WHATSAPP
-========================= */
-
-function confirmarAsistencia(){
-
-    const nombre =
-        document.getElementById("nombre").value.trim();
-
-    const apellido =
-        document.getElementById("apellido").value.trim();
-
-    const alergia =
-        document.getElementById("alergia").value.trim();
-
-    const asistencia =
-        document.querySelector(
-            'input[name="asistencia"]:checked'
-        );
-
-    if(!nombre || !apellido || !asistencia){
-
-        alert(
-            "Completá tu nombre, apellido y confirmá si vas a asistir."
-        );
-
-        return;
-    }
-
-    const textoAlergia =
-        alergia || "Ninguna";
-
-    const mensaje =
-        "✨ CONFIRMACIÓN DE MIS 15 ✨\n\n" +
-        "Nombre: " + nombre + "\n" +
-        "Apellido: " + apellido + "\n" +
-        "Asistencia: " + asistencia.value + "\n" +
-        "Alergias alimentarias: " + textoAlergia;
-
-    const url =
-        "https://wa.me/5491136088939?text=" +
-        encodeURIComponent(mensaje);
-
-    window.open(url,"_blank");
-
-}
-
-
-/* =========================
-   BRILLOS DORADOS
-========================= */
-
-function crearBrillos(){
-
-    for(let i=0;i<22;i++){
-
-        setTimeout(function(){
-
-            const brillo =
-                document.createElement("brillo");
-
-            brillo.style.left =
-                Math.random()*100 + "vw";
-
-            brillo.style.top =
-                "-10px";
-
-            brillo.style.animationDuration =
-                (3 + Math.random()*3) + "s";
-
-            document.body.appendChild(brillo);
-
-            setTimeout(function(){
-
-                brillo.remove();
-
-            },6000);
-
-        },i*130);
-
-    }
-
-}
-
-</script>
-
-</body>
-</html>
+        <
