@@ -8,6 +8,10 @@
 
 <style>
 
+/* =====================================================
+   ESTILO GENERAL
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -19,15 +23,19 @@ html{
 }
 
 body{
-    font-family:Georgia, serif;
-    background:#fff8fb;
-    color:#634653;
+    font-family:"Georgia", serif;
+    background:#fffdf9;
+    color:#4d433b;
     overflow-x:hidden;
 }
 
-/* =========================
-   FONDO Y PARTICULAS
-========================= */
+section,
+footer{
+    position:relative;
+    z-index:2;
+}
+
+/* Brillos suaves */
 
 body::before{
     content:"";
@@ -35,106 +43,192 @@ body::before{
     inset:0;
     pointer-events:none;
     background-image:
-        radial-gradient(circle, rgba(190,120,150,.18) 1px, transparent 1px);
-    background-size:35px 35px;
+        radial-gradient(circle, rgba(190,150,70,.18) 1px, transparent 1px);
+    background-size:45px 45px;
     z-index:0;
 }
 
-section,
-footer{
-    position:relative;
-    z-index:1;
+/* =====================================================
+   APERTURA TIPO CARTA
+===================================================== */
+
+.intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+        radial-gradient(circle at center, #fffdf8 0%, #f8f0df 55%, #e8d29c 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    transition:opacity 1s ease, visibility 1s ease;
 }
 
-/* =========================
-   PORTADA
-========================= */
+.intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.envelope{
+    width:min(90vw,620px);
+    min-height:430px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:55px 30px;
+    background:linear-gradient(145deg,#fffefb,#f8f0df);
+    border:1px solid #c7a85b;
+    box-shadow:
+        0 0 0 8px rgba(255,255,255,.65),
+        0 0 35px rgba(190,150,70,.30),
+        0 25px 70px rgba(100,75,35,.20);
+    overflow:hidden;
+}
+
+.envelope::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(183,145,62,.55);
+    pointer-events:none;
+}
+
+.envelope::after{
+    content:"✦";
+    position:absolute;
+    top:25px;
+    right:30px;
+    color:#c39b45;
+    font-size:24px;
+    animation:brillo 2s infinite ease-in-out;
+}
+
+.intro-content{
+    position:relative;
+    z-index:2;
+}
+
+.intro-small{
+    font-family:"Arial",sans-serif;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-size:11px;
+    color:#9d7b32;
+    margin-bottom:28px;
+}
+
+.intro h1{
+    font-size:clamp(32px,8vw,60px);
+    font-weight:normal;
+    color:#a17b2d;
+    line-height:1.2;
+}
+
+.intro-line{
+    width:90px;
+    height:1px;
+    background:#c5a45a;
+    margin:25px auto;
+}
+
+.intro p{
+    font-size:17px;
+    font-style:italic;
+    color:#62564a;
+}
+
+.open-letter{
+    margin-top:35px;
+    padding:15px 35px;
+    border:1px solid #b9974b;
+    background:#fffdf9;
+    color:#96732b;
+    font-family:Arial,sans-serif;
+    letter-spacing:2px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.open-letter:hover{
+    background:#b9974b;
+    color:white;
+    transform:scale(1.04);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:100vh;
-    padding:20px;
+    padding:90px 20px 70px;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
 
     background:
-        radial-gradient(circle at 15% 15%, #f8dce8, transparent 30%),
-        radial-gradient(circle at 85% 85%, #efd0df, transparent 30%),
-        linear-gradient(135deg,#fffafd,#f9e7ef);
-
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"✦";
-    position:absolute;
-    top:8%;
-    left:8%;
-    font-size:70px;
-    color:#d19aae;
-    animation:flotar 4s infinite ease-in-out;
-}
-
-.hero::after{
-    content:"✿";
-    position:absolute;
-    bottom:8%;
-    right:8%;
-    font-size:75px;
-    color:#d19aae;
-    animation:flotar 5s infinite ease-in-out reverse;
+        radial-gradient(circle at 15% 20%,rgba(214,181,101,.20),transparent 25%),
+        radial-gradient(circle at 85% 80%,rgba(214,181,101,.18),transparent 25%),
+        linear-gradient(135deg,#fffefa,#faf4e7);
 }
 
 .hero-content{
     width:100%;
-    max-width:700px;
+    max-width:750px;
     animation:entrada 1.5s ease;
 }
 
 .pre-title{
     font-family:Arial,sans-serif;
     text-transform:uppercase;
-    letter-spacing:5px;
-    font-size:13px;
-    color:#a76c84;
-    margin-bottom:15px;
+    letter-spacing:6px;
+    font-size:11px;
+    color:#9b7932;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(65px,17vw,115px);
-    line-height:.85;
+    font-size:clamp(65px,17vw,120px);
+    line-height:.9;
     font-weight:normal;
-    color:#8c536b;
+    color:#a37c2d;
+    letter-spacing:-3px;
 }
 
 .hero h2{
-    font-size:clamp(25px,7vw,45px);
+    font-size:clamp(25px,7vw,46px);
     font-weight:normal;
-    color:#684452;
-    margin:20px 0;
+    color:#51473e;
+    margin:22px 0;
 }
 
 .ornament{
-    color:#bf7f98;
-    font-size:30px;
-    margin:12px 0;
+    color:#b89443;
+    font-size:28px;
+    margin:18px 0;
 }
 
-/* =========================
+/* =====================================================
    FOTO PRINCIPAL
-========================= */
+===================================================== */
 
 .main-photo{
-    width:min(82vw,360px);
-    height:min(100vw,450px);
-    margin:25px auto;
+    width:min(82vw,370px);
+    height:min(105vw,470px);
+    margin:35px auto;
     padding:8px;
     background:white;
+    border:1px solid #c9a85a;
     border-radius:190px 190px 25px 25px;
     box-shadow:
-        0 20px 45px rgba(95,50,70,.20),
-        0 0 0 1px rgba(180,110,140,.15);
+        0 20px 50px rgba(90,70,35,.18),
+        0 0 30px rgba(196,157,72,.18);
 }
 
 .main-photo img{
@@ -145,91 +239,86 @@ footer{
     display:block;
 }
 
-/* =========================
-   FECHA
-========================= */
-
 .date{
-    margin:20px auto;
-    max-width:450px;
-    padding:18px;
-    border-top:1px solid #c990a8;
-    border-bottom:1px solid #c990a8;
+    margin:25px auto;
+    max-width:480px;
+    padding:20px;
+    border-top:1px solid #c6a45a;
+    border-bottom:1px solid #c6a45a;
 }
 
 .date strong{
     display:block;
-    font-size:28px;
+    font-size:27px;
     font-weight:normal;
+    color:#4e453c;
 }
 
 .date span{
+    display:block;
+    margin-top:8px;
     font-family:Arial,sans-serif;
-    letter-spacing:3px;
-    font-size:13px;
+    letter-spacing:4px;
+    font-size:12px;
+    color:#a17d31;
 }
 
 .open-button{
     display:inline-block;
     margin-top:15px;
-    padding:14px 30px;
+    padding:15px 32px;
     border-radius:30px;
-    background:#a86c84;
+    background:#b18b3e;
     color:white;
     text-decoration:none;
     font-family:Arial,sans-serif;
-    transition:.3s;
-    box-shadow:0 8px 20px rgba(120,70,90,.2);
+    letter-spacing:1px;
+    box-shadow:0 8px 25px rgba(130,95,35,.18);
 }
 
-.open-button:hover{
-    transform:translateY(-4px);
-    background:#8e536b;
-}
-
-/* =========================
+/* =====================================================
    SECCIONES
-========================= */
+===================================================== */
 
 section{
-    padding:70px 20px;
+    padding:80px 20px;
 }
 
 .title{
     text-align:center;
-    color:#8e536b;
-    font-size:38px;
+    color:#a17b2d;
+    font-size:clamp(30px,7vw,43px);
     font-weight:normal;
     margin-bottom:30px;
 }
 
-/* =========================
-   MENSAJE
-========================= */
-
 .message{
     text-align:center;
-    background:white;
+    background:#fff;
 }
 
 .message p{
-    max-width:650px;
+    max-width:680px;
     margin:auto;
     font-size:20px;
-    line-height:1.8;
+    line-height:1.9;
+    font-style:italic;
 }
 
-/* =========================
+/* =====================================================
    CUENTA REGRESIVA
-========================= */
+===================================================== */
 
 .countdown-section{
     text-align:center;
-    background:linear-gradient(135deg,#f8e0e9,#fff);
+    background:
+        linear-gradient(135deg,#faf4e7,#fff);
+    border-top:1px solid rgba(190,150,70,.25);
+    border-bottom:1px solid rgba(190,150,70,.25);
 }
 
 .countdown{
-    max-width:650px;
+    max-width:700px;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -237,129 +326,140 @@ section{
 }
 
 .time{
-    background:rgba(255,255,255,.85);
-    border-radius:20px;
-    padding:20px 8px;
-    box-shadow:0 8px 25px rgba(100,60,80,.1);
+    background:rgba(255,255,255,.95);
+    border:1px solid #e1c98f;
+    padding:23px 8px;
+    box-shadow:0 10px 30px rgba(100,75,35,.08);
 }
 
 .time strong{
     display:block;
-    color:#955b75;
-    font-size:32px;
+    color:#a17b2d;
+    font-size:34px;
+    font-weight:normal;
 }
 
 .time span{
     font-family:Arial,sans-serif;
-    font-size:11px;
+    font-size:10px;
     text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-/* =========================
-   GALERIA
-========================= */
+/* =====================================================
+   FOTO 2 — PRINCESA Y SAPO
+===================================================== */
 
-.gallery{
-    background:white;
+.special-photo{
+    background:#fffdf9;
     text-align:center;
 }
 
-.gallery-grid{
-    max-width:850px;
+.photo-frame{
+    max-width:700px;
     margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+    padding:10px;
+    background:white;
+    border:1px solid #c7a85b;
+    box-shadow:
+        0 20px 50px rgba(100,75,35,.15),
+        0 0 35px rgba(190,150,70,.16);
 }
 
-.gallery-item{
-    height:350px;
-    overflow:hidden;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,60,80,.13);
-    background:#f5e4eb;
-}
-
-.gallery-item:first-child{
-    grid-column:span 2;
-    height:430px;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.photo-frame img{
     display:block;
-    transition:transform .7s ease;
+    width:100%;
+    max-height:650px;
+    object-fit:cover;
 }
 
-.gallery-item:hover img{
-    transform:scale(1.06);
+.photo-caption{
+    margin-top:25px;
+    font-size:20px;
+    font-style:italic;
+    color:#8d6d2d;
 }
 
-/* =========================
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.special-message{
+    text-align:center;
+    background:#faf5e9;
+}
+
+.special-message p{
+    max-width:700px;
+    margin:auto;
+    font-size:20px;
+    line-height:1.9;
+}
+
+/* =====================================================
    DATOS
-========================= */
+===================================================== */
 
 .details{
-    background:#fff8fb;
+    background:#fff;
     text-align:center;
 }
 
 .card{
     max-width:650px;
-    margin:20px auto;
-    padding:30px 20px;
-    background:white;
-    border-radius:25px;
-    box-shadow:0 8px 25px rgba(100,60,80,.09);
+    margin:22px auto;
+    padding:32px 22px;
+    background:#fffdf9;
+    border:1px solid #e4d2a7;
+    box-shadow:0 10px 30px rgba(100,75,35,.08);
 }
 
 .icon{
-    font-size:40px;
-    margin-bottom:10px;
+    font-size:34px;
+    margin-bottom:12px;
 }
 
 .card h3{
-    color:#8e536b;
-    font-size:27px;
+    color:#a17b2d;
+    font-size:28px;
     font-weight:normal;
     margin-bottom:10px;
 }
 
 .card p{
     font-family:Arial,sans-serif;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .clock{
-    margin-top:10px;
+    margin-top:15px;
     font-family:Arial,sans-serif;
-    color:#8e536b;
-    font-size:28px;
+    color:#a17b2d;
+    font-size:30px;
+    letter-spacing:2px;
 }
 
-/* =========================
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 .calendar-section{
-    background:#fdf0f5;
+    background:#faf5e9;
     text-align:center;
 }
 
 .calendar{
-    max-width:400px;
+    max-width:410px;
     margin:auto;
-    padding:25px;
+    padding:28px;
     background:white;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,60,80,.12);
+    border:1px solid #d7bd7e;
+    box-shadow:0 15px 35px rgba(100,75,35,.1);
 }
 
 .calendar h3{
-    color:#8e536b;
-    font-size:28px;
+    color:#a17b2d;
+    font-size:29px;
     font-weight:normal;
     margin-bottom:20px;
 }
@@ -368,13 +468,13 @@ section{
 .days{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:6px;
+    gap:5px;
 }
 
 .weekdays div{
     font-family:Arial,sans-serif;
     font-size:11px;
-    color:#a66d84;
+    color:#9d7b32;
     font-weight:bold;
 }
 
@@ -384,80 +484,79 @@ section{
 }
 
 .selected{
-    background:#a86c84;
+    background:#b18b3e;
     color:white;
     border-radius:50%;
     font-weight:bold;
 }
 
-/* =========================
+/* =====================================================
    UBICACION
-========================= */
+===================================================== */
 
 .location{
     text-align:center;
-    background:white;
+    background:#fff;
 }
 
 .location-box{
-    max-width:750px;
+    max-width:800px;
     margin:auto;
-    padding:25px;
-    background:#fff8fb;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,60,80,.1);
+    padding:30px;
+    background:#fffdf9;
+    border:1px solid #dfca96;
+    box-shadow:0 15px 35px rgba(100,75,35,.09);
 }
 
 .location-box h3{
-    color:#8e536b;
+    color:#a17b2d;
     font-size:30px;
     font-weight:normal;
 }
 
 .location-box p{
     font-family:Arial,sans-serif;
-    margin:10px 0 20px;
+    margin:12px 0 22px;
 }
 
 .map{
     width:100%;
     height:350px;
     border:0;
-    border-radius:20px;
 }
 
 .map-button{
     display:inline-block;
     margin-top:20px;
-    padding:14px 25px;
+    padding:15px 28px;
     border-radius:30px;
-    background:#a86c84;
+    background:#b18b3e;
     color:white;
     text-decoration:none;
     font-family:Arial,sans-serif;
 }
 
-/* =========================
+/* =====================================================
    MUSICA
-========================= */
+===================================================== */
 
 .music{
     text-align:center;
-    background:linear-gradient(135deg,#fff,#f7e0e9);
+    background:#faf5e9;
 }
 
 .music-box{
     max-width:700px;
     margin:auto;
-    padding:30px 20px;
+    padding:32px 20px;
     background:white;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,60,80,.1);
+    border:1px solid #ddc794;
+    box-shadow:0 15px 35px rgba(100,75,35,.08);
 }
 
 .music-box h3{
     font-size:30px;
-    color:#8e536b;
+    color:#a17b2d;
     font-weight:normal;
 }
 
@@ -470,29 +569,114 @@ section{
     width:100%;
     aspect-ratio:16/9;
     border:0;
-    border-radius:18px;
 }
 
-/* =========================
-   CONFIRMACION
-========================= */
+/* =====================================================
+   VESTIDO
+===================================================== */
 
-.confirmation{
+.dress-code{
     text-align:center;
     background:white;
 }
 
-.confirm-box{
+.dress-box{
     max-width:650px;
     margin:auto;
     padding:35px 20px;
-    background:#fff8fb;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,60,80,.1);
+    background:#fffdf9;
+    border:1px solid #dfca96;
+    box-shadow:0 15px 35px rgba(100,75,35,.08);
+}
+
+.dress-box h3{
+    color:#a17b2d;
+    font-size:32px;
+    font-weight:normal;
+}
+
+.dress-box p{
+    margin:12px 0 25px;
+    font-family:Arial,sans-serif;
+    line-height:1.7;
+}
+
+.dress-image{
+    width:100%;
+    max-width:420px;
+    margin:auto;
+    display:block;
+    border:1px solid #d7bd7e;
+}
+
+/* =====================================================
+   REGALO
+===================================================== */
+
+.gift{
+    text-align:center;
+    background:#faf5e9;
+}
+
+.gift-box{
+    max-width:650px;
+    margin:auto;
+    padding:40px 25px;
+    background:white;
+    border:1px solid #dfca96;
+    box-shadow:0 15px 35px rgba(100,75,35,.08);
+}
+
+.gift-box h3{
+    color:#a17b2d;
+    font-size:30px;
+    font-weight:normal;
+}
+
+.alias{
+    margin:25px auto;
+    padding:18px;
+    border:1px dashed #b18b3e;
+    max-width:300px;
+    font-family:Arial,sans-serif;
+    font-size:22px;
+    color:#8d6d2d;
+    background:#fffdf9;
+}
+
+/* =====================================================
+   FOTO 3
+===================================================== */
+
+.final-photo{
+    text-align:center;
+    background:white;
+}
+
+.final-photo .photo-frame{
+    max-width:650px;
+}
+
+/* =====================================================
+   CONFIRMACION
+===================================================== */
+
+.confirmation{
+    text-align:center;
+    background:#faf5e9;
+}
+
+.confirm-box{
+    max-width:700px;
+    margin:auto;
+    padding:40px 22px;
+    background:white;
+    border:1px solid #dfca96;
+    box-shadow:0 15px 35px rgba(100,75,35,.08);
 }
 
 .confirm-box h2{
-    color:#8e536b;
+    color:#a17b2d;
     font-size:35px;
     font-weight:normal;
 }
@@ -503,57 +687,104 @@ section{
     margin:15px 0 25px;
 }
 
+.form-group{
+    margin:15px 0;
+}
+
+.form-group label{
+    display:block;
+    text-align:left;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    color:#806536;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:14px;
+    border:1px solid #d8c28c;
+    background:#fffdf9;
+    font-family:Arial,sans-serif;
+    outline:none;
+}
+
 .whatsapp{
     display:inline-block;
-    margin:6px;
-    padding:15px 25px;
+    margin-top:20px;
+    padding:15px 28px;
     border-radius:30px;
-    background:#a86c84;
+    background:#b18b3e;
     color:white;
     text-decoration:none;
     font-family:Arial,sans-serif;
-    transition:.3s;
 }
 
-.whatsapp:hover{
-    transform:translateY(-3px);
-}
+/* =====================================================
+   SPOTIFY
+===================================================== */
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
+.spotify-section{
     text-align:center;
-    padding:45px 20px;
-    background:#f4dce6;
+    background:white;
 }
 
-footer h2{
-    color:#70485a;
+.spotify-box{
+    max-width:650px;
+    margin:auto;
+    padding:35px 22px;
+    background:#fffdf9;
+    border:1px solid #dfca96;
+}
+
+.spotify-box h3{
+    color:#a17b2d;
     font-size:30px;
     font-weight:normal;
 }
 
+.spotify-box p{
+    margin:15px 0 25px;
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+}
+
+.spotify-button{
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:30px;
+    background:#b18b3e;
+    color:white;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    text-align:center;
+    padding:55px 20px;
+    background:#eee0bd;
+}
+
+footer h2{
+    color:#765c28;
+    font-size:31px;
+    font-weight:normal;
+}
+
 footer p{
-    margin-top:8px;
+    margin-top:10px;
     font-family:Arial,sans-serif;
     font-size:13px;
 }
 
-/* =========================
+/* =====================================================
    ANIMACIONES
-========================= */
-
-@keyframes flotar{
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
-    }
-
-    50%{
-        transform:translateY(-18px) rotate(8deg);
-    }
-}
+===================================================== */
 
 @keyframes entrada{
     from{
@@ -567,24 +798,49 @@ footer p{
     }
 }
 
-/* =========================
+@keyframes brillo{
+    0%,100%{
+        opacity:.4;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.4);
+    }
+}
+
+@keyframes destello{
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.2);
+    }
+}
+
+.sparkle{
+    position:absolute;
+    color:#c4a052;
+    animation:destello 2.5s infinite ease-in-out;
+    pointer-events:none;
+}
+
+/* =====================================================
    MOVIL
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
+    .envelope{
+        min-height:400px;
+    }
+
     .countdown{
         grid-template-columns:repeat(2,1fr);
-    }
-
-    .gallery-grid{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-item,
-    .gallery-item:first-child{
-        grid-column:span 1;
-        height:350px;
     }
 
     .main-photo{
@@ -593,7 +849,19 @@ footer p{
     }
 
     .title{
-        font-size:30px;
+        font-size:31px;
+    }
+
+    section{
+        padding:65px 18px;
+    }
+
+    .location-box{
+        padding:18px;
+    }
+
+    .map{
+        height:300px;
     }
 
 }
@@ -604,11 +872,56 @@ footer p{
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
+     APERTURA
+===================================================== -->
+
+<div class="intro" id="intro">
+
+<div class="envelope">
+
+<div class="intro-content">
+
+<div class="intro-small">
+Una invitación muy especial
+</div>
+
+<div class="ornament">
+✦
+</div>
+
+<h1>
+Una invitación<br>
+muy especial
+</h1>
+
+<div class="intro-line"></div>
+
+<p>
+Hay momentos que merecen ser guardados para siempre...
+</p>
+
+<button class="open-letter" onclick="abrirInvitacion()">
+ABRIR INVITACIÓN
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
      PORTADA
-========================= -->
+===================================================== -->
 
 <section class="hero">
+
+<div class="sparkle" style="top:15%;left:12%;">✦</div>
+<div class="sparkle" style="top:30%;right:12%;animation-delay:.8s;">✧</div>
+<div class="sparkle" style="bottom:20%;left:15%;animation-delay:1.2s;">✦</div>
 
 <div class="hero-content">
 
@@ -617,33 +930,41 @@ Una noche para recordar
 </div>
 
 <div class="ornament">
-✦ ✿ ✦
+✦
 </div>
 
-<h1>Mis 15</h1>
+<h1>
+Mis 15
+</h1>
 
-<h2>Iara Morena Trejo</h2>
+<h2>
+Iara Morena Trejo
+</h2>
 
 
 <div class="main-photo">
 
-<!-- CAMBIAR POR LA FOTO PRINCIPAL -->
-<img src="foto1.jpg" alt="Iara Morena Trejo">
+<img
+src="IMG-20260922-WA0080.jpg"
+alt="Iara Morena Trejo">
 
 </div>
 
 
 <div class="date">
 
-<strong>30 de Octubre de 2026</strong>
+<strong>
+30 de Octubre de 2026
+</strong>
 
-<span>22:00 HS</span>
+<span>
+22:00 HS
+</span>
 
 </div>
 
-
 <a href="#mensaje" class="open-button">
-ABRIR INVITACIÓN
+COMENZAR
 </a>
 
 </div>
@@ -652,39 +973,47 @@ ABRIR INVITACIÓN
 
 
 
-<!-- =========================
+<!-- =====================================================
      MENSAJE
-========================= -->
+===================================================== -->
 
 <section class="message" id="mensaje">
 
-<div class="ornament">♡</div>
+<div class="ornament">
+♡
+</div>
 
 <h2 class="title">
-Una noche muy especial
+Te espero
 </h2>
 
 <p>
-Hay momentos que quedan para siempre en el corazón.
-Quiero compartir esta noche tan importante
-junto a las personas que quiero.
+Te espero para festejar este día tan especial conmigo,
+rodeada de las personas que quiero y compartiendo
+una noche que quedará para siempre en mi corazón.
 </p>
 
-<div class="ornament">✿</div>
+<div class="ornament">
+✦
+</div>
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      CUENTA REGRESIVA
-========================= -->
+===================================================== -->
 
 <section class="countdown-section">
 
 <h2 class="title">
 Falta muy poquito...
 </h2>
+
+<p style="margin-bottom:30px;font-family:Arial,sans-serif;">
+Para celebrar mis 15
+</p>
 
 <div class="countdown">
 
@@ -714,101 +1043,55 @@ Falta muy poquito...
 
 
 
-<!-- =========================
-     GALERIA DE FOTOS
-========================= -->
+<!-- =====================================================
+     FOTO 2
+===================================================== -->
 
-<section class="gallery">
-
-<h2 class="title">
-Mis momentos
-</h2>
+<section class="special-photo">
 
 <div class="ornament">
-✦
+✧
 </div>
-
-<div class="gallery-grid">
-
-<div class="gallery-item">
-<img src="foto2.jpg" alt="Foto de Iara">
-</div>
-
-<div class="gallery-item">
-<img src="foto3.jpg" alt="Foto de Iara">
-</div>
-
-<div class="gallery-item">
-<img src="foto4.jpg" alt="Foto de Iara">
-</div>
-
-<div class="gallery-item">
-<img src="foto5.jpg" alt="Foto de Iara">
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     DATOS
-========================= -->
-
-<section class="details">
 
 <h2 class="title">
-La celebración
+Un momento mágico
 </h2>
 
+<div class="photo-frame">
 
-<div class="card">
+<img
+src="hb_theprincessandthefrog_mobile_18820_cee11a73.jpeg"
+alt="La princesa y el sapo">
 
-<div class="icon">📅</div>
+</div>
 
-<h3>Fecha</h3>
-
-<p>
-Viernes 30 de octubre de 2026
+<p class="photo-caption">
+Porque los sueños también se celebran.
 </p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🕰</div>
-
-<h3>Horario</h3>
-
-<p>
-La celebración comienza a las 22:00 hs.
-</p>
-
-<div class="clock" id="clock">
-00:00:00
-</div>
-
-</div>
 
 </section>
 
 
 
-<!-- =========================
-     CALENDARIO
-========================= -->
+<!-- =====================================================
+     FECHA / CALENDARIO
+===================================================== -->
 
 <section class="calendar-section">
 
 <h2 class="title">
-Guardá la fecha
+Agenda este día
 </h2>
+
+<p style="font-family:Arial,sans-serif;margin-bottom:25px;">
+30 de octubre de 2026
+</p>
 
 <div class="calendar">
 
-<h3>Octubre 2026</h3>
+<h3>
+Octubre 2026
+</h3>
 
 <div class="weekdays">
 
@@ -878,30 +1161,63 @@ Guardá la fecha
 
 
 
-<!-- =========================
+<!-- =====================================================
+     HORA
+===================================================== -->
+
+<section class="details">
+
+<h2 class="title">
+La hora de celebrar
+</h2>
+
+<div class="card">
+
+<div class="icon">
+🕰
+</div>
+
+<h3>
+22:00 HS
+</h3>
+
+<p>
+La celebración comienza a las 22:00 hs.
+</p>
+
+<div class="clock" id="clock">
+00:00:00
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      UBICACION
-========================= -->
+===================================================== -->
 
 <section class="location">
 
 <h2 class="title">
-¿Dónde nos encontramos?
+El lugar
 </h2>
 
 <div class="location-box">
 
 <div class="icon">
-📍
+⌖
 </div>
 
 <h3>
-El lugar de la celebración
+La celebración
 </h3>
 
 <p>
 General Pedernera 1530
 </p>
-
 
 <iframe
 class="map"
@@ -909,13 +1225,12 @@ src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
 loading="lazy">
 </iframe>
 
-
 <a
 class="map-button"
 href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
 target="_blank">
 
-📍 ABRIR EN GOOGLE MAPS
+ABRIR UBICACIÓN EN GOOGLE MAPS
 
 </a>
 
@@ -925,9 +1240,9 @@ target="_blank">
 
 
 
-<!-- =========================
+<!-- =====================================================
      MUSICA
-========================= -->
+===================================================== -->
 
 <section class="music">
 
@@ -938,7 +1253,7 @@ Una canción especial
 <div class="music-box">
 
 <div class="icon">
-🎵
+♪ 
 </div>
 
 <h3>
@@ -963,9 +1278,118 @@ allowfullscreen>
 
 
 
-<!-- =========================
+<!-- =====================================================
+     VESTIDO / CODIGO DE VESTIMENTA
+===================================================== -->
+
+<section class="dress-code">
+
+<h2 class="title">
+Código de vestimenta
+</h2>
+
+<div class="dress-box">
+
+<div class="icon">
+✧
+</div>
+
+<h3>
+Elegante
+</h3>
+
+<p>
+Una noche especial merece un look especial.
+</p>
+
+<!--
+CUANDO SUBAS LA FOTO DEL VESTIDO AL REPOSITORIO,
+CAMBIÁ "vestido-rosa.jpg" POR EL NOMBRE EXACTO DEL ARCHIVO.
+-->
+
+<img
+class="dress-image"
+src="vestido-rosa.jpg"
+alt="Vestido rosa">
+
+<p>
+<strong>
+Color rosa reservado para la quinceañera.
+</strong>
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REGALO
+===================================================== -->
+
+<section class="gift">
+
+<h2 class="title">
+Un detalle especial
+</h2>
+
+<div class="gift-box">
+
+<div class="icon">
+♡
+</div>
+
+<h3>
+Si deseás regalarme algo...
+</h3>
+
+<p style="margin-top:18px;font-family:Arial,sans-serif;line-height:1.7;">
+
+Más que cualquier regalo,
+lo que más deseo es contar con tu hermosa presencia.
+
+</p>
+
+<div class="alias">
+Alias: <strong>Mar.rechi</strong>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOTO 3 — CERCA DEL FINAL
+===================================================== -->
+
+<section class="final-photo">
+
+<div class="ornament">
+✦
+</div>
+
+<h2 class="title">
+Y así seguimos soñando...
+</h2>
+
+<div class="photo-frame">
+
+<img
+src="motion_photo_17651064731209062.jpg"
+alt="Iara Morena Trejo">
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      CONFIRMACION
-========================= -->
+===================================================== -->
 
 <section class="confirmation">
 
@@ -976,31 +1400,70 @@ allowfullscreen>
 </div>
 
 <h2>
-¿Nos acompañás?
+Confirmá tu invitación
 </h2>
 
 <p>
-Tu presencia es muy importante para mí.
-Confirmá tu asistencia a mis 15.
+Para preparar todo con mucho cariño,
+completá tus datos.
 </p>
 
 
+<div class="form-group">
+
+<label for="nombre">
+Nombre y apellido
+</label>
+
+<input
+type="text"
+id="nombre"
+placeholder="Escribí tu nombre completo">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="alergia">
+¿Sos alérgico/a a algún alimento?
+</label>
+
+<select id="alergia">
+
+<option value="No">
+No
+</option>
+
+<option value="Si">
+Sí
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="detalle">
+Si respondiste sí, indicá a qué
+</label>
+
+<input
+type="text"
+id="detalle"
+placeholder="Ej.: frutos secos">
+
+</div>
+
+
 <a
+href="#"
 class="whatsapp"
-href="https://wa.me/541136088939?text=Hola%20Iara%20%F0%9F%92%95%20Confirmo%20mi%20asistencia%20a%20tus%2015."
-target="_blank">
+onclick="confirmarInvitacion(); return false;">
 
-💌 CONFIRMAR ASISTENCIA
-
-</a>
-
-
-<a
-class="whatsapp"
-href="https://wa.me/541136088939?text=Hola%20Iara%20%F0%9F%92%95%20Quiero%20avisarte%20que%20no%20voy%20a%20poder%20asistir%20a%20tus%2015."
-target="_blank">
-
-NO PODRÉ ASISTIR
+CONFIRMAR INVITACIÓN
 
 </a>
 
@@ -1010,9 +1473,45 @@ NO PODRÉ ASISTIR
 
 
 
-<!-- =========================
+<!-- =====================================================
+     SPOTIFY
+===================================================== -->
+
+<section class="spotify-section">
+
+<div class="spotify-box">
+
+<div class="ornament">
+♪
+</div>
+
+<h3>
+Elegí una canción para bailar
+</h3>
+
+<p>
+Quiero que vos también seas parte de la música de esta noche.
+Podés agregar una canción para bailar en mi fiesta.
+</p>
+
+<a
+class="spotify-button"
+href="https://open.spotify.com/"
+target="_blank">
+
+AGREGAR UNA CANCIÓN EN SPOTIFY
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      FINAL
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1038,9 +1537,21 @@ Mis 15 · 30 de octubre de 2026
 
 <script>
 
-/* =========================
+/* =====================================================
+   ABRIR INVITACION
+===================================================== */
+
+function abrirInvitacion(){
+
+document.getElementById("intro").classList.add("hide");
+
+}
+
+
+
+/* =====================================================
    CUENTA REGRESIVA
-========================= */
+===================================================== */
 
 const fechaEvento =
 new Date("October 30, 2026 22:00:00").getTime();
@@ -1121,9 +1632,10 @@ actualizarCuenta();
 setInterval(actualizarCuenta,1000);
 
 
-/* =========================
+
+/* =====================================================
    RELOJ
-========================= */
+===================================================== */
 
 function actualizarReloj(){
 
@@ -1151,39 +1663,63 @@ actualizarReloj();
 setInterval(actualizarReloj,1000);
 
 
-/* =========================
-   ANIMACION AL HACER SCROLL
-========================= */
 
-const elementos =
-document.querySelectorAll(".card, .gallery-item, .music-box, .confirm-box");
+/* =====================================================
+   CONFIRMACION WHATSAPP
+===================================================== */
+
+function confirmarInvitacion(){
+
+const nombre =
+document.getElementById("nombre").value.trim();
+
+const alergia =
+document.getElementById("alergia").value;
+
+const detalle =
+document.getElementById("detalle").value.trim();
 
 
-const observador =
-new IntersectionObserver(
-(entries)=>{
+if(nombre === ""){
 
-entries.forEach(entry=>{
+alert("Por favor, escribí tu nombre y apellido.");
 
-if(entry.isIntersecting){
-
-entry.target.style.animation =
-"entrada 1s ease forwards";
+return;
 
 }
 
-});
 
-},
-{
-threshold:.15
+let mensaje =
+"Hola Iara 💕 Confirmo mi invitación a tus 15.%0A%0A";
+
+mensaje +=
+"Nombre: " +
+encodeURIComponent(nombre) +
+"%0A";
+
+
+mensaje +=
+"¿Alergia alimentaria?: " +
+encodeURIComponent(alergia) +
+"%0A";
+
+
+if(alergia === "Sí"){
+
+mensaje +=
+"Detalle: " +
+encodeURIComponent(detalle) +
+"%0A";
+
 }
+
+
+window.open(
+"https://wa.me/541136088939?text=" + mensaje,
+"_blank"
 );
 
-
-elementos.forEach(elemento=>{
-observador.observe(elemento);
-});
+}
 
 </script>
 
