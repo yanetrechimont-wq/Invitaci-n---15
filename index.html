@@ -7,6 +7,7 @@
 <title>Mis 15 - Iara Morena Trejo</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -20,125 +21,191 @@ html{
 body{
   font-family:Georgia,"Times New Roman",serif;
   background:#fffdf8;
-  color:#171717;
+  color:#252525;
   overflow-x:hidden;
 }
 
-/* =========================
-   PORTADA - SOBRE CERRADO
-========================= */
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+  --gold:#b99752;
+  --gold-light:#d8bd7a;
+  --gold-dark:#8f7135;
+  --cream:#fffaf0;
+  --white:#ffffff;
+  --text:#202020;
+  --line:#d8c28e;
+}
+
+/* =====================================================
+   PORTADA
+===================================================== */
 
 #cover{
   min-height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:25px;
+  justify-content:center;
   background:
-    radial-gradient(circle at 20% 20%,rgba(202,168,105,.12),transparent 25%),
-    radial-gradient(circle at 80% 80%,rgba(202,168,105,.10),transparent 25%),
-    #fffdf8;
+    radial-gradient(circle at 20% 15%,rgba(216,189,122,.20),transparent 24%),
+    radial-gradient(circle at 85% 80%,rgba(216,189,122,.16),transparent 25%),
+    linear-gradient(135deg,#fffdf8,#f8efdc,#fffdf8);
   position:relative;
   overflow:hidden;
+  padding:30px;
 }
+
+/* estrellas de portada */
+
+#cover::before,
+#cover::after{
+  content:"✦";
+  position:absolute;
+  color:var(--gold-light);
+  font-size:45px;
+  opacity:.45;
+}
+
+#cover::before{
+  top:15%;
+  left:12%;
+}
+
+#cover::after{
+  bottom:16%;
+  right:12%;
+}
+
+/* sobre */
 
 .envelope{
   width:min(390px,92vw);
-  height:270px;
+  height:275px;
   position:relative;
-  background:#f8f1e4;
-  border:1px solid #c9a96e;
-  border-radius:6px;
+  background:#f9f1df;
+  border:1px solid var(--gold);
+  border-radius:7px;
   box-shadow:
-    0 20px 50px rgba(88,65,25,.18),
-    0 2px 8px rgba(0,0,0,.08);
+    0 25px 60px rgba(82,60,20,.18),
+    0 0 0 8px rgba(216,189,122,.08);
 }
+
+/* cuerpo */
 
 .envelope-body{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(135deg,transparent 49%,#dfc58f 50%,transparent 51%),
-    linear-gradient(225deg,transparent 49%,#dfc58f 50%,transparent 51%),
-    #f8f1e4;
-  border-radius:6px;
-  overflow:hidden;
+    linear-gradient(135deg,
+      transparent 49.4%,
+      #d9c18b 49.6%,
+      transparent 50.6%
+    ),
+    linear-gradient(225deg,
+      transparent 49.4%,
+      #d9c18b 49.6%,
+      transparent 50.6%
+    ),
+    #f9f1df;
+  border-radius:7px;
 }
 
-/* SOBRE TOTALMENTE CERRADO */
+/* solapa completamente cerrada */
+
 .envelope-flap{
   position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:#efe2c7;
-  clip-path:polygon(0 0,100% 0,50% 58%);
-  border-bottom:1px solid #c9a96e;
+  inset:0;
+  background:
+    linear-gradient(
+      135deg,
+      #f5ead4,
+      #ead9b6
+    );
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    50% 61%
+  );
+  border-bottom:1px solid var(--gold);
   z-index:4;
 }
 
+/* sello */
+
 .seal{
   position:absolute;
-  z-index:5;
+  z-index:7;
   left:50%;
   top:51%;
   transform:translate(-50%,-50%);
-  width:62px;
-  height:62px;
+  width:68px;
+  height:68px;
   border-radius:50%;
-  background:#c7a15a;
-  border:3px solid #ead8aa;
-  box-shadow:0 5px 15px rgba(95,70,25,.25);
+  background:
+    radial-gradient(
+      circle,
+      #d9bf80,
+      #aa8646
+    );
+  border:3px solid #f3dfaa;
+  box-shadow:
+    0 5px 18px rgba(75,55,18,.28),
+    inset 0 0 0 2px rgba(255,255,255,.3);
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
-  font-size:25px;
-  font-family:Georgia,serif;
+  font-size:28px;
 }
+
+/* texto sobre */
 
 .envelope-text{
   position:absolute;
-  z-index:6;
+  z-index:8;
   left:50%;
-  bottom:30px;
+  bottom:27px;
   transform:translateX(-50%);
   width:100%;
   text-align:center;
-  color:#57431f;
-  letter-spacing:2px;
-  font-size:14px;
+  color:var(--gold-dark);
+  font-size:16px;
+  letter-spacing:3px;
+  font-weight:bold;
 }
+
+/* botón */
 
 .open-button{
   position:absolute;
-  z-index:8;
-  bottom:-75px;
+  z-index:10;
   left:50%;
+  bottom:-78px;
   transform:translateX(-50%);
-  border:none;
-  background:#b99758;
+  border:1px solid #b99752;
+  background:linear-gradient(135deg,#cdb16f,#a98545);
   color:white;
-  padding:14px 28px;
+  padding:14px 30px;
   border-radius:30px;
   font-family:Georgia,serif;
   font-size:16px;
   letter-spacing:1px;
   cursor:pointer;
-  box-shadow:0 8px 22px rgba(108,78,25,.25);
+  box-shadow:0 10px 25px rgba(93,68,25,.22);
 }
 
-/* =========================
+/* =====================================================
    CONTENIDO
-========================= */
+===================================================== */
 
 #contenido{
   display:none;
   position:relative;
   background:
-    radial-gradient(circle at 10% 5%,rgba(203,171,108,.08),transparent 18%),
-    radial-gradient(circle at 90% 30%,rgba(203,171,108,.07),transparent 18%),
+    radial-gradient(circle at 5% 8%,rgba(216,189,122,.12),transparent 18%),
+    radial-gradient(circle at 95% 30%,rgba(216,189,122,.10),transparent 20%),
     #fffdf8;
 }
 
@@ -147,9 +214,9 @@ body{
   z-index:2;
 }
 
-/* =========================
+/* =====================================================
    LLUVIA DORADA
-========================= */
+===================================================== */
 
 .gold-rain{
   position:fixed;
@@ -162,141 +229,187 @@ body{
 .gold-rain span{
   position:absolute;
   top:-30px;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#c6a15d;
-  opacity:.35;
+  color:var(--gold-light);
+  font-size:10px;
+  opacity:.42;
   animation:fall linear infinite;
 }
 
 @keyframes fall{
+
   to{
-    transform:translateY(110vh) rotate(360deg);
+    transform:
+      translateY(110vh)
+      rotate(360deg);
   }
+
 }
 
-/* =========================
+/* =====================================================
    ESPACIADO
-========================= */
+===================================================== */
 
 .section{
   width:min(900px,92%);
   margin:0 auto;
-  padding:75px 0;
+  padding:82px 0;
 }
 
 .section-small{
   width:min(760px,92%);
   margin:0 auto;
-  padding:60px 0;
+  padding:68px 0;
 }
 
-/* =========================
+/* =====================================================
+   DECORACIÓN GENERAL
+===================================================== */
+
+.ornament{
+  text-align:center;
+  color:var(--gold);
+  font-size:22px;
+  letter-spacing:8px;
+  margin-bottom:25px;
+}
+
+.ornament::before{
+  content:"✦  ❦  ✦";
+}
+
+/* =====================================================
    PRIMERA FOTO
-========================= */
+===================================================== */
 
 .hero-photo{
   width:min(900px,94%);
   margin:0 auto;
-  position:relative;
+  border-radius:22px;
   overflow:hidden;
-  border-radius:18px;
+  background:white;
+  padding:7px;
+  border:1px solid var(--gold-light);
   box-shadow:
-    0 20px 50px rgba(65,48,20,.18),
-    0 0 0 1px rgba(184,149,82,.35);
+    0 22px 55px rgba(72,53,18,.16),
+    0 0 0 7px rgba(216,189,122,.08);
 }
 
 .hero-photo img{
   display:block;
   width:100%;
   height:auto;
+  border-radius:16px;
 }
 
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  padding:8%;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 30%,
-      rgba(0,0,0,.06) 55%,
-      rgba(0,0,0,.48) 100%
-    );
-}
+/* texto debajo */
 
-.hero-copy{
-  width:43%;
-  color:white;
+.hero-caption{
   text-align:center;
-  text-shadow:0 2px 10px rgba(0,0,0,.5);
+  padding:35px 15px 5px;
 }
 
-.hero-copy h1{
-  font-size:clamp(32px,7vw,65px);
-  line-height:1;
-  margin-bottom:22px;
+.hero-caption h1{
+  color:var(--gold-dark);
+  font-size:clamp(38px,8vw,65px);
   font-weight:500;
   letter-spacing:1px;
+  text-shadow:
+    1px 1px 0 #ead7a8,
+    2px 2px 8px rgba(130,96,35,.18);
+  margin-bottom:20px;
 }
 
-.hero-copy p{
-  font-size:clamp(15px,3vw,23px);
-  line-height:1.55;
+.hero-caption p{
+  max-width:560px;
+  margin:0 auto;
+  color:#353535;
+  font-size:clamp(17px,3vw,22px);
+  line-height:1.7;
   font-style:italic;
 }
 
-/* =========================
-   TITULOS
-========================= */
+/* =====================================================
+   TÍTULOS
+===================================================== */
 
 .title{
   text-align:center;
-  color:#161616;
-  font-size:clamp(28px,6vw,43px);
+  color:var(--gold-dark);
+  font-size:clamp(30px,6vw,46px);
   font-weight:500;
   letter-spacing:1px;
-  margin-bottom:28px;
+  text-shadow:
+    1px 1px 0 #ead7a8,
+    0 3px 10px rgba(140,104,38,.13);
+  margin-bottom:25px;
 }
 
 .title::after{
   content:"";
   display:block;
-  width:65px;
+  width:95px;
   height:1px;
-  background:#c5a15e;
-  margin:18px auto 0;
+  margin:19px auto 0;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
 
 .subtitle{
   text-align:center;
   font-size:18px;
-  line-height:1.7;
+  line-height:1.8;
 }
 
-/* =========================
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 .calendar-box{
-  max-width:480px;
+  max-width:500px;
   margin:0 auto;
-  padding:38px 25px;
-  background:rgba(255,255,255,.8);
-  border:1px solid #d8c18f;
-  border-radius:18px;
-  box-shadow:0 15px 35px rgba(80,60,20,.10);
+  padding:40px 28px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(250,242,223,.90)
+    );
+  border:1px solid var(--gold-light);
+  border-radius:22px;
+  box-shadow:
+    0 18px 45px rgba(77,56,19,.12),
+    0 0 0 6px rgba(216,189,122,.06);
+  position:relative;
+}
+
+.calendar-box::before{
+  content:"✦";
+  position:absolute;
+  top:12px;
+  left:17px;
+  color:var(--gold);
+  font-size:18px;
+}
+
+.calendar-box::after{
+  content:"✦";
+  position:absolute;
+  bottom:12px;
+  right:17px;
+  color:var(--gold);
+  font-size:18px;
 }
 
 .calendar-month{
   text-align:center;
-  font-size:29px;
-  margin-bottom:25px;
-  color:#57431f;
+  color:var(--gold-dark);
+  font-size:31px;
+  margin-bottom:28px;
+  text-shadow:1px 1px 0 #ead7a8;
 }
 
 .calendar-week{
@@ -305,8 +418,9 @@ body{
   text-align:center;
   gap:7px;
   font-size:13px;
-  margin-bottom:10px;
-  color:#8c713e;
+  margin-bottom:12px;
+  color:#91733b;
+  font-weight:bold;
 }
 
 .calendar-days{
@@ -317,7 +431,7 @@ body{
 }
 
 .calendar-days div{
-  height:38px;
+  height:39px;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -326,57 +440,146 @@ body{
 }
 
 .calendar-days .special-day{
-  background:#c5a15e;
+  background:
+    linear-gradient(
+      135deg,
+      #d5bb7b,
+      #a98648
+    );
   color:white;
   font-weight:bold;
-  box-shadow:0 4px 12px rgba(130,95,30,.25);
+  box-shadow:
+    0 5px 14px rgba(118,85,26,.25),
+    0 0 0 3px rgba(216,189,122,.25);
 }
 
-/* =========================
-   HORA
-========================= */
+/* =====================================================
+   HORA / RELOJ
+===================================================== */
+
+.clock-decoration{
+  width:105px;
+  height:105px;
+  margin:0 auto 25px;
+  border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background:
+    radial-gradient(
+      circle,
+      #fff,
+      #f8efd9
+    );
+  box-shadow:
+    0 8px 25px rgba(83,61,20,.12),
+    inset 0 0 0 5px rgba(216,189,122,.12);
+}
+
+.clock-decoration::before{
+  content:"";
+  width:3px;
+  height:32px;
+  background:var(--gold-dark);
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  transform-origin:bottom;
+}
+
+.clock-decoration::after{
+  content:"";
+  width:28px;
+  height:3px;
+  background:var(--gold-dark);
+  position:absolute;
+  top:51%;
+  left:50%;
+  transform:translateY(-50%);
+  transform-origin:left;
+  transform:rotate(10deg);
+}
+
+.clock-center{
+  width:9px;
+  height:9px;
+  background:var(--gold-dark);
+  border-radius:50%;
+  z-index:2;
+}
 
 .time-box{
   text-align:center;
-  padding:48px 20px;
-  border-top:1px solid #d7c18d;
-  border-bottom:1px solid #d7c18d;
+  padding:52px 20px;
+  border-top:1px solid var(--gold-light);
+  border-bottom:1px solid var(--gold-light);
+  position:relative;
 }
 
 .time{
-  font-size:clamp(45px,10vw,80px);
-  color:#57431f;
+  font-size:clamp(50px,10vw,82px);
+  color:var(--gold-dark);
+  text-shadow:
+    1px 1px 0 #ead7a8,
+    2px 3px 12px rgba(120,88,30,.18);
   margin-bottom:18px;
 }
 
 .countdown{
   font-size:17px;
   letter-spacing:1px;
-  line-height:1.6;
+  line-height:1.7;
+  color:#494949;
 }
 
-/* =========================
+/* =====================================================
    TARJETAS
-========================= */
+===================================================== */
 
 .card{
-  background:rgba(255,255,255,.88);
-  border:1px solid #ddcda8;
-  border-radius:18px;
-  padding:40px 28px;
-  box-shadow:0 15px 35px rgba(80,60,20,.09);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.97),
+      rgba(250,243,226,.88)
+    );
+  border:1px solid var(--gold-light);
+  border-radius:22px;
+  padding:43px 30px;
+  box-shadow:
+    0 18px 45px rgba(80,60,20,.10),
+    0 0 0 6px rgba(216,189,122,.05);
   text-align:center;
+  position:relative;
 }
 
-.card + .card{
-  margin-top:35px;
+.card::before,
+.card::after{
+  content:"✦";
+  position:absolute;
+  color:var(--gold-light);
+  font-size:18px;
+}
+
+.card::before{
+  top:15px;
+  left:18px;
+}
+
+.card::after{
+  bottom:15px;
+  right:18px;
 }
 
 .card h3{
-  font-size:27px;
-  color:#57431f;
-  margin-bottom:18px;
+  font-size:29px;
+  color:var(--gold-dark);
+  margin-bottom:20px;
   font-weight:500;
+  text-shadow:1px 1px 0 #ead7a8;
 }
 
 .card p{
@@ -384,65 +587,86 @@ body{
   line-height:1.8;
 }
 
-/* =========================
+/* =====================================================
    MAPA
-========================= */
+===================================================== */
+
+.map-frame{
+  padding:7px;
+  border:1px solid var(--gold-light);
+  border-radius:18px;
+  margin-top:30px;
+  background:white;
+}
 
 .map{
   width:100%;
   height:350px;
   border:0;
-  border-radius:15px;
-  margin-top:28px;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  border-radius:13px;
+  display:block;
 }
 
 .map-button{
   display:inline-block;
-  margin-top:25px;
-  padding:13px 25px;
-  background:#c2a060;
+  margin-top:28px;
+  padding:14px 28px;
+  background:
+    linear-gradient(
+      135deg,
+      #cbb06e,
+      #a68345
+    );
   color:white;
   text-decoration:none;
-  border-radius:25px;
+  border-radius:28px;
+  border:1px solid #a98648;
+  box-shadow:0 8px 20px rgba(90,65,22,.18);
 }
 
-/* =========================
+/* =====================================================
    FOTO PRINCESA
-========================= */
+===================================================== */
 
 .princess-photo{
   width:min(700px,92%);
   margin:0 auto;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 20px 45px rgba(65,48,20,.18);
+  padding:7px;
+  background:white;
+  border:1px solid var(--gold-light);
+  border-radius:22px;
+  box-shadow:
+    0 22px 50px rgba(65,48,20,.16),
+    0 0 0 7px rgba(216,189,122,.06);
 }
 
 .princess-photo img{
   width:100%;
   display:block;
+  border-radius:16px;
 }
 
-/* =========================
+/* =====================================================
    DRESS CODE
-========================= */
+===================================================== */
 
 .dress{
   text-align:center;
 }
 
 .dress h2{
-  font-size:34px;
+  color:var(--gold-dark);
+  font-size:35px;
   font-weight:500;
   margin-bottom:20px;
+  text-shadow:1px 1px 0 #ead7a8;
 }
 
 .dress strong{
   display:block;
-  color:#57431f;
-  font-size:25px;
-  letter-spacing:3px;
+  color:var(--gold-dark);
+  font-size:27px;
+  letter-spacing:4px;
   margin-bottom:20px;
 }
 
@@ -451,9 +675,25 @@ body{
   line-height:1.8;
 }
 
-/* =========================
+/* =====================================================
+   SPOTIFY
+===================================================== */
+
+.spotify-button{
+  display:inline-block;
+  margin:5px 0 34px;
+  padding:14px 29px;
+  background:#202020;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  border:1px solid #c5a15e;
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+
+/* =====================================================
    FORMULARIOS
-========================= */
+===================================================== */
 
 .form{
   max-width:560px;
@@ -464,110 +704,109 @@ body{
 .form select,
 .form textarea{
   width:100%;
-  padding:15px;
+  padding:16px;
   margin-bottom:17px;
-  border:1px solid #d6c39b;
-  border-radius:10px;
+  border:1px solid #d7c18f;
+  border-radius:11px;
   background:white;
   font-family:inherit;
   font-size:16px;
   outline:none;
 }
 
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(185,151,82,.10);
+}
+
 .form textarea{
-  min-height:100px;
+  min-height:105px;
   resize:vertical;
 }
 
 .form button{
   width:100%;
-  padding:15px;
+  padding:16px;
   border:none;
   border-radius:28px;
-  background:#b99655;
+  background:
+    linear-gradient(
+      135deg,
+      #c8ab68,
+      #a78345
+    );
   color:white;
   font-family:Georgia,serif;
   font-size:16px;
   cursor:pointer;
+  box-shadow:0 8px 20px rgba(100,73,25,.18);
 }
 
-/* =========================
-   SPOTIFY
-========================= */
-
-.spotify-button{
-  display:inline-block;
-  margin:5px 0 32px;
-  padding:14px 27px;
-  background:#1c1c1c;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
-}
-
-/* =========================
-   FOTO FINAL
-========================= */
+/* =====================================================
+   ÚLTIMA FOTO
+===================================================== */
 
 .final-photo{
-  width:100%;
-  position:relative;
-  margin-top:55px;
+  width:min(900px,94%);
+  margin:40px auto 0;
+  padding:7px;
+  background:white;
+  border:1px solid var(--gold-light);
+  border-radius:22px;
+  box-shadow:
+    0 22px 55px rgba(65,48,20,.17),
+    0 0 0 7px rgba(216,189,122,.06);
 }
 
 .final-photo img{
   width:100%;
   display:block;
-  max-height:700px;
-  object-fit:cover;
+  border-radius:16px;
 }
 
-.final-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:rgba(0,0,0,.25);
+/* texto DEBAJO de la foto */
+
+.final-caption{
+  text-align:center;
+  padding:38px 15px 65px;
 }
 
-.final-overlay h2{
-  color:white;
-  font-size:clamp(35px,9vw,75px);
+.final-caption h2{
+  color:var(--gold-dark);
+  font-size:clamp(40px,9vw,70px);
   font-weight:500;
-  text-shadow:0 3px 15px rgba(0,0,0,.6);
+  text-shadow:
+    1px 1px 0 #ead7a8,
+    2px 3px 12px rgba(120,88,30,.18);
   letter-spacing:1px;
 }
 
-/* =========================
+/* =====================================================
    CELULAR
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
   .section{
-    padding:65px 0;
+    padding:70px 0;
   }
 
   .section-small{
-    padding:52px 0;
+    padding:58px 0;
   }
 
-  .hero-overlay{
-    padding:7%;
+  .hero-caption{
+    padding-top:30px;
   }
 
-  .hero-copy{
-    width:48%;
+  .hero-caption h1{
+    font-size:39px;
   }
 
-  .hero-copy h1{
-    font-size:31px;
-    margin-bottom:15px;
-  }
-
-  .hero-copy p{
-    font-size:14px;
+  .hero-caption p{
+    font-size:17px;
   }
 
   .envelope{
@@ -575,21 +814,28 @@ body{
   }
 
   .open-button{
-    bottom:-68px;
+    bottom:-70px;
   }
 
   .map{
     height:290px;
   }
+
+  .calendar-box{
+    padding:35px 18px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     SOBRE
-========================= -->
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
 
 <section id="cover">
 
@@ -597,9 +843,12 @@ body{
 
     <div class="envelope-body"></div>
 
+    <!-- SOBRE CERRADO -->
     <div class="envelope-flap"></div>
 
-    <div class="seal">I</div>
+    <div class="seal">
+      I
+    </div>
 
     <div class="envelope-text">
       MIS 15 AÑOS
@@ -609,7 +858,9 @@ body{
       type="button"
       class="open-button"
       id="openInvitation">
+
       Abrir invitación
+
     </button>
 
   </div>
@@ -617,9 +868,9 @@ body{
 </section>
 
 
-<!-- =========================
-     INVITACIÓN
-========================= -->
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
 
 <main id="contenido">
 
@@ -627,17 +878,17 @@ body{
 
   <div class="gold-rain">
 
-    <span style="left:5%;animation-duration:8s;"></span>
-    <span style="left:12%;animation-duration:11s;"></span>
-    <span style="left:20%;animation-duration:9s;"></span>
-    <span style="left:29%;animation-duration:13s;"></span>
-    <span style="left:38%;animation-duration:10s;"></span>
-    <span style="left:48%;animation-duration:12s;"></span>
-    <span style="left:57%;animation-duration:9s;"></span>
-    <span style="left:66%;animation-duration:14s;"></span>
-    <span style="left:75%;animation-duration:10s;"></span>
-    <span style="left:84%;animation-duration:12s;"></span>
-    <span style="left:93%;animation-duration:9s;"></span>
+    <span style="left:5%;animation-duration:8s;">✦</span>
+    <span style="left:13%;animation-duration:11s;">✦</span>
+    <span style="left:21%;animation-duration:9s;">✧</span>
+    <span style="left:30%;animation-duration:13s;">✦</span>
+    <span style="left:39%;animation-duration:10s;">✧</span>
+    <span style="left:48%;animation-duration:12s;">✦</span>
+    <span style="left:57%;animation-duration:9s;">✧</span>
+    <span style="left:66%;animation-duration:14s;">✦</span>
+    <span style="left:75%;animation-duration:10s;">✧</span>
+    <span style="left:84%;animation-duration:12s;">✦</span>
+    <span style="left:93%;animation-duration:9s;">✧</span>
 
   </div>
 
@@ -645,9 +896,9 @@ body{
   <div class="content-inner">
 
 
-    <!-- =========================
+    <!-- =================================================
          PRIMERA FOTO
-    ========================= -->
+    ================================================= -->
 
     <section class="section-small">
 
@@ -657,30 +908,34 @@ body{
           src="IMG-20260922-WA0080.jpg"
           alt="Iara Morena Trejo">
 
-        <div class="hero-overlay">
+      </div>
 
-          <div class="hero-copy">
+      <!-- TEXTO DEBAJO DE LA FOTO -->
 
-            <h1>Mis 15 años</h1>
+      <div class="hero-caption">
 
-            <p>
-              Quiero compartir este día tan especial con vos.
-            </p>
+        <div class="ornament"></div>
 
-          </div>
+        <h1>
+          Mis 15 años
+        </h1>
 
-        </div>
+        <p>
+          Quiero compartir este día tan especial con vos.
+        </p>
 
       </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          CALENDARIO
-    ========================= -->
+    ================================================= -->
 
     <section class="section">
+
+      <div class="ornament"></div>
 
       <h2 class="title">
         Una fecha para recordar
@@ -693,6 +948,7 @@ body{
         </div>
 
         <div class="calendar-week">
+
           <div>L</div>
           <div>M</div>
           <div>M</div>
@@ -700,6 +956,7 @@ body{
           <div>V</div>
           <div>S</div>
           <div>D</div>
+
         </div>
 
         <div class="calendar-days">
@@ -741,7 +998,13 @@ body{
           <div>27</div>
           <div>28</div>
           <div>29</div>
-          <div class="special-day">30</div>
+
+          <!-- SOLO EL 30 DESTACADO -->
+
+          <div class="special-day">
+            30
+          </div>
+
           <div>31</div>
 
         </div>
@@ -751,16 +1014,24 @@ body{
     </section>
 
 
-    <!-- =========================
-         HORA
-    ========================= -->
+    <!-- =================================================
+         RELOJ
+    ================================================= -->
 
     <section class="section-small">
 
       <div class="time-box">
 
+        <div class="clock-decoration">
+
+          <div class="clock-center"></div>
+
+        </div>
+
+        <div class="ornament"></div>
+
         <h2 class="title">
-          Te espero
+          La hora de celebrar
         </h2>
 
         <div class="time">
@@ -770,7 +1041,9 @@ body{
         <div
           class="countdown"
           id="countdown">
+
           Preparando la cuenta regresiva...
+
         </div>
 
       </div>
@@ -778,14 +1051,16 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          UBICACIÓN
-    ========================= -->
+    ================================================= -->
 
     <section class="section">
 
+      <div class="ornament"></div>
+
       <h2 class="title">
-        Dónde nos encontramos
+        El lugar de la celebración
       </h2>
 
       <div class="card">
@@ -798,17 +1073,23 @@ body{
           Te espero para compartir una noche inolvidable.
         </p>
 
-        <iframe
-          class="map"
-          src="https://www.google.com/maps?q=General+Pedernera+1530&output=embed"
-          loading="lazy">
-        </iframe>
+        <div class="map-frame">
+
+          <iframe
+            class="map"
+            src="https://www.google.com/maps?q=General+Pedernera+1530&output=embed"
+            loading="lazy">
+          </iframe>
+
+        </div>
 
         <a
           class="map-button"
           href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
           target="_blank">
-          Ver ubicación en Google Maps
+
+          ✦ Ver ubicación en Google Maps ✦
+
         </a>
 
       </div>
@@ -816,16 +1097,18 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          COLABORACIÓN
-    ========================= -->
+    ================================================= -->
 
     <section class="section-small">
+
+      <div class="ornament"></div>
 
       <div class="card">
 
         <h3>
-          Si querés hacerme un regalo
+          Un detalle especial
         </h3>
 
         <p>
@@ -836,9 +1119,10 @@ body{
 
         <p
           style="
-            margin-top:22px;
-            font-size:25px;
-            color:#57431f;
+          margin-top:25px;
+          font-size:27px;
+          color:#8f7135;
+          text-shadow:1px 1px 0 #ead7a8;
           ">
 
           <strong>
@@ -852,9 +1136,9 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FOTO PRINCESA
-    ========================= -->
+    ================================================= -->
 
     <section class="section-small">
 
@@ -869,11 +1153,13 @@ body{
     </section>
 
 
-    <!-- =========================
-         VESTIMENTA
-    ========================= -->
+    <!-- =================================================
+         DRESS CODE
+    ================================================= -->
 
     <section class="section-small">
+
+      <div class="ornament"></div>
 
       <div class="card dress">
 
@@ -894,11 +1180,13 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          MÚSICA
-    ========================= -->
+    ================================================= -->
 
     <section class="section">
+
+      <div class="ornament"></div>
 
       <h2 class="title">
         Elegí una canción
@@ -907,14 +1195,18 @@ body{
       <div class="card">
 
         <p style="margin-bottom:22px;">
+
           ¿Hay una canción que te gustaría escuchar?
+
         </p>
 
         <a
           class="spotify-button"
           href="https://open.spotify.com/"
           target="_blank">
-          Escuchar en Spotify
+
+          ♫ Escuchar en Spotify
+
         </a>
 
         <form
@@ -934,7 +1226,9 @@ body{
             required>
 
           <button type="submit">
+
             Enviar canción por WhatsApp
+
           </button>
 
         </form>
@@ -944,11 +1238,13 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          CONFIRMACIÓN
-    ========================= -->
+    ================================================= -->
 
     <section class="section">
+
+      <div class="ornament"></div>
 
       <h2 class="title">
         Confirmá tu asistencia
@@ -996,7 +1292,9 @@ body{
           </textarea>
 
           <button type="submit">
+
             Confirmar por WhatsApp
+
           </button>
 
         </form>
@@ -1006,18 +1304,25 @@ body{
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          ÚLTIMA FOTO
-         NO HAY NADA DESPUÉS
-    ========================= -->
+    ================================================= -->
 
-    <div class="final-photo">
+    <section class="section-small">
 
-      <img
-        src="motion_photo_17651064731209062.jpg"
-        alt="Iara Morena Trejo">
+      <div class="final-photo">
 
-      <div class="final-overlay">
+        <img
+          src="motion_photo_17651064731209062.jpg"
+          alt="Iara Morena Trejo">
+
+      </div>
+
+      <!-- TEXTO DEBAJO DE LA FOTO -->
+
+      <div class="final-caption">
+
+        <div class="ornament"></div>
 
         <h2>
           ¡Te esperamos!
@@ -1025,7 +1330,8 @@ body{
 
       </div>
 
-    </div>
+    </section>
+
 
   </div>
 
@@ -1034,31 +1340,43 @@ body{
 
 <script>
 
+/* =====================================================
+   INICIO
+===================================================== */
+
 document.addEventListener(
   "DOMContentLoaded",
   function(){
 
     const boton =
-      document.getElementById("openInvitation");
+      document.getElementById(
+        "openInvitation"
+      );
 
     const portada =
-      document.getElementById("cover");
+      document.getElementById(
+        "cover"
+      );
 
     const contenido =
-      document.getElementById("contenido");
+      document.getElementById(
+        "contenido"
+      );
 
 
-    /* =========================
+    /* =================================================
        ABRIR INVITACIÓN
-    ========================= */
+    ================================================= */
 
     boton.addEventListener(
       "click",
       function(){
 
-        portada.style.display = "none";
+        portada.style.display =
+          "none";
 
-        contenido.style.display = "block";
+        contenido.style.display =
+          "block";
 
         window.scrollTo({
           top:0,
@@ -1071,9 +1389,9 @@ document.addEventListener(
     );
 
 
-    /* =========================
+    /* =================================================
        MÚSICA
-    ========================= */
+    ================================================= */
 
     function iniciarMusica(){
 
@@ -1082,11 +1400,15 @@ document.addEventListener(
           "musicaInvitacion"
         )
       ){
+
         return;
+
       }
 
       const musica =
-        document.createElement("iframe");
+        document.createElement(
+          "iframe"
+        );
 
       musica.id =
         "musicaInvitacion";
@@ -1122,9 +1444,9 @@ document.addEventListener(
     }
 
 
-    /* =========================
+    /* =================================================
        CUENTA REGRESIVA
-    ========================= */
+    ================================================= */
 
     function actualizarCuenta(){
 
@@ -1209,12 +1531,14 @@ document.addEventListener(
     );
 
 
-    /* =========================
+    /* =================================================
        CANCIÓN
-    ========================= */
+    ================================================= */
 
     document
-      .getElementById("songForm")
+      .getElementById(
+        "songForm"
+      )
       .addEventListener(
         "submit",
         function(e){
@@ -1240,7 +1564,9 @@ document.addEventListener(
             artista;
 
           const mensaje =
-            encodeURIComponent(texto);
+            encodeURIComponent(
+              texto
+            );
 
           window.open(
             "https://wa.me/5491136088939?text=" +
@@ -1252,12 +1578,14 @@ document.addEventListener(
       );
 
 
-    /* =========================
+    /* =================================================
        CONFIRMACIÓN
-    ========================= */
+    ================================================= */
 
     document
-      .getElementById("confirmForm")
+      .getElementById(
+        "confirmForm"
+      )
       .addEventListener(
         "submit",
         function(e){
@@ -1300,7 +1628,9 @@ document.addEventListener(
             alergia;
 
           const mensaje =
-            encodeURIComponent(texto);
+            encodeURIComponent(
+              texto
+            );
 
           window.open(
             "https://wa.me/5491136088939?text=" +
