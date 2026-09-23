@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mis 15 | Iara Morena Trejo</title>
+<title>Mis 15 - Iara Morena Trejo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
-    --oro:#D4AF37;
-    --oro-claro:#F7E7A8;
-    --oro-fuerte:#B8860B;
-    --negro:#151515;
-    --blanco:#ffffff;
-    --gris:#f8f8f8;
-}
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -28,840 +24,576 @@ html{
 }
 
 body{
-    font-family:Georgia,"Times New Roman",serif;
-    background:white;
-    color:var(--negro);
+    background:
+        radial-gradient(circle at top,#fffdf8 0%,#fff 45%,#f8f3eb 100%);
+    color:#3b3025;
+    font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
+}
+
+:root{
+    --oro:#9b6b24;
+    --oro-oscuro:#6f4815;
+    --oro-claro:#d8b66a;
 }
 
 /* DESTELLOS */
 
-body::before{
-    content:"";
+.sparkle{
     position:fixed;
-    inset:0;
+    width:4px;
+    height:4px;
+    background:#d8b66a;
+    border-radius:50%;
+    box-shadow:
+        0 0 6px #d8b66a,
+        0 0 14px rgba(216,182,106,.8);
+    animation:brillar 3s infinite ease-in-out;
     pointer-events:none;
-    z-index:999;
-    background-image:
-        radial-gradient(circle,rgba(212,175,55,.5) 1px,transparent 2px),
-        radial-gradient(circle,rgba(212,175,55,.25) 1px,transparent 2px);
-    background-size:85px 85px,130px 130px;
-    background-position:0 0,35px 50px;
-    animation:estrellas 8s linear infinite;
-    opacity:.3;
+    z-index:5;
 }
 
-/* =========================
-   PORTADA
-========================= */
+.s1{top:15%;left:10%;}
+.s2{top:28%;left:85%;animation-delay:1s;}
+.s3{top:52%;left:7%;animation-delay:1.7s;}
+.s4{top:68%;left:91%;animation-delay:.5s;}
+.s5{top:82%;left:18%;animation-delay:2s;}
+.s6{top:42%;left:72%;animation-delay:1.2s;}
+
+@keyframes brillar{
+    0%,100%{
+        opacity:.15;
+        transform:scale(.6);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.7);
+    }
+}
+
+/* PORTADA */
 
 .cover{
-    min-height:100vh;
+    position:fixed;
+    inset:0;
+    z-index:1000;
     background:
-        radial-gradient(circle at center,#fffdf5 0%,#fff 45%,#f4f0e5 100%);
+        radial-gradient(circle at center,#fffdf8 0%,#f7efe2 100%);
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+    transition:opacity 1.2s ease,visibility 1.2s ease;
 }
 
-.cover::before,
-.cover::after{
-    content:"✦";
-    position:absolute;
-    color:var(--oro);
-    font-size:70px;
-    animation:flotar 4s ease-in-out infinite;
-}
-
-.cover::before{
-    top:10%;
-    left:8%;
-}
-
-.cover::after{
-    bottom:10%;
-    right:8%;
-    animation-delay:1s;
+.cover.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
 }
 
 .cover-content{
-    width:90%;
-    max-width:700px;
-    animation:entrada 1.5s ease;
+    text-align:center;
+    padding:30px;
 }
 
 .cover-small{
-    font-family:Arial,sans-serif;
-    text-transform:uppercase;
-    letter-spacing:5px;
-    color:#8c6a17;
-    font-size:12px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    letter-spacing:4px;
+    color:var(--oro-oscuro);
     margin-bottom:25px;
 }
 
-.cover h1{
-    color:var(--oro-fuerte);
-    font-size:clamp(42px,10vw,75px);
-    font-weight:normal;
-    letter-spacing:2px;
-    margin-bottom:15px;
+.cover-title{
+    font-family:'Great Vibes',cursive;
+    font-size:65px;
+    color:var(--oro-oscuro);
+    text-shadow:
+        0 2px 8px rgba(155,107,36,.25),
+        0 0 18px rgba(216,182,106,.4);
+    margin-bottom:30px;
 }
 
-.cover p{
-    font-size:20px;
-    font-style:italic;
-    color:#555;
-    margin-bottom:35px;
+.cover-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    line-height:1.4;
+    max-width:500px;
+    margin:auto;
+    color:#544637;
 }
+
+/* SOBRE */
 
 .envelope{
-    width:min(85vw,500px);
-    height:310px;
-    margin:auto;
+    width:280px;
+    height:190px;
+    margin:35px auto 20px;
     position:relative;
     cursor:pointer;
-    perspective:1000px;
+    perspective:800px;
 }
 
 .envelope-body{
     position:absolute;
     inset:0;
-    background:linear-gradient(145deg,#fff,#f8f2df);
+    background:linear-gradient(145deg,#fff,#f5ead9);
     border:2px solid var(--oro);
-    border-radius:10px;
+    border-radius:8px;
     box-shadow:
-        0 15px 40px rgba(0,0,0,.15),
-        0 0 30px rgba(212,175,55,.5),
-        0 0 70px rgba(212,175,55,.2);
-    overflow:hidden;
+        0 15px 40px rgba(111,72,21,.2),
+        0 0 25px rgba(216,182,106,.3);
 }
 
-.envelope-body::before{
-    content:"";
+.envelope-flap{
     position:absolute;
-    inset:15px;
-    border:1px solid rgba(212,175,55,.5);
-}
-
-.flap{
-    position:absolute;
-    top:0;
     left:0;
-    width:100%;
-    height:55%;
-    background:linear-gradient(145deg,#fffdf5,#eadca9);
-    clip-path:polygon(0 0,100% 0,50% 100%);
-    border-top:2px solid var(--oro);
-    z-index:4;
+    top:0;
+    width:0;
+    height:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:105px solid #e7d0a5;
     transform-origin:top;
-    transition:1.2s ease;
+    transition:transform 1s ease;
+    z-index:3;
 }
 
-.envelope.open .flap{
+.envelope.open .envelope-flap{
     transform:rotateX(180deg);
 }
 
 .seal{
     position:absolute;
-    left:50%;
-    top:48%;
-    transform:translate(-50%,-50%);
-    width:70px;
-    height:70px;
+    width:65px;
+    height:65px;
     border-radius:50%;
-    background:var(--oro);
-    color:white;
+    background:radial-gradient(circle,#d8b66a,#9b6b24);
+    border:2px solid #f5df9d;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:30px;
-    z-index:6;
-    box-shadow:
-        0 0 15px rgba(212,175,55,.8),
-        0 0 40px rgba(212,175,55,.5);
-    transition:.5s;
-}
-
-.envelope.open .seal{
-    opacity:0;
-    transform:translate(-50%,-50%) scale(0);
-}
-
-.envelope-text{
-    position:absolute;
-    inset:0;
-    display:flex;
     justify-content:center;
-    align-items:flex-end;
-    padding-bottom:45px;
-    z-index:3;
-    color:#7d5d13;
-    font-size:17px;
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-20%);
+    z-index:5;
+    box-shadow:
+        0 0 15px rgba(155,107,36,.5),
+        0 0 30px rgba(216,182,106,.4);
+}
+
+.open-text{
+    margin-top:18px;
+    color:var(--oro-oscuro);
+    font-size:14px;
     letter-spacing:2px;
 }
 
-.cover-hint{
-    margin-top:25px;
-    font-family:Arial,sans-serif;
-    color:#8b6b18;
-    font-size:13px;
-    animation:pulso 2s infinite;
+/* CONTENEDOR */
+
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
 }
 
-/* =========================
-   INVITACIÓN
-========================= */
-
-.invitation{
-    display:none;
-    background:white;
-}
-
-.invitation.show{
-    display:block;
-    animation:aparecer 1.5s ease;
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:100vh;
-    padding:70px 20px;
+    padding:80px 20px;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    background:
-        radial-gradient(circle at 20% 20%,rgba(212,175,55,.15),transparent 30%),
-        radial-gradient(circle at 80% 80%,rgba(212,175,55,.12),transparent 30%),
-        white;
 }
 
-.hero-content{
-    max-width:750px;
-    width:100%;
-}
-
-.ornament{
+.pre-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    letter-spacing:5px;
     color:var(--oro);
-    font-size:32px;
-    letter-spacing:10px;
-    margin:15px 0;
-    text-shadow:
-        0 0 10px rgba(212,175,55,.7),
-        0 0 25px rgba(212,175,55,.4);
-}
-
-.hero h1{
-    font-size:clamp(60px,16vw,115px);
-    font-weight:normal;
-    color:#171717;
-    line-height:.9;
-}
-
-.hero h2{
-    color:var(--oro-fuerte);
-    font-size:clamp(27px,7vw,48px);
-    font-weight:normal;
-    margin:25px 0;
-}
-
-.hero-subtitle{
-    font-family:Arial,sans-serif;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    font-size:12px;
-    color:#777;
-}
-
-/* =========================
-   PRIMERA FOTO
-========================= */
-
-.main-photo{
-    width:min(82vw,380px);
-    height:min(105vw,480px);
-    margin:35px auto;
-    padding:9px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:190px 190px 25px 25px;
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.16),
-        0 0 25px rgba(212,175,55,.55),
-        0 0 65px rgba(212,175,55,.2);
-}
-
-.main-photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:180px 180px 18px 18px;
-    display:block;
-}
-
-/* =========================
-   CUENTA REGRESIVA
-========================= */
-
-.countdown-section{
-    text-align:center;
-    padding:80px 20px;
-    background:#fafafa;
+    margin-bottom:10px;
 }
 
 .title{
-    text-align:center;
-    color:var(--oro-fuerte);
-    font-size:38px;
-    font-weight:normal;
+    font-family:'Great Vibes',cursive;
+    font-size:68px;
+    font-weight:400;
+    color:var(--oro-oscuro);
+    text-shadow:
+        0 2px 8px rgba(111,72,21,.2),
+        0 0 20px rgba(216,182,106,.35);
+}
+
+.subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    margin-top:5px;
+    color:#5d4d3b;
+}
+
+/* SECCIONES */
+
+section{
+    padding:70px 20px;
+    position:relative;
+}
+
+.section-title{
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:var(--oro-oscuro);
     margin-bottom:30px;
+    text-shadow:0 0 15px rgba(216,182,106,.4);
 }
 
-.countdown{
-    max-width:700px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+.gold-line{
+    width:110px;
+    height:1px;
+    background:linear-gradient(
+        to right,
+        transparent,
+        var(--oro),
+        transparent
+    );
+    margin:0 auto 35px;
 }
 
-.time{
-    background:white;
-    border:1px solid rgba(212,175,55,.5);
-    border-radius:20px;
-    padding:22px 8px;
-    box-shadow:0 8px 25px rgba(0,0,0,.07);
-}
+/* FOTOS */
 
-.time strong{
+.main-photo,
+.photo{
+    object-fit:cover;
     display:block;
-    color:var(--oro-fuerte);
-    font-size:35px;
-    font-weight:normal;
+    margin:0 auto;
+    border-radius:8px;
+    border:3px solid var(--oro-claro);
+    box-shadow:
+        0 15px 40px rgba(111,72,21,.22),
+        0 0 30px rgba(216,182,106,.28);
 }
 
-.time span{
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    text-transform:uppercase;
-    color:#666;
+.main-photo{
+    width:330px;
+    height:430px;
 }
 
-/* =========================
-   MENSAJE
-========================= */
+.photo{
+    width:330px;
+    max-width:90%;
+}
+
+/* TEXTO */
 
 .message{
-    padding:80px 20px;
-    text-align:center;
-    background:white;
+    max-width:650px;
+    margin:0 auto;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    line-height:1.6;
+    color:#4c4033;
 }
 
-.message p{
-    max-width:700px;
-    margin:auto;
-    font-size:20px;
-    line-height:1.9;
-    color:#444;
+.message strong{
+    color:var(--oro-oscuro);
 }
 
-/* =========================
-   CALENDARIO
-========================= */
+/* CUENTA REGRESIVA */
 
-.calendar-section{
-    padding:80px 20px;
-    text-align:center;
-    background:#fafafa;
+.countdown{
+    max-width:600px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
+
+.time-box{
+    padding:18px 8px;
+    border:1px solid var(--oro-claro);
+    border-radius:8px;
+    background:rgba(255,255,255,.8);
+    box-shadow:0 5px 20px rgba(111,72,21,.08);
+}
+
+.time-box span{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:35px;
+    color:var(--oro-oscuro);
+}
+
+.time-box small{
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+/* CALENDARIO */
 
 .calendar{
-    max-width:420px;
-    margin:auto;
-    padding:28px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:30px;
+    max-width:430px;
+    margin:30px auto;
+    padding:20px 12px;
+    border:1px solid var(--oro);
+    border-radius:12px;
+    background:rgba(255,255,255,.9);
     box-shadow:
-        0 0 25px rgba(212,175,55,.35),
-        0 10px 35px rgba(0,0,0,.08);
+        0 15px 35px rgba(111,72,21,.13),
+        0 0 25px rgba(216,182,106,.2);
 }
 
 .calendar h3{
-    color:var(--oro-fuerte);
+    font-family:'Cormorant Garamond',serif;
     font-size:30px;
-    font-weight:normal;
-    margin-bottom:20px;
+    color:var(--oro-oscuro);
+    margin-bottom:18px;
 }
 
-.weekdays,
-.days{
+.calendar-grid{
     display:grid;
     grid-template-columns:repeat(7,1fr);
     gap:6px;
 }
 
-.weekdays div{
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    color:#8b6b18;
-    font-weight:bold;
+.calendar-grid div{
+    padding:8px 2px;
+    font-size:13px;
 }
 
-.days div{
-    padding:10px 2px;
-    font-family:Arial,sans-serif;
-}
-
-.selected{
-    background:var(--oro);
-    color:white;
+.event-day{
+    background:var(--oro-oscuro);
+    color:white !important;
     border-radius:50%;
     font-weight:bold;
-    box-shadow:0 0 15px rgba(212,175,55,.7);
+    box-shadow:0 0 10px rgba(155,107,36,.5);
 }
 
-/* =========================
-   HORA
-========================= */
-
-.details{
-    padding:80px 20px;
-    background:white;
-    text-align:center;
-}
-
-.card{
-    max-width:650px;
-    margin:25px auto;
-    padding:35px 25px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:
-        0 0 25px rgba(212,175,55,.3),
-        0 10px 30px rgba(0,0,0,.08);
-}
-
-.icon{
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.card h3{
-    color:var(--oro-fuerte);
-    font-size:28px;
-    font-weight:normal;
-    margin-bottom:12px;
-}
-
-.card p{
-    font-family:Arial,sans-serif;
-    line-height:1.7;
-    color:#444;
-}
+/* RELOJ */
 
 .clock{
-    margin-top:15px;
-    color:var(--oro-fuerte);
-    font-size:32px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    color:var(--oro-oscuro);
+    margin-top:20px;
     letter-spacing:3px;
 }
 
-/* =========================
-   UBICACIÓN
-========================= */
+/* UBICACIÓN */
 
-.location{
-    padding:80px 20px;
-    text-align:center;
-    background:#fafafa;
-}
-
-.location-box{
-    max-width:750px;
-    margin:auto;
-    padding:30px 20px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:0 0 30px rgba(212,175,55,.25);
-}
-
-.location-box h3{
-    color:var(--oro-fuerte);
-    font-size:30px;
-    font-weight:normal;
-}
-
-.location-box p{
-    font-family:Arial,sans-serif;
-    margin:10px 0 20px;
+.address{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#4d4033;
+    margin-bottom:25px;
 }
 
 .map{
     width:100%;
     height:350px;
-    border:0;
-    border-radius:20px;
+    border:2px solid var(--oro-claro);
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(111,72,21,.18);
 }
 
-.map-button{
+.map-button,
+.spotify-button,
+.whatsapp-button{
     display:inline-block;
-    margin-top:20px;
+    margin-top:22px;
     padding:14px 28px;
     border-radius:30px;
-    background:var(--oro);
-    color:white;
     text-decoration:none;
-    font-family:Arial,sans-serif;
-    box-shadow:0 0 20px rgba(212,175,55,.4);
-}
-
-/* =========================
-   SEGUNDA FOTO
-========================= */
-
-.magic-section{
-    padding:80px 20px;
-    text-align:center;
-    background:white;
-}
-
-.magic-photo{
-    max-width:650px;
-    margin:30px auto;
-    padding:10px;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    background:white;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #6f4815,
+        #9b6b24,
+        #c49a4a
+    );
     box-shadow:
-        0 0 25px rgba(212,175,55,.6),
-        0 0 65px rgba(212,175,55,.25);
-    position:relative;
+        0 8px 20px rgba(111,72,21,.25),
+        0 0 15px rgba(216,182,106,.3);
+    font-size:13px;
+    letter-spacing:1px;
 }
 
-.magic-photo::before{
-    content:"✦ ✧ ✦";
-    position:absolute;
-    top:-25px;
-    left:50%;
-    transform:translateX(-50%);
-    color:var(--oro);
-    font-size:25px;
-    letter-spacing:12px;
-    animation:brillo 2s infinite;
-}
-
-.magic-photo img{
-    width:100%;
-    display:block;
-    border-radius:22px;
-}
-
-/* =========================
-   MÚSICA
-========================= */
-
-.music{
-    padding:80px 20px;
-    text-align:center;
-    background:#fafafa;
-}
+/* MÚSICA */
 
 .music-box{
-    max-width:700px;
+    max-width:650px;
     margin:auto;
-    padding:30px 20px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:0 0 30px rgba(212,175,55,.25);
+    padding:20px;
 }
 
-.music-box h3{
-    font-size:30px;
-    color:var(--oro-fuerte);
-    font-weight:normal;
-}
-
-.music-box p{
-    font-family:Arial,sans-serif;
-    margin:10px 0 20px;
-}
-
-.youtube{
+.music-box iframe{
     width:100%;
-    aspect-ratio:16/9;
-    border:0;
-    border-radius:18px;
+    height:315px;
+    border:2px solid var(--oro-claro);
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(111,72,21,.15);
 }
 
-/* =========================
-   VESTIMENTA
-========================= */
-
-.dress{
-    padding:80px 20px;
-    text-align:center;
-    background:white;
-}
+/* VESTIDO ROSA */
 
 .dress-box{
-    max-width:600px;
+    max-width:500px;
+    margin:0 auto;
+}
+
+.dress-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#4b3d30;
+    margin-bottom:25px;
+}
+
+.dress-image{
+    width:260px;
+    height:390px;
     margin:auto;
-    padding:30px 20px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:0 0 30px rgba(212,175,55,.2);
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    filter:drop-shadow(0 15px 18px rgba(111,72,21,.2));
 }
 
-.dress-box h3{
-    color:var(--oro-fuerte);
-    font-size:30px;
-    font-weight:normal;
+.dress-skirt{
+    position:absolute;
+    bottom:10px;
+    width:245px;
+    height:275px;
+    background:
+        radial-gradient(circle at 50% 5%,#f6c6d5,#eaa0bb 55%,#d77f9e);
+    clip-path:polygon(
+        43% 0,
+        57% 0,
+        63% 22%,
+        100% 100%,
+        0 100%,
+        37% 22%
+    );
+    border-radius:0 0 45% 45%;
+    box-shadow:
+        inset 0 0 25px rgba(255,255,255,.55),
+        0 0 18px rgba(215,127,158,.35);
 }
 
-.dress-box p{
-    margin-top:12px;
-    font-family:Arial,sans-serif;
-    line-height:1.7;
+.dress-skirt:after{
+    content:"";
+    position:absolute;
+    inset:20px 35px 20px;
+    border-left:1px solid rgba(255,255,255,.55);
+    border-right:1px solid rgba(255,255,255,.55);
 }
 
-/* =========================
-   REGALO
-========================= */
-
-.gift{
-    padding:80px 20px;
-    text-align:center;
-    background:#fafafa;
+.dress-bodice{
+    position:absolute;
+    bottom:245px;
+    width:85px;
+    height:115px;
+    background:linear-gradient(
+        135deg,
+        #f9d5df,
+        #e99db7
+    );
+    clip-path:polygon(
+        20% 0,
+        80% 0,
+        100% 85%,
+        70% 100%,
+        50% 88%,
+        30% 100%,
+        0 85%
+    );
+    border-radius:20px 20px 8px 8px;
+    box-shadow:inset 0 0 15px rgba(255,255,255,.5);
 }
+
+.dress-waist{
+    position:absolute;
+    bottom:240px;
+    width:105px;
+    height:14px;
+    border-radius:50%;
+    background:#d58aa5;
+}
+
+.dress-sparkle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:#f5e4a9;
+    border-radius:50%;
+    box-shadow:0 0 9px #d8b66a;
+    animation:brillar 2s infinite;
+}
+
+.ds1{top:80px;left:70px;}
+.ds2{top:170px;right:65px;animation-delay:.8s;}
+.ds3{top:250px;left:45px;animation-delay:1.3s;}
+.ds4{bottom:70px;right:80px;animation-delay:1.7s;}
+
+.reserved{
+    margin-top:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    color:var(--oro-oscuro);
+}
+
+/* REGALO */
 
 .alias{
-    max-width:450px;
-    margin:25px auto;
-    padding:30px;
-    background:white;
-    border:2px solid var(--oro);
-    border-radius:25px;
-    box-shadow:0 0 25px rgba(212,175,55,.25);
-}
-
-.alias strong{
-    display:block;
-    color:var(--oro-fuerte);
-    font-size:32px;
-    margin-top:12px;
-}
-
-/* =========================
-   CONFIRMACIÓN
-========================= */
-
-.confirmation{
-    padding:80px 20px;
-    text-align:center;
-    background:white;
-}
-
-.confirm-box{
-    max-width:650px;
-    margin:auto;
-    padding:35px 20px;
-    background:#fafafa;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:0 0 30px rgba(212,175,55,.2);
-}
-
-.confirm-box h2{
-    color:var(--oro-fuerte);
-    font-size:35px;
-    font-weight:normal;
-}
-
-.confirm-box p{
-    font-family:Arial,sans-serif;
-    line-height:1.7;
-    margin:15px 0 25px;
-}
-
-.confirm-box input,
-.confirm-box textarea{
-    width:100%;
-    margin:8px 0;
-    padding:14px;
-    border:1px solid #d8c27a;
-    border-radius:12px;
-    font-family:Arial,sans-serif;
-    background:white;
-}
-
-.confirm-box textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
-.confirm-button{
-    display:inline-block;
-    margin-top:15px;
-    padding:15px 28px;
-    border-radius:30px;
-    background:var(--oro);
-    color:white;
-    border:none;
-    cursor:pointer;
-    font-family:Arial,sans-serif;
-    box-shadow:0 0 20px rgba(212,175,55,.4);
-}
-
-/* =========================
-   SPOTIFY
-========================= */
-
-.spotify{
-    padding:80px 20px;
-    text-align:center;
-    background:#fafafa;
-}
-
-.spotify-box{
-    max-width:650px;
-    margin:auto;
-    padding:30px 20px;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    background:white;
-    box-shadow:0 0 30px rgba(212,175,55,.2);
-}
-
-.spotify-box p{
-    font-family:Arial,sans-serif;
-    line-height:1.7;
-}
-
-.spotify-button{
     display:inline-block;
     margin-top:20px;
-    padding:15px 28px;
+    padding:15px 30px;
+    border:1px solid var(--oro);
     border-radius:30px;
-    background:#191414;
-    color:white;
-    text-decoration:none;
-    font-family:Arial,sans-serif;
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    color:var(--oro-oscuro);
+    background:#fffdf8;
 }
 
-/* =========================
-   FOTO FINAL
-========================= */
+/* FORMULARIO */
 
-.final-photo{
-    padding:80px 20px;
-    text-align:center;
-    background:white;
-}
-
-.final-photo-box{
-    max-width:600px;
+.form{
+    max-width:500px;
     margin:auto;
-    padding:10px;
-    border:2px solid var(--oro);
-    border-radius:30px;
-    box-shadow:
-        0 0 30px rgba(212,175,55,.55),
-        0 0 70px rgba(212,175,55,.2);
 }
 
-.final-photo-box img{
+.form input{
     width:100%;
-    display:block;
-    border-radius:22px;
+    padding:15px;
+    margin-bottom:12px;
+    border:1px solid #d5bd8b;
+    border-radius:7px;
+    background:white;
+    font-family:'Montserrat',sans-serif;
+    outline:none;
 }
 
-/* =========================
-   FINAL
-========================= */
+.form button{
+    border:0;
+    cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
-    padding:60px 20px;
+    padding:50px 20px;
     text-align:center;
-    background:#111;
-    color:white;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    color:var(--oro-oscuro);
 }
 
-footer h2{
-    color:var(--oro);
-    font-size:34px;
-    font-weight:normal;
-}
-
-footer p{
-    margin-top:10px;
-    font-family:Arial,sans-serif;
-    font-size:13px;
-}
-
-/* =========================
-   ANIMACIONES
-========================= */
-
-@keyframes entrada{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes aparecer{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-@keyframes flotar{
-    0%,100%{
-        transform:translateY(0) rotate(0);
-    }
-    50%{
-        transform:translateY(-20px) rotate(10deg);
-    }
-}
-
-@keyframes brillo{
-    0%,100%{
-        opacity:.3;
-        transform:translateX(-50%) scale(.8);
-    }
-    50%{
-        opacity:1;
-        transform:translateX(-50%) scale(1.3);
-    }
-}
-
-@keyframes estrellas{
-    from{transform:translateY(0);}
-    to{transform:translateY(-80px);}
-}
-
-@keyframes pulso{
-    0%,100%{opacity:.5;}
-    50%{opacity:1;}
-}
-
-/* =========================
-   MÓVIL
-========================= */
+/* CELULAR */
 
 @media(max-width:600px){
 
@@ -887,7 +619,23 @@ footer p{
     }
 
     .title{
-        font-size:30px;
+        font-size:50px;
+    }
+
+    .cover-title{
+        font-size:50px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .message{
+        font-size:22px;
+    }
+
+    .music-box iframe{
+        height:230px;
     }
 
 }
@@ -897,595 +645,525 @@ footer p{
 
 <body>
 
-<!-- =========================
-     PORTADA
-========================= -->
+<!-- DESTELLOS -->
 
-<section class="cover" id="cover">
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
+<div class="sparkle s6"></div>
 
-<div class="cover-content">
 
-<div class="cover-small">
-Una celebración para recordar
+<!-- PORTADA -->
+
+<div class="cover" id="cover">
+
+    <div class="cover-content">
+
+        <div class="cover-small">
+            UNA NOCHE PARA RECORDAR
+        </div>
+
+        <div class="cover-title">
+            Mis 15
+        </div>
+
+        <div class="cover-text">
+            Hay momentos que el corazón espera toda la vida...
+            <br>
+            Hoy quiero compartir uno de ellos con vos.
+        </div>
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-body"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="seal">
+                I
+            </div>
+
+        </div>
+
+        <div class="open-text">
+            TOCÁ EL SOBRE PARA DESCUBRIR LA INVITACIÓN ✨
+        </div>
+
+    </div>
+
 </div>
 
-<h1>
-Una invitación<br>
-muy especial
-</h1>
 
-<p>
-Hay momentos que el corazón espera toda la vida...<br>
-Hoy quiero compartir uno de ellos con vos.
-</p>
+<!-- CONTENIDO -->
 
-<div class="envelope" id="envelope">
+<main class="container">
 
-<div class="envelope-body"></div>
 
-<div class="flap"></div>
+<!-- HERO -->
 
-<div class="seal">
-✦
-</div>
+<section class="hero">
 
-<div class="envelope-text">
-Abrí el sobre
-</div>
+    <div class="pre-title">
+        MIS 15 AÑOS
+    </div>
 
-</div>
+    <h1 class="title">
+        Iara Morena Trejo
+    </h1>
 
-<div class="cover-hint">
-Tocá el sobre para descubrir la invitación ✨
-</div>
-
-</div>
+    <div class="subtitle">
+        Una noche mágica para compartir juntos
+    </div>
 
 </section>
 
 
-<!-- =========================
-     INVITACIÓN
-========================= -->
-
-<div class="invitation" id="invitation">
-
-
 <!-- PRIMERA FOTO -->
 
-<section class="hero">
+<section>
 
-<div class="hero-content">
-
-<div class="hero-subtitle">
-Una noche para recordar
-</div>
-
-<div class="ornament">
-✦ ✧ ✦
-</div>
-
-<h1>
-Mis 15
-</h1>
-
-<h2>
-Iara Morena Trejo
-</h2>
-
-<div class="ornament">
-✦
-</div>
-
-<div class="main-photo">
-
-<img
-src="IMG-20260922-WA0080.jpg"
-alt="Iara Morena Trejo">
-
-</div>
-
-</div>
+    <img
+        src="IMG-20260922-WA0080.jpg"
+        class="main-photo"
+        alt="Iara Morena Trejo"
+    >
 
 </section>
 
 
 <!-- CUENTA REGRESIVA -->
 
-<section class="countdown-section">
+<section>
 
-<h2 class="title">
-Falta muy poquito...
-</h2>
+    <h2 class="section-title">
+        Falta poquito...
+    </h2>
 
-<div class="ornament">
-✦
-</div>
+    <div class="gold-line"></div>
 
-<div class="countdown">
+    <div class="countdown">
 
-<div class="time">
-<strong id="days">00</strong>
-<span>Días</span>
-</div>
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>DÍAS</small>
+        </div>
 
-<div class="time">
-<strong id="hours">00</strong>
-<span>Horas</span>
-</div>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>HORAS</small>
+        </div>
 
-<div class="time">
-<strong id="minutes">00</strong>
-<span>Minutos</span>
-</div>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>MINUTOS</small>
+        </div>
 
-<div class="time">
-<strong id="seconds">00</strong>
-<span>Segundos</span>
-</div>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>SEGUNDOS</small>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
 <!-- MENSAJE -->
 
-<section class="message">
+<section>
 
-<div class="ornament">
-♡
-</div>
+    <p class="message">
 
-<h2 class="title">
-Te espero
-</h2>
+        Te espero para que festejes este día tan especial conmigo.
+        <br><br>
 
-<p>
-Te espero para que festejes este día tan especial conmigo.
-Quiero compartir una noche llena de alegría,
-risas, música y momentos que queden guardados
-para siempre en nuestros corazones.
-</p>
+        Quiero compartir esta noche llena de alegría,
+        emoción y momentos que quedarán para siempre
+        en mi corazón.
 
-<div class="ornament">
-✦
-</div>
+        <br><br>
+
+        <strong>
+            ¡Me encantaría que seas parte de ella!
+        </strong>
+
+    </p>
 
 </section>
 
 
 <!-- CALENDARIO -->
 
-<section class="calendar-section">
+<section>
 
-<h2 class="title">
-Agenda este día
-</h2>
+    <h2 class="section-title">
+        Agenda este día
+    </h2>
 
-<p style="font-family:Arial,sans-serif;margin-bottom:25px;">
-Guardá esta fecha para compartir conmigo una noche inolvidable.
-</p>
+    <div class="gold-line"></div>
 
-<div class="calendar">
+    <div class="calendar">
 
-<h3>
-Octubre 2026
-</h3>
+        <h3>
+            Octubre 2026
+        </h3>
 
-<div class="weekdays">
-<div>L</div>
-<div>M</div>
-<div>M</div>
-<div>J</div>
-<div>V</div>
-<div>S</div>
-<div>D</div>
-</div>
+        <div class="calendar-grid">
 
-<br>
+            <div>L</div>
+            <div>M</div>
+            <div>M</div>
+            <div>J</div>
+            <div>V</div>
+            <div>S</div>
+            <div>D</div>
 
-<div class="days">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
 
-<div></div>
-<div></div>
-<div></div>
-<div>1</div>
-<div>2</div>
-<div>3</div>
-<div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
 
-<div>5</div>
-<div>6</div>
-<div>7</div>
-<div>8</div>
-<div>9</div>
-<div>10</div>
-<div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
 
-<div>12</div>
-<div>13</div>
-<div>14</div>
-<div>15</div>
-<div>16</div>
-<div>17</div>
-<div>18</div>
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
 
-<div>19</div>
-<div>20</div>
-<div>21</div>
-<div>22</div>
-<div>23</div>
-<div>24</div>
-<div>25</div>
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
 
-<div>26</div>
-<div>27</div>
-<div>28</div>
-<div>29</div>
-<div class="selected">30</div>
-<div>31</div>
-<div></div>
+            <div class="event-day">
+                30
+            </div>
 
-</div>
+            <div>31</div>
 
-</div>
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- HORA -->
+<!-- RELOJ -->
 
-<section class="details">
+<section>
 
-<h2 class="title">
-La hora
-</h2>
+    <h2 class="section-title">
+        La hora
+    </h2>
 
-<div class="card">
+    <div class="gold-line"></div>
 
-<div class="icon">
-🕰
-</div>
-
-<h3>
-22:00 hs
-</h3>
-
-<p>
-La celebración comienza a las 22:00 hs.
-</p>
-
-<div class="clock" id="clock">
-00:00:00
-</div>
-
-</div>
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
 
 </section>
 
 
 <!-- UBICACIÓN -->
 
-<section class="location">
+<section>
 
-<h2 class="title">
-El lugar
-</h2>
+    <h2 class="section-title">
+        ¿Dónde?
+    </h2>
 
-<div class="location-box">
+    <div class="gold-line"></div>
 
-<div class="icon">
-📍
-</div>
+    <div class="address">
+        General Pedernera 1530
+    </div>
 
-<h3>
-General Pedernera 1530
-</h3>
+    <iframe
+        class="map"
+        src="https://www.google.com/maps?q=General+Pedernera+1530&output=embed"
+        loading="lazy">
+    </iframe>
 
-<p>
-Te espero para compartir esta noche tan especial.
-</p>
+    <br>
 
-<iframe
-class="map"
-src="https://www.google.com/maps?q=General%20Pedernera%201530&output=embed"
-loading="lazy">
-</iframe>
-
-<a
-class="map-button"
-href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
-target="_blank">
-
-📍 ABRIR EN GOOGLE MAPS
-
-</a>
-
-</div>
+    <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=General+Pedernera+1530"
+        target="_blank">
+        📍 ABRIR EN GOOGLE MAPS
+    </a>
 
 </section>
 
 
 <!-- SEGUNDA FOTO -->
 
-<section class="magic-section">
+<section>
 
-<h2 class="title">
-Un momento mágico
-</h2>
-
-<div class="ornament">
-✦ ✧ ✦
-</div>
-
-<div class="magic-photo">
-
-<img
-src="hb_theprincessandthefrog_mobile_18820_cee11a73.jpeg"
-alt="La princesa y el sapo">
-
-</div>
-
-<div class="ornament">
-✧ ✦ ✧
-</div>
+    <img
+        src="hb_theprincessandthefrog_mobile_18820_cee11a73.jpeg"
+        class="photo"
+        alt="Iara"
+    >
 
 </section>
 
 
 <!-- MÚSICA -->
 
-<section class="music">
+<section>
 
-<h2 class="title">
-Una canción especial
-</h2>
+    <h2 class="section-title">
+        Una canción especial
+    </h2>
 
-<div class="music-box">
+    <div class="gold-line"></div>
 
-<div class="icon">
-🎵
-</div>
+    <div class="music-box">
 
-<h3>
-No Crezcas Más
-</h3>
+        <iframe
+            id="music"
+            src="about:blank"
+            title="No crezcas más - Tercer Cielo"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
 
-<p>
-Tercer Cielo
-</p>
-
-<iframe
-class="youtube"
-src="https://www.youtube.com/embed/BDwEyfgClF4"
-title="No Crezcas Más - Tercer Cielo"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- VESTIMENTA -->
+<!-- VESTIDO -->
 
-<section class="dress">
+<section>
 
-<h2 class="title">
-Código de vestimenta
-</h2>
+    <h2 class="section-title">
+        Dress Code
+    </h2>
 
-<div class="dress-box">
+    <div class="gold-line"></div>
 
-<div class="icon">
-✨
-</div>
+    <div class="dress-box">
 
-<h3>
-Elegante
-</h3>
+        <div class="dress-text">
+            Elegante
+        </div>
 
-<p>
-Quiero compartir una noche especial con ustedes.
-El código de vestimenta es elegante.
-</p>
+        <div class="dress-image">
 
-<p>
-<strong>
-🌸 Color rosa reservado para la quinceañera.
-</strong>
-</p>
+            <div class="dress-skirt"></div>
 
-</div>
+            <div class="dress-bodice"></div>
+
+            <div class="dress-waist"></div>
+
+            <div class="dress-sparkle ds1"></div>
+            <div class="dress-sparkle ds2"></div>
+            <div class="dress-sparkle ds3"></div>
+            <div class="dress-sparkle ds4"></div>
+
+        </div>
+
+        <div class="reserved">
+            🌸 El color rosa está reservado para la quinceañera.
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- REGALO -->
 
-<section class="gift">
+<section>
 
-<h2 class="title">
-Un detalle de corazón
-</h2>
+    <h2 class="section-title">
+        Un detalle especial
+    </h2>
 
-<div class="alias">
+    <div class="gold-line"></div>
 
-<div class="icon">
-🎁
-</div>
+    <p class="message">
 
-<p>
-Si deseás regalarme algo más que tu hermosa presencia,
-podés hacerlo a través de:
-</p>
+        Si deseás regalarme algo más que tu hermosa presencia,
+        podés hacerlo a través de:
 
-<strong>
-Mar.rechi
-</strong>
+    </p>
 
-</div>
+    <div class="alias">
+        Mar.rechi
+    </div>
 
 </section>
 
 
 <!-- CONFIRMACIÓN -->
 
-<section class="confirmation">
+<section>
 
-<div class="confirm-box">
+    <h2 class="section-title">
+        Confirmá tu asistencia
+    </h2>
 
-<div class="ornament">
-♡
-</div>
+    <div class="gold-line"></div>
 
-<h2>
-Confirmá tu invitación
-</h2>
+    <p class="message">
+        Completá tus datos y enviá la confirmación por WhatsApp.
+    </p>
 
-<p>
-Completá tus datos para confirmar tu asistencia.
-</p>
+    <br>
 
-<input
-type="text"
-id="nombre"
-placeholder="Nombre y apellido">
+    <div class="form">
 
-<textarea
-id="alergias"
-placeholder="¿Sos alérgico/a a algún alimento? Si no, escribí: No">
-</textarea>
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre y apellido"
+        >
 
-<button
-class="confirm-button"
-onclick="confirmarAsistencia()">
+        <input
+            type="text"
+            id="alergia"
+            placeholder="¿Sos alérgico/a a algo?"
+        >
 
-💌 CONFIRMAR INVITACIÓN
+        <button
+            class="whatsapp-button"
+            onclick="confirmar()">
+            💬 CONFIRMAR POR WHATSAPP
+        </button>
 
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- SPOTIFY -->
+<!-- CANCIÓN PARA BAILAR -->
 
-<section class="spotify">
+<section>
 
-<h2 class="title">
-Elegí una canción para bailar
-</h2>
+    <h2 class="section-title">
+        Elegí una canción para bailar
+    </h2>
 
-<div class="spotify-box">
+    <div class="gold-line"></div>
 
-<div class="icon">
-🎶
-</div>
+    <p class="message">
 
-<p>
-Quiero que también seas parte de la música de esta noche.
-Elegí una canción que te gustaría bailar y compartila.
-</p>
+        ¿Qué canción no puede faltar en esta noche?
+        <br>
+        Podés sugerir una canción para la fiesta.
 
-<a
-class="spotify-button"
-href="https://open.spotify.com/"
-target="_blank">
+    </p>
 
-🎵 ELEGIR MI CANCIÓN EN SPOTIFY
-
-</a>
-
-</div>
+    <a
+        class="spotify-button"
+        href="https://open.spotify.com/"
+        target="_blank">
+        🎵 AGREGAR UNA CANCIÓN
+    </a>
 
 </section>
 
 
 <!-- TERCERA FOTO -->
 
-<section class="final-photo">
+<section>
 
-<h2 class="title">
-Gracias por ser parte
-</h2>
-
-<div class="ornament">
-✦ ✧ ✦
-</div>
-
-<div class="final-photo-box">
-
-<img
-src="motion_photo_17651064731209062.jpg"
-alt="Iara Morena Trejo">
-
-</div>
-
-<div class="ornament">
-♡
-</div>
+    <img
+        src="motion_photo_17651064731209062.jpg"
+        class="photo"
+        alt="Iara Morena Trejo"
+    >
 
 </section>
 
 
 <!-- FINAL -->
 
+<section>
+
+    <h2 class="section-title">
+        ¡Te espero!
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p class="message">
+
+        Gracias por ser parte de un momento
+        tan importante y especial para mí.
+
+        <br><br>
+
+        Con mucho cariño,
+        <br>
+
+        <strong>
+            Iara Morena Trejo
+        </strong>
+
+    </p>
+
+</section>
+
+
 <footer>
-
-<div class="ornament">
-✦
-</div>
-
-<h2>
-Iara Morena Trejo
-</h2>
-
-<p>
-Mis 15 · 30 de octubre de 2026
-</p>
-
-<div class="ornament">
-♡
-</div>
-
+    Mis 15 · Iara Morena Trejo ✨
 </footer>
 
-</div>
+</main>
 
 
 <script>
 
-/* ABRIR SOBRE */
+/* ABRIR INVITACIÓN + MÚSICA */
 
-const envelope =
-document.getElementById("envelope");
+const envelope = document.getElementById("envelope");
+const cover = document.getElementById("cover");
+const music = document.getElementById("music");
 
-const invitation =
-document.getElementById("invitation");
+envelope.addEventListener("click", function(){
 
-const cover =
-document.getElementById("cover");
+    envelope.classList.add("open");
 
-envelope.addEventListener("click",function(){
+    music.src =
+    "https://www.youtube.com/embed/BDwEyfgClF4?autoplay=1&rel=0";
 
-envelope.classList.add("open");
+    setTimeout(function(){
 
-setTimeout(function(){
+                cover.classList.add("hide");
 
-cover.style.display="none";
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
 
-invitation.classList.add("show");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-},1000);
+    },800);
 
 });
 
@@ -1495,165 +1173,124 @@ behavior:"smooth"
 const fechaEvento =
 new Date("October 30, 2026 22:00:00").getTime();
 
-function actualizarCuenta(){
+function countdown(){
 
-const ahora =
-new Date().getTime();
+    const ahora = new Date().getTime();
 
-const diferencia =
-fechaEvento - ahora;
+    const diferencia = fechaEvento - ahora;
 
-if(diferencia <= 0){
+    if(diferencia <= 0){
 
-document.getElementById("days").textContent="00";
-document.getElementById("hours").textContent="00";
-document.getElementById("minutes").textContent="00";
-document.getElementById("seconds").textContent="00";
+        document.getElementById("days").innerText="00";
+        document.getElementById("hours").innerText="00";
+        document.getElementById("minutes").innerText="00";
+        document.getElementById("seconds").innerText="00";
 
-return;
+        return;
+    }
 
+    const dias =
+    Math.floor(
+        diferencia/(1000*60*60*24)
+    );
+
+    const horas =
+    Math.floor(
+        (diferencia%(1000*60*60*24))/
+        (1000*60*60)
+    );
+
+    const minutos =
+    Math.floor(
+        (diferencia%(1000*60*60))/
+        (1000*60)
+    );
+
+    const segundos =
+    Math.floor(
+        (diferencia%(1000*60))/1000
+    );
+
+    document.getElementById("days").innerText =
+        String(dias).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(horas).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutos).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(segundos).padStart(2,"0");
 }
 
-const dias =
-Math.floor(
-diferencia /
-(1000*60*60*24)
-);
+countdown();
 
-const horas =
-Math.floor(
-(diferencia %
-(1000*60*60*24))
-/
-(1000*60*60)
-);
-
-const minutos =
-Math.floor(
-(diferencia %
-(1000*60*60))
-/
-(1000*60)
-);
-
-const segundos =
-Math.floor(
-(diferencia %
-(1000*60))
-/
-1000
-);
-
-document.getElementById("days").textContent =
-String(dias).padStart(2,"0");
-
-document.getElementById("hours").textContent =
-String(horas).padStart(2,"0");
-
-document.getElementById("minutes").textContent =
-String(minutos).padStart(2,"0");
-
-document.getElementById("seconds").textContent =
-String(segundos).padStart(2,"0");
-
-}
-
-actualizarCuenta();
-
-setInterval(actualizarCuenta,1000);
+setInterval(countdown,1000);
 
 
 /* RELOJ */
 
-function actualizarReloj(){
+function reloj(){
 
-const ahora =
-new Date();
+    const ahora = new Date();
 
-const h =
-String(ahora.getHours()).padStart(2,"0");
+    let horas =
+        String(ahora.getHours()).padStart(2,"0");
 
-const m =
-String(ahora.getMinutes()).padStart(2,"0");
+    let minutos =
+        String(ahora.getMinutes()).padStart(2,"0");
 
-const s =
-String(ahora.getSeconds()).padStart(2,"0");
+    let segundos =
+        String(ahora.getSeconds()).padStart(2,"0");
 
-document.getElementById("clock").textContent =
-h + ":" + m + ":" + s;
-
+    document.getElementById("clock").innerText =
+        horas + ":" + minutos + ":" + segundos;
 }
 
-actualizarReloj();
+reloj();
 
-setInterval(actualizarReloj,1000);
+setInterval(reloj,1000);
 
 
 /* WHATSAPP */
 
-function confirmarAsistencia(){
+function confirmar(){
 
-const nombre =
-document.getElementById("nombre").value;
+    const nombre =
+        document.getElementById("nombre").value.trim();
 
-const alergias =
-document.getElementById("alergias").value;
+    const alergia =
+        document.getElementById("alergia").value.trim();
 
-if(nombre.trim()===""){
+    if(nombre === ""){
 
-alert("Por favor, escribí tu nombre y apellido.");
+        alert("Por favor ingresá tu nombre y apellido.");
 
-return;
+        return;
+    }
 
+    const mensaje =
+        "Hola Iara 💕 Soy " +
+        nombre +
+        ". Confirmo mi asistencia a tus 15 años 🎉✨." +
+        "%0A%0A" +
+        "Alergias: " +
+        (alergia || "Ninguna");
+
+    const telefono =
+        "541136088939";
+
+    window.open(
+        "https://wa.me/" +
+        telefono +
+        "?text=" +
+        encodeURIComponent(
+            mensaje
+        ),
+        "_blank"
+    );
 }
-
-const mensaje =
-"Hola Iara 💕 Soy " +
-nombre +
-". Confirmo mi asistencia a tus 15. " +
-"¿Alergias alimentarias?: " +
-(alergias || "No informadas");
-
-const url =
-"https://wa.me/541136088939?text=" +
-encodeURIComponent(mensaje);
-
-window.open(url,"_blank");
-
-}
-
-
-/* ANIMACIONES */
-
-const elementos =
-document.querySelectorAll(
-".card,.magic-photo,.music-box,.dress-box,.alias,.confirm-box,.spotify-box,.final-photo-box"
-);
-
-const observador =
-new IntersectionObserver(
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.animation =
-"entrada 1.2s ease forwards";
-
-}
-
-});
-
-},
-{
-threshold:.15
-}
-);
-
-elementos.forEach(elemento=>{
-observador.observe(elemento);
-});
 
 </script>
 
